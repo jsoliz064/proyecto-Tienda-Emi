@@ -274,12 +274,12 @@ return [
                     'icon' => 'fas fa-fw fa-user',
                 ],
                 [
-                    'text' => 'Empleados',
-                    'url'  => '',
+                    'text' => 'Proveedores',
+                    'url'  => 'proveedores',
                     'icon' => 'fas fa-fw fa-user',
                 ],
                 [
-                    'text' => 'Proveedores',
+                    'text' => 'Empleados',
                     'url'  => '',
                     'icon' => 'fas fa-fw fa-user',
                 ],
