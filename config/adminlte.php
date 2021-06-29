@@ -265,12 +265,49 @@ return [
             'icon' => 'fas fa-fw fa-lock',
         ],
         [
-            'text'    => 'ADM CLIENTES',
+            'text'    => 'ADM RR.HH',
             'icon'    => 'fas fa-fw  fa-fax',
             'submenu' => [
                 [
                     'text' => 'Clientes',
                     'url'  => 'clientes',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+                [
+                    'text' => 'Empleados',
+                    'url'  => '',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+                [
+                    'text' => 'Proveedores',
+                    'url'  => '',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'ADM CONTABLE',
+            'icon'    => 'fas fa-fw  fa-fax',
+            'submenu' => [
+                [
+                    'text' => 'Ventas',
+                    'url'  => '',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+                [
+                    'text' => 'Compras',
+                    'url'  => '',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+            ],
+        ],
+        [
+            'text'    => 'ADM PRODUCTOS',
+            'icon'    => 'fas fa-fw  fa-fax',
+            'submenu' => [
+                [
+                    'text' => 'Accesorio',
+                    'url'  => '',
                     'icon' => 'fas fa-fw fa-user',
                 ],
             ],
