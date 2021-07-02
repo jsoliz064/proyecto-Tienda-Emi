@@ -279,7 +279,7 @@ return [
                     'icon' => 'fas fa-fw fa-user',
                 ],
                 [
-                    'text' => 'Empleados',
+                    'text' => 'Personal',
                     'url'  => '',
                     'icon' => 'fas fa-fw fa-user',
                 ],
