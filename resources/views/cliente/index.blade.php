@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Clientes')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>LISTA DE CLIENTES</h1>
 @stop
 
 @section('content')
@@ -21,22 +21,25 @@
       <tr>
         <th scope="col">Id</th>
         <th scope="col">Nombre Completo</th>
+        <th scope="col">telefono</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>
- {{--    <tbody>
+     <tbody>
       @foreach ($clientes as $cliente)
 
         <tr>
           <td>{{$cliente->id}}</td>
           <td>{{$cliente->nombre}}</td>
+          <td>{{$cliente->telefono}}</td>
           <td>
-            <form action="{{url('/clientes/'.$cliente->id)}}" method="post">
+            <form action="{{route('clientes.destroy',$cliente)}}" method="post">
               @csrf
               @method('delete')
-              <a class="btn btn-primary btn-sm" href="{{route('clientes.show', $cliente)}}">Ver</a>
+              <a class="btn btn-primary btn-sm" href="{{route('clientes.show',$cliente)}}">Ver</a>
                 
-              <a href="{{url('/clientes/'.$cliente->id.'/edit')}}"class="btn btn-info btn-sm">Editar</a>
+              <a href="{{route('clientes.edit',$cliente)}}"class="btn btn-info btn-sm">Editar</a>
+
               <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
               value="Borrar">Eliminar</button> 
             </form>
@@ -45,7 +48,7 @@
 
        @endforeach
 
-    </tbody> --}}
+    </tbody> 
 
   </table>
 </div>

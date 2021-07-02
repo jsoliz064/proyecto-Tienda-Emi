@@ -14,7 +14,8 @@ class ClienteController extends Controller
      */
     public function index()
     {
-        return view('cliente.index');
+        $clientes=Cliente::all();
+        return view('cliente.index',compact('clientes'));
     }
 
     /**
@@ -24,7 +25,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        //
+        return view('Cliente.create');
     }
 
     /**
@@ -35,7 +36,15 @@ class ClienteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        date_default_timezone_set("America/La_Paz");
+        $clientes=Cliente::create([
+            'ci'=>request('ci'),
+            'nombre'=>request('nombre'),
+            'sexo'=>request('sexo'),
+            'telefono'=>request('telefono'),
+            'email'=>request('email'),
+        ]);
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -46,7 +55,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        //
+        return view('Cliente.show',compact ('cliente'));
     }
 
     /**
@@ -57,7 +66,7 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        //
+        return view('Cliente.edit',compact('cliente'));
     }
 
     /**
@@ -69,7 +78,14 @@ class ClienteController extends Controller
      */
     public function update(Request $request, Cliente $cliente)
     {
-        //
+        date_default_timezone_set("America/La_Paz");
+        $cliente->ci=$request->ci;
+        $cliente->nombre=$request->nombre;
+        $cliente->sexo=$request->sexo;
+        $cliente->telefono=$request->telefono;
+        $cliente->email=$request->email;
+        $cliente->save();
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -80,6 +96,7 @@ class ClienteController extends Controller
      */
     public function destroy(Cliente $cliente)
     {
-        //
+        $cliente->delete();
+        return redirect()->route('clientes.index');
     }
 }

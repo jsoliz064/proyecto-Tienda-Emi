@@ -24,7 +24,7 @@
         <th scope="col">Acciones</th>
       </tr>
     </thead>
- {{--    <tbody>
+     <tbody>
       @foreach ($clientes as $cliente)
 
         <tr>
@@ -45,7 +45,7 @@
 
        @endforeach
 
-    </tbody> --}}
+    </tbody>
 
   </table>
 </div>
