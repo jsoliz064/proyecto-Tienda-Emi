@@ -271,7 +271,7 @@ return [
                 [
                     'text' => 'Clientes',
                     'url'  => 'clientes',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'far fa-address-card',
                 ],
                 [
                     'text' => 'Proveedores',
