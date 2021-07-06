@@ -14,7 +14,7 @@
     <body>
     <div class= "container">
         <div class="prueba">
-        <h2 class "title"> Tienda Emi </h2>
+        <h2 class="title"> Tienda Emi </h2>
         </div>
         <div class= "menu" >
         
