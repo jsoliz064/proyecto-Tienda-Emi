@@ -18,27 +18,33 @@
 	
 	<div class= "image">
 	<img src= "vendor/adminlte/dist/img/img1.jpeg">
+    <a href="{{url('/clientes/create')}}">
+    </a>
 	</div>
 	
 	<div class= "image">
 	<img src= "vendor/adminlte/dist/img/img1.jpeg">
-	
+	<a href="{{url('/clientes/create')}}">
 	</div>
 	
 	<div class= "image">
 	<img src= "vendor/adminlte/dist/img/img1.jpeg">
+    <a href="{{url('/clientes/create')}}">
 	</div>
 	
 	<div class= "image">
 	<img src= "vendor/adminlte/dist/img/img1.jpeg">
+    <a href="{{url('/clientes/create')}}">
 	</div>
 	
 	<div class= "image">
 	<img src= "vendor/adminlte/dist/img/img1.jpeg">
+    <a href="{{url('/clientes/create')}}">
 	</div>
 	
 	<div class= "image">
 	<img src= "vendor/adminlte/dist/img/img1.jpeg">
+    <a href="{{url('/clientes/create')}}">
 	</div>
 	
 	</div>
