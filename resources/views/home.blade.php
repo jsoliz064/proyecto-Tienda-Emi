@@ -8,13 +8,6 @@
 
 @section('content')
 
-
-
-<!Doctype html>
-<html lang="es">
-<head>
-	
-</head>
 <body>
 	
 	<div class= "container">
@@ -51,13 +44,12 @@
 	</div>
 	
 </body>
-</html>
+
 
 @stop
 
 @section('css')
-   {{--  <link rel="stylesheet" href="/css/home.css"> --}}
-   <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/home.css">
 @stop
 
 @section('js')

@@ -2,10 +2,8 @@
     color:blueviolet;
 }
 body{
-    margin:150px;
-    padding:20px;
     box-sizing:border-box;
-    background:  #D3D4D6;
+    background:  #0c4bca;
 }
 .container{
     /*display:flex;
