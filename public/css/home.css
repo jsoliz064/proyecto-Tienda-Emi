@@ -1,0 +1,46 @@
+
+body{
+    margin:150px;
+    padding:20px;
+    box-sizing:border-box;
+    background:  #D3D4D6;
+}
+.container{
+    /*display:flex;
+    
+    justify-content:center;*/
+    max-height:100vh;
+    background: #D3D4D6;
+    font-family: 'arial';
+    padding: 0 0px;
+    
+}
+.prueba{
+    
+    /*display:flex;
+    align-items:center;*/
+    justify-content:top;
+    text-align: center;
+
+}
+
+
+.menu{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap:wrap;
+    padding-top:20 px;
+}
+.image{
+    width:33%;
+    
+    margin-bottom:10 px;
+
+}
+.image >img{
+    width:70%;
+    height:70%;
+    object-fit:cover;
+    display:block;
+    padding: 0 10 px;
+}
