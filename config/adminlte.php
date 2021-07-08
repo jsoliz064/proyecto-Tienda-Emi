@@ -45,7 +45,7 @@ return [
     |
     */
 
-    'logo' => '<b>Tienda</b>EMI',
+    'logo' => '<b>Tienda EMI</b>',
     'logo_img' => 'vendor/adminlte/dist/img/fondo.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
@@ -234,7 +234,7 @@ return [
         ],
         [
             'type'         => 'fullscreen-widget',
-            'topnav_right' => true,
+            'topnav_right' => false,
         ],
 
         // Sidebar items:
@@ -254,17 +254,18 @@ return [
         //     'label'       => 4,
         //     'label_color' => 'success',
         // ],
-        ['header' => 'account_settings'],
+        ['header' => 'CONFIGURACION'],
         [
-            'text' => 'profile',
+            'text' => 'Perfil',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
-            'text' => 'change_password',
+            'text' => 'Cambiar Contraseña',
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+        ['header' => 'ADMINISTRACION'],
         [
             'text'    => 'ADM RR.HH',
             'icon'    => 'fas fa-fw  fa-fax',
@@ -313,8 +314,8 @@ return [
                 ],
             ],
         ],
-        ['header' => 'labels'],
-        [
+        /*['header' => 'labels'],
+         [
             'text'       => 'important',
             'icon_color' => 'red',
             'url'        => '#',
@@ -328,7 +329,7 @@ return [
             'text'       => 'information',
             'icon_color' => 'cyan',
             'url'        => '#',
-        ],
+        ], */
     ],
 
     /*
