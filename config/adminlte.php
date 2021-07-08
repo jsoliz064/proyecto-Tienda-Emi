@@ -258,12 +258,12 @@ return [
         ['header' => 'CONFIGURACION'],
         [
             'text' => 'Perfil',
-            'url'  => 'admin/settings',
+            'url'  => '',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Cambiar Contraseña',
-            'url'  => 'admin/settings',
+            'url'  => '',
             'icon' => 'fas fa-fw fa-lock',
         ],
        

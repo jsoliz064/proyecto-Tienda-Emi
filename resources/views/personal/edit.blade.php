@@ -68,7 +68,7 @@
 
             <button  class="btn btn-danger btn-sm" type="submit">Guardar</button>
             <a href="{{route('personales.index')}}"class="btn btn-warning text-white btn-sm">Volver</a>
-        </form>
+        </form> 
 
     </div>
 </div>
