@@ -26,19 +26,19 @@
       </tr>
     </thead>
      <tbody>
-      @foreach ($proveedores as $proveedore)
+      @foreach ($proveedores as $proveedor)
 
         <tr>
-          <td>{{$proveedore->id}}</td>
-          <td>{{$proveedore->nombre}}</td>
-          <td>{{$proveedore->telefono}}</td>
+          <td>{{$proveedor->id}}</td>
+          <td>{{$proveedor->nombre}}</td>
+          <td>{{$proveedor->telefono}}</td>
           <td>
-            <form action="{{route('proveedores.destroy',$proveedore)}}" method="post">
+            <form action="{{route('proveedores.destroy',$proveedor)}}" method="post">
               @csrf
               @method('delete')
-              <a class="btn btn-primary btn-sm" href="{{route('proveedores.show',$proveedore)}}">Ver</a>
+              <a class="btn btn-primary btn-sm" href="{{route('proveedores.show',$proveedor)}}">Ver</a>
                 
-              <a href="{{route('proveedores.edit',$proveedore)}}"class="btn btn-info btn-sm">Editar</a>
+              <a href="{{route('proveedores.edit',$proveedor)}}"class="btn btn-info btn-sm">Editar</a>
 
               <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
               value="Borrar">Eliminar</button> 

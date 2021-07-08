@@ -37,7 +37,7 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         date_default_timezone_set("America/La_Paz");
-        $proveedores=Proveedor::create([
+        $proveedor=Proveedor::create([
             'nombre'=>request('nombre'),
             'telefono'=>request('telefono'),
             'direccion'=>request('direccion'),
@@ -52,9 +52,9 @@ class ProveedorController extends Controller
      * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function show(Proveedor $proveedor)
+    public function show(Proveedor $proveedore)
     {
-        return view('proveedor.show',compact ('proveedor'));
+        return view('proveedor.show',compact ('proveedore'));
     }
 
     /**
@@ -63,9 +63,9 @@ class ProveedorController extends Controller
      * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Proveedor $proveedor)
+    public function edit(Proveedor $proveedore)
     {
-        return view('proveedor.edit',compact('proveedor'));
+        return view('proveedor.edit',compact('proveedore'));
     }
 
     /**
@@ -75,14 +75,14 @@ class ProveedorController extends Controller
      * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Proveedor $proveedor)
+    public function update(Request $request, Proveedor $proveedore)
     {
         date_default_timezone_set("America/La_Paz");
-        $proveedor->nombre=$request->nombre;
-        $proveedor->telefono=$request->telefono;
-        $proveedor->direccion=$request->sexo;
-        $proveedor->email=$request->email;
-        $proveedor->save();
+        $proveedore->nombre=$request->nombre;
+        $proveedore->telefono=$request->telefono;
+        $proveedore->direccion=$request->direccion;
+        $proveedore->email=$request->email;
+        $proveedore->save();
         return redirect()->route('proveedores.index');
     }
 
@@ -92,9 +92,9 @@ class ProveedorController extends Controller
      * @param  \App\Models\Proveedor  $proveedor
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Proveedor $proveedor)
+    public function destroy(Proveedor $proveedore)
     {
-        $proveedor->delete();
+        $proveedore->delete();
         return redirect()->route('proveedores.index');
     }
 }
