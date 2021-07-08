@@ -44,10 +44,10 @@ class PersonalController extends Controller
             'sexo'=>request('sexo'),
             'telefono'=>request('telefono'),
             'email'=>request('email'),
-            'email'=>request('domicilio'),
+            'domicilio'=>request('domicilio'),
 
         ]);
-        return redirect()->route('clientes.index');
+        return redirect()->route('personales.index');
     }
 
     /**
