@@ -15,7 +15,7 @@ class PersonalController extends Controller
     public function index()
     {
         $personale=Personal::all();
-        return view('personal.index',compact('personals'));
+        return view('personal.index',compact('personale'));
         
     }
 
