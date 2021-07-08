@@ -14,10 +14,10 @@ class PersonalController extends Controller
      */
     public function index()
     {
-        $personale=Personal::all();
-        return view('personal.index',compact('personale'));
+        $personales=Personal::all();
+        return view('personal.index',compact('personales'));
         
-    }
+    } 
 
     /**
      * Show the form for creating a new resource.
@@ -38,7 +38,7 @@ class PersonalController extends Controller
     public function store(Request $request)
     {
         date_default_timezone_set("America/La_Paz");
-        $personale=Personal::create([
+        $personal=Personal::create([
             'ci'=>request('ci'),
             'nombre'=>request('nombre'),
             'sexo'=>request('sexo'),
@@ -67,9 +67,9 @@ class PersonalController extends Controller
      * @param  \App\Models\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function edit(Personal $personal)
+    public function edit(Personal $personale)
     {
-        return view('Personal.edit',compact('personal'));
+        return view('Personal.edit',compact('personale'));
     }
 
     /**
@@ -79,16 +79,16 @@ class PersonalController extends Controller
      * @param  \App\Models\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Personal $personal)
+    public function update(Request $request, Personal $personale)
     {
         date_default_timezone_set("America/La_Paz");
-        $personal->ci=$request->ci;
-        $personal->nombre=$request->nombre;
-        $personal->sexo=$request->sexo;
-        $personal->telefono=$request->telefono;
-        $personal->email=$request->email;
-        $personal->domicilio=$request->domicilio;
-        $personal->save();
+        $personale->ci=$request->ci;
+        $personale->nombre=$request->nombre;
+        $personale->sexo=$request->sexo;
+        $personale->telefono=$request->telefono;
+        $personale->email=$request->email;
+        $personale->domicilio=$request->domicilio;
+        $personale->save();
         return redirect()->route('personal.index');
     }
 
@@ -98,9 +98,9 @@ class PersonalController extends Controller
      * @param  \App\Models\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Personal $personal)
+    public function destroy(Personal $personale)
     {
-        $personal->delete();
+        $personale->delete();
         return redirect()->route('personal.index');
     }
 }

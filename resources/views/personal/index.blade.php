@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <a href="{{url('/personales/create')}}"class="btn btn-primary btb-sm"> Registrar Personal</a>
+        <a href="{{route('personales.create')}}"class="btn btn-primary btb-sm"> Registrar Personal</a>
     </div>
 </div>
 <div class="card">
@@ -26,7 +26,7 @@
       </tr>
     </thead>
      <tbody>
-      @foreach ($personale as $personal)
+      @foreach ($personales as $personal)
 
         <tr>
           <td>{{$personal->id}}</td>
