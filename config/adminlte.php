@@ -254,6 +254,7 @@ return [
         //     'label'       => 4,
         //     'label_color' => 'success',
         // ],
+        
         ['header' => 'CONFIGURACION'],
         [
             'text' => 'Perfil',
@@ -265,7 +266,13 @@ return [
             'url'  => 'admin/settings',
             'icon' => 'fas fa-fw fa-lock',
         ],
+       
         ['header' => 'ADMINISTRACION'],
+        [
+            'text' => 'Usuarios',
+            'url'  => 'users',
+            'icon' => 'fas fa-fw fa-user',
+        ],
         [
             'text'    => 'ADM RR.HH',
             'icon'    => 'fas fa-fw  fa-fax',

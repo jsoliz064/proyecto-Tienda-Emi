@@ -10,7 +10,7 @@
 <div class="card">
     <div class="card-body">
         <form method="post" action="{{route('personales.store')}}" novalidate >
-
+ 
             @csrf
             <h5>Carnet de Identidad:</h5>
             <input type="text"  name="ci"  class="focus border-primary  form-control">
