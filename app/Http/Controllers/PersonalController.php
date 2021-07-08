@@ -56,9 +56,9 @@ class PersonalController extends Controller
      * @param  \App\Models\Personal  $personal
      * @return \Illuminate\Http\Response
      */
-    public function show(Personal $personal)
+    public function show(Personal $personale)
     {
-        return view('Personal.show',compact ('personal'));
+        return view('personal.show',compact ('personale'));
     }
 
     /**
@@ -89,7 +89,7 @@ class PersonalController extends Controller
         $personale->email=$request->email;
         $personale->domicilio=$request->domicilio;
         $personale->save();
-        return redirect()->route('personal.index');
+        return redirect()->route('personales.index');
     }
 
     /**
@@ -101,6 +101,6 @@ class PersonalController extends Controller
     public function destroy(Personal $personale)
     {
         $personale->delete();
-        return redirect()->route('personal.index');
+        return redirect()->route('personales.index');
     }
 }
