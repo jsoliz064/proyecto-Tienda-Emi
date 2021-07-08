@@ -18,9 +18,9 @@ class CreatePersonalsTable extends Migration
             $table->string('ci');
             $table->string('nombre');
             $table->char('sexo');
-            $table->string('telefono')
-            $table->string('email')
-            $table->string('domicilio')
+            $table->string('telefono');
+            $table->string('email');
+            $table->string('domicilio');
             $table->timestamps();
         });
     }
