@@ -14,7 +14,8 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        return view('proveedor.index');
+        $proveedores=Proveedor::all();
+        return view('proveedor.index',compact('proveedores'));
     }
 
     /**
@@ -36,13 +37,13 @@ class ProveedorController extends Controller
     public function store(Request $request)
     {
         date_default_timezone_set("America/La_Paz");
-        $proveedor=Proveedor::create([
+        $proveedores=Proveedor::create([
             'nombre'=>request('nombre'),
             'telefono'=>request('telefono'),
-            'direccion'=>request('sexo'),
+            'direccion'=>request('direccion'),
             'email'=>request('email'),
         ]);
-        return redirect()->route('proveedor.index');
+        return redirect()->route('proveedores.index');
     }
 
     /**
