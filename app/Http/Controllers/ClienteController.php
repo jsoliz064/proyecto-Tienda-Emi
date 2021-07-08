@@ -17,7 +17,7 @@ class ClienteController extends Controller
         $clientes=Cliente::all();
         return view('cliente.index',compact('clientes'));
     }
-
+ 
     /**
      * Show the form for creating a new resource.
      *
@@ -25,7 +25,7 @@ class ClienteController extends Controller
      */
     public function create()
     {
-        return view('Cliente.create');
+        return view('cliente.create');
     }
 
     /**

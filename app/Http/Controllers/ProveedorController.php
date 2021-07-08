@@ -24,7 +24,7 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        //
+        return view('proveedor.create');
     }
 
     /**
@@ -35,7 +35,14 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        date_default_timezone_set("America/La_Paz");
+        $proveedor=Proveedor::create([
+            'nombre'=>request('nombre'),
+            'telefono'=>request('telefono'),
+            'direccion'=>request('sexo'),
+            'email'=>request('email'),
+        ]);
+        return redirect()->route('proveedor.index');
     }
 
     /**
@@ -46,7 +53,7 @@ class ProveedorController extends Controller
      */
     public function show(Proveedor $proveedor)
     {
-        //
+        return view('proveedor.show',compact ('proveedor'));
     }
 
     /**
@@ -57,7 +64,7 @@ class ProveedorController extends Controller
      */
     public function edit(Proveedor $proveedor)
     {
-        //
+        return view('proveedor.edit',compact('proveedor'));
     }
 
     /**
@@ -69,7 +76,13 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, Proveedor $proveedor)
     {
-        //
+        date_default_timezone_set("America/La_Paz");
+        $proveedor->nombre=$request->nombre;
+        $proveedor->telefono=$request->telefono;
+        $proveedor->direccion=$request->sexo;
+        $proveedor->email=$request->email;
+        $proveedor->save();
+        return redirect()->route('proveedores.index');
     }
 
     /**
@@ -80,6 +93,7 @@ class ProveedorController extends Controller
      */
     public function destroy(Proveedor $proveedor)
     {
-        //
+        $proveedor->delete();
+        return redirect()->route('proveedores.index');
     }
 }
