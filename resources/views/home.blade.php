@@ -17,7 +17,7 @@
 	<div class= "container">
 		<div class="cabecera"style="display: flex">
 	<i class="fas fa-car-side fa-5x" style="color:#111111" > </i>
-		<h1 class= "title"> TIENDA EMI </h1>
+		<h1 class= "title"> TIENDA DE ACCESORIOS EMI </h1>
 	</div>
 	<div class="prueba">
 	<h2> Bienvenido</h2>
