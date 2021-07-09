@@ -6,6 +6,8 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Personal;
 use App\Models\Cliente;
+use App\Models\Proveedor;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -111,5 +113,32 @@ class DatabaseSeeder extends Seeder
         $cliente4->email="RoldanLeo@gmail.com";
         $cliente4->save();
 
+        $proveedor1=new proveedor();
+        $proveedor1->nombre="Empresa Todo Auto";
+        $proveedor1->telefono=75456896;
+        $proveedor1->direccion="Zona Norte,Esq.Tajibo";
+        $proveedor1->email="todoauto@gmail.com";
+        $proveedor1->save();
+
+        $proveedor2=new proveedor();
+        $proveedor2->nombre="Mariela Añez Palacios";
+        $proveedor2->telefono=6985522;
+        $proveedor2->direccion="2to anillo,Calle. Barrientos";
+        $proveedor2->email="marielAz@gmail.com";
+        $proveedor2->save();
+
+        $proveedor3=new proveedor();
+        $proveedor3->nombre="Andrea Martinez Pinto";
+        $proveedor3->telefono=7415964;
+        $proveedor3->direccion="6to anillo,Calle.Argentina";
+        $proveedor3->email="andreaMart@gmail.com";
+        $proveedor3->save();
+
+        $proveedor4=new proveedor();
+        $proveedor4->nombre="Toborochi Accesories";
+        $proveedor4->telefono=6985522;
+        $proveedor4->direccion="Pampa de la Isla,Calle 3";
+        $proveedor4->email="accessoriesT@gmail.com";
+        $proveedor4->save();
     }
 }
