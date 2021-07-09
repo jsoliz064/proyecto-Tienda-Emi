@@ -311,12 +311,12 @@ return [
             ],
         ],
         [
-            'text'    => 'ADM PRODUCTOS',
+            'text'    => 'ADM ACCESORIOS',
             'icon'    => 'fas fa-fw  fa-fax',
             'submenu' => [
                 [
-                    'text' => 'Accesorio',
-                    'url'  => '',
+                    'text' => 'Productos',
+                    'url'  => 'productos',
                     'icon' => 'fas fa-fw fa-user',
                 ],
             ],
