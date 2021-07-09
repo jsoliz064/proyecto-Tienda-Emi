@@ -1,6 +1,6 @@
 .title{
     
-    color: #000000;
+    color: #F7F7F7;
     
     min-height: 100px;
     min-width: 50px;
@@ -9,7 +9,7 @@
     font-family: 'Poppins', sans-serif;
 }
 .cabecera{
-    background-color: #069778;
+    background-color: #970606;
     min-height: 100px;
     min-width: 900px;
     flex-direction: row;
@@ -35,7 +35,7 @@ body{
     text-align: center;
     min-height: 100px;
     margin-bottom: 5%;
-   
+    font-family: 'Ubuntu', sans-serif;
 }
 
 
@@ -44,6 +44,7 @@ body{
     justify-content:space-evenly;
     padding:0px 50px 0px 150px;
     flex-direction:row;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 

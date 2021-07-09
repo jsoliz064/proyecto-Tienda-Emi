@@ -11,12 +11,16 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap" rel="stylesheet">
+
 </head>
 <body>
 	<!--cliente, proveedor, productos¿,personal-->
 	<div class= "container">
 		<div class="cabecera"style="display: flex">
-	<i class="fas fa-car-side fa-5x" style="color:#000000" > </i>
+	<i class="fas fa-car-side fa-5x" style="color:#F7F7F7" > </i>
 		<h1 class= "title"> TIENDA DE ACCESORIOS EMI </h1>
 	</div>
 	<div class="prueba">
