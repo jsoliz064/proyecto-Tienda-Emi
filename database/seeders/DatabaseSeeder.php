@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use App\Models\Personal;
 
 class DatabaseSeeder extends Seeder
 {
@@ -39,5 +40,8 @@ class DatabaseSeeder extends Seeder
         $user8->email= 'mariaLance@gmail.com';
         $user8->password = bcrypt('87654321');
         $user8->save();
+
+        
+
     }
 }
