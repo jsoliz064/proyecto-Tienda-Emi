@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Dashboard')
+@section('title', 'Inicio')
 
 @section('content_header')
 
@@ -16,11 +16,11 @@
 	<!--cliente, proveedor, productos¿,personal-->
 	<div class= "container">
 		<div class="cabecera"style="display: flex">
-	<i class="fas fa-car-side fa-5x" style="color:#111111" > </i>
+	<i class="fas fa-car-side fa-5x" style="color:#000000" > </i>
 		<h1 class= "title"> TIENDA DE ACCESORIOS EMI </h1>
 	</div>
 	<div class="prueba">
-	<h2> Bienvenido</h2>
+	<h2> ACCESOS RAPIDOS</h2>
 	</div>
 	<div class= "menu" >
 	
@@ -28,7 +28,7 @@
 	<a href="{{route('clientes.index')}}">
 	<i class="fas fa-user-alt fa-7x" style="color:#364542" ></i> 
     </a>
-	<h4> Clientes</h4>
+	<h4>Clientes</h4>
 	</div>
 	
 	<div class= "iconos">
@@ -39,7 +39,7 @@
 	</div>
 	
 	<div class= "iconos">
-		<a href="{{route('clientes.index')}}">
+		<a href="{{route('productos.index')}}">
 			<i class="fas fa-box-open fa-7x" style="color:#364542"></i>
 			</a>
 	<h4> Productos</h4>

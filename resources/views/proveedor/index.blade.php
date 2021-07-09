@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Clientes')
+@section('title', 'Proveedores')
 
 @section('content_header')
     <h1>LISTA DE PROVEEDORES</h1>
@@ -19,9 +19,9 @@
     <thead>
 
       <tr>
-        <th scope="col">Id</th>
+        <th scope="col">ID</th>
         <th scope="col">Nombre Completo</th>
-        <th scope="col">telefono</th>
+        <th scope="col">Telefono</th>
         <th scope="col">Acciones</th>
       </tr>
     </thead>

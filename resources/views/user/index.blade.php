@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Users')
+@section('title', 'Usuarios')
 
 @section('content_header')
     <h1>LISTA DE USUARIOS</h1>
@@ -19,9 +19,9 @@
     <thead>
 
       <tr>
-        <th scope="col">Id</th>
+        <th scope="col">ID</th>
         <th scope="col">Nombre</th>
-        <th scope="col">email</th>
+        <th scope="col">Email</th>
         <th scope="col">Rol</th>
         <th scope="col">Acciones</th>
       </tr>

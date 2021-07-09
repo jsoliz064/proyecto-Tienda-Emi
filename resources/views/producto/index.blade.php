@@ -19,7 +19,7 @@
     <thead>
 
       <tr>
-        <th scope="col">Id</th>
+        <th scope="col">ID</th>
         <th scope="col">Nombre</th>
         <th scope="col">Precio U</th>
         <th scope="col">Precio M</th>
