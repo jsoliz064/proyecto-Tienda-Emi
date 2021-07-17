@@ -6,6 +6,7 @@ use App\Http\Controllers\ProveedorController;
 use App\Http\Controllers\PersonalController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CategoriaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,4 +31,5 @@ Route::resource('proveedores',ProveedorController::class);
 Route::resource('personales',PersonalController::class);
 Route::resource('productos',ProductoController::class);
 Route::resource('users',UserController::class);
+Route::resource('categorias',CategoriaController::class);
 

@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Personal;
 use App\Models\Cliente;
 use App\Models\Proveedor;
+use App\Models\Categoria;
 
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this -> call( CategoriaSeeder::class);
         // \App\Models\User::factory(10)->create();
         $user5 = new user();
         $user5->name = 'harold';

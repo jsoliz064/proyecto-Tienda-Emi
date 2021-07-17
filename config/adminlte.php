@@ -319,6 +319,11 @@ return [
                     'url'  => 'productos',
                     'icon' => 'fas fa-fw fa-user',
                 ],
+                [
+                    'text' => 'Categorias',
+                    'url'  => 'categorias',
+                    'icon' => 'fas fa-fw fa-tags',
+                ],
             ],
         ],
         /*['header' => 'labels'],
