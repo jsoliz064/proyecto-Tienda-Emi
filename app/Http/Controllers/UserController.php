@@ -82,7 +82,9 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->roles()->sync($request->roles);
+
+        return redirect()->route('users.edit', $user)->with('info', 'se asígno los roles correctamente');
     }
 
     /**

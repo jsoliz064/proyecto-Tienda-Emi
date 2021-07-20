@@ -7,13 +7,21 @@
 @stop
 
 @section('content')
+
+    @if (session('info'))
+        <div class="alert alert-success">
+            <strong>{{session('info')}}</strong>
+        </div>
+
+    @endif
+
     <div class="card">
         <div class="card-body">
             <p class="h5">Nombre</p>
             <p class="form-control">{{$user->name}}</p>
 
             <h2 class="h5"> Listado de Roles</h2>
-            {{-- {!! Form::model($user, ['route' => ['users.update', $user], 'method' => 'put']) !!}
+            {!! Form::model($user, ['route' => ['users.update', $user], 'method' => 'put']) !!}
                 @foreach ($roles as $role)
                     <div>
                         <label >
@@ -22,9 +30,10 @@
                         </label>
                     </div>
                 @endforeach
-            {!! Form::close() !!} --}}
 
-            {{-- {!! Form::submit('Asignar rol', ['class' => 'btn btn-primary mt-2']) !!} --}}
+            {!! Form::submit('Asignar rol', ['class' => 'btn btn-primary mt-2']) !!}
+            {!! Form::close() !!}
+
            
         </div>
     </div>
