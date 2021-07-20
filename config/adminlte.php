@@ -272,7 +272,16 @@ return [
             'text' => 'Usuarios',
             'url'  => 'users',
             'icon' => 'fas fa-fw fa-user',
+            'can' => 'users.index'
         ],
+
+        [
+            'text' => 'Lista de Roles',
+            'route'  => 'admin.roles.index',
+            'icon' => 'fas fa-users-cog fa-fw',
+           // 'can' => 'users.index'
+        ],
+        
         [
             'text'    => 'ADM RR.HH',
             'icon'    => 'fas fa-fw  fa-fax',
@@ -281,6 +290,7 @@ return [
                     'text' => 'Clientes',
                     'url'  => 'clientes',
                     'icon' => 'far fa-address-card',
+                    'can' => 'clientes.index'
                 ],
                 [
                     'text' => 'Proveedores',
