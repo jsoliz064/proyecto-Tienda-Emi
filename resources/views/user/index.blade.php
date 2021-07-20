@@ -26,7 +26,7 @@
         <th scope="col">Acciones</th>
       </tr>
     </thead>
-    
+
      <tbody>
       @foreach ($users as $user)
 
@@ -39,9 +39,10 @@
             <form action="{{route('users.destroy',$user)}}" method="post">
               @csrf
               @method('delete')
-              {{-- <a class="btn btn-primary btn-sm" href="{{route('users.show',$user)}}">Ver</a>
+             
+              <a class="btn btn-primary btn-sm" href="{{route('users.show',$user)}}">Ver</a>
                 
-              <a href="{{route('users.edit',$user)}}"class="btn btn-info btn-sm">Editar</a> --}}
+              <a href="{{route('users.edit',$user)}}"class="btn btn-info btn-sm">Editar</a>
 
               <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
               value="Borrar">Eliminar</button> 
