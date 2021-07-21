@@ -112,6 +112,7 @@ class ClienteController extends Controller
     {
         $cliente->delete();
 
+        date_default_timezone_set("America/La_Paz");
         activity()->useLog('Cliente')->log('Eliminar')->subject();
         $lastActivity = Activity::all()->last();
         $lastActivity->subject_id = $cliente->id;
