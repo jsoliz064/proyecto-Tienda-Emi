@@ -54,6 +54,11 @@
 			<i class="fas fa-user-tie fa-7x" style="color:#364542" ></i> 
 			</a>
 	<h4> Personal</h4>
+	<div class= "iconos">
+		<a href="{{route('marcas.index')}}">
+			<i class="fas fa-user-tie fa-7x" style="color:#364542" ></i> 
+			</a>
+	<h4> Marcas</h4>
 	</div>
 	
 	
