@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Producto;
 use Illuminate\Http\Request;
+use App\Models\Categoria;
+use Illuminate\Support\Facades\DB;
 
 class ProductoController extends Controller
 {
@@ -14,7 +16,8 @@ class ProductoController extends Controller
      */
     public function index()
     {
-        return view('producto.index');
+        $productos = Producto::all();
+        return view('producto.index', compact('productos'));
     }
 
     /**
@@ -24,7 +27,8 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
+        $categorias=DB::table('categorias')->get();
+        return view('producto.create',['categorias'=>$categorias]);
     }
 
     /**
@@ -35,7 +39,18 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        date_default_timezone_set("America/La_Paz");
+        $producto=Producto::create([
+            'idCategoria'=>request('idCategoria'),
+            'codigo'=>request('codigo'),
+            'nombre'=>request('nombre'),
+            'precioU'=>request('precioU'),
+            'precioM'=>request('precioM'),
+            'costoPromedio'=>request('costoPromedio'),
+            'descripcion'=>request('descripcion'),
+            'stock'=>0,
+        ]);
+        return redirect()->route('productos.index');
     }
 
     /**
@@ -80,6 +95,7 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
-        //
+        $producto->delete();
+        return redirect()->route('productos.index');
     }
 }
