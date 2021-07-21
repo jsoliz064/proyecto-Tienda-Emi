@@ -8,7 +8,7 @@ use App\Models\Personal;
 use App\Models\Cliente;
 use App\Models\Proveedor;
 use App\Models\Categoria;
-
+use App\Models\Marca;
 
 class DatabaseSeeder extends Seeder
 {
@@ -147,6 +147,8 @@ class DatabaseSeeder extends Seeder
         $proveedor4->email="accessoriesT@gmail.com";
         $proveedor4->save();
 
-        
+        $marca1=new marca();
+        $marca1->descripcion="Ferrari";
+        $marca1->save();
     }
 }
