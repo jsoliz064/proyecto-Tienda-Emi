@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-
+ 
 <div class="card">
     <div class="card-header">
         <a href=""class="btn btn-primary btb-sm">Registrar Marcas</a>
