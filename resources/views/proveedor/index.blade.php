@@ -5,7 +5,7 @@
 @section('content_header')
     <h1>LISTA DE PROVEEDORES</h1>
 @stop
-
+ 
 @section('content')
 <div class="card">
     <div class="card-header">

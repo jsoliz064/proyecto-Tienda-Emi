@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 
 class ClienteController extends Controller
 {
@@ -45,6 +46,12 @@ class ClienteController extends Controller
             'telefono'=>request('telefono'),
             'email'=>request('email'),
         ]);
+
+        activity()->useLog('Cliente')->log('Nuevo')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = Cliente::all()->last()->id;
+        $lastActivity->save();
+
         return redirect()->route('clientes.index');
     }
 
@@ -86,6 +93,12 @@ class ClienteController extends Controller
         $cliente->telefono=$request->telefono;
         $cliente->email=$request->email;
         $cliente->save();
+
+        activity()->useLog('Cliente')->log('Editar')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = $cliente->id;
+        $lastActivity->save();
+
         return redirect()->route('clientes.index');
     }
 
@@ -98,6 +111,12 @@ class ClienteController extends Controller
     public function destroy(Cliente $cliente)
     {
         $cliente->delete();
+
+        activity()->useLog('Cliente')->log('Eliminar')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = $cliente->id;
+        $lastActivity->save();
+
         return redirect()->route('clientes.index');
     }
 }
