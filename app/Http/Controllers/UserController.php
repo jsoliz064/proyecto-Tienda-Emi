@@ -4,9 +4,21 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
+
+
 
 class UserController extends Controller
 {
+    //solo tienen acceso los admin
+    public function __construct()
+    {                   
+        $this->middleware('can:users.index'); //bloque todos los metodos de la class
+            //usar el permiso ("users.index") para proteger la ruta ("index")
+        //$this->middleware('can:users.index')->only('index'); //bloque rutas especidficas
+        //$this->middleware('can:users.edit')->only('edit', 'update');
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -65,7 +77,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('user.edit',compact('user'));
+        $roles = Role::all();
+
+        return view('user.edit',compact('user', 'roles'));
     }
 
     /**
@@ -77,7 +91,9 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        $user->roles()->sync($request->roles);
+
+        return redirect()->route('users.edit', $user)->with('info', 'se asígno los roles correctamente');
     }
 
     /**

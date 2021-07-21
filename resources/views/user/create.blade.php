@@ -3,7 +3,6 @@
 @section('title', 'Personal')
 
 @section('content_header')
-<h1></h1>
 <a class="btn btn-secundary" href="{{route('users.index')}}">Volver</a>
 @stop
 

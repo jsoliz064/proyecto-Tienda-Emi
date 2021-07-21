@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Personal;
 use App\Models\Cliente;
 use App\Models\Proveedor;
+use App\Models\Categoria;
 
 
 class DatabaseSeeder extends Seeder
@@ -18,7 +19,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
+        $this -> call( CategoriaSeeder::class);
         // \App\Models\User::factory(10)->create();
+<<<<<<< HEAD
         $user5 = new user();
         $user5->name = 'harold';
         $user5->email= 'harold@gmail.com';
@@ -50,6 +53,10 @@ class DatabaseSeeder extends Seeder
         $user8->password = bcrypt('12345678');
         $user8->save();
 
+=======
+        $this->call(RoleSeeder::class);
+        $this -> call(UserSeeder::class);
+>>>>>>> ddb190140070bb04431c64776d27a2c36143d066
         $personal1=new personal();
         $personal1->ci= 1234567;
         $personal1->nombre="Carmen Velasquez Suarez";
@@ -146,5 +153,7 @@ class DatabaseSeeder extends Seeder
         $proveedor4->direccion="Pampa de la Isla,Calle 3";
         $proveedor4->email="accessoriesT@gmail.com";
         $proveedor4->save();
+
+        
     }
 }

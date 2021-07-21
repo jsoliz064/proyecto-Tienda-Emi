@@ -1,48 +1,42 @@
 @extends('adminlte::page')
 
-@section('title', 'Usuarios')
+@section('title', 'Categorias')
 
 @section('content_header')
-    <h1>LISTA DE USUARIOS</h1>
+    <h1>CATEGORIAS</h1>
 @stop
 
 @section('content')
 <div class="card">
     <div class="card-header">
-        <a href="{{route('users.create')}}"class="btn btn-primary btb-sm"> Registrar Usuario</a>
+        <a href=""class="btn btn-primary btb-sm">Registrar Categorias</a>
     </div>
 </div>
 <div class="card">
 <div class="card-body">
-  <table class="table table-striped" id="personal" >
+  <table class="table table-striped" id="categorias" >
 
     <thead>
 
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Email</th>
-        <th scope="col">Rol</th>
-        <th scope="col">Acciones</th>
+        <th scope="col">Nombre</th>>
+        <th scope="col">Acciones</th>>
       </tr>
     </thead>
-
      <tbody>
-      @foreach ($users as $user)
+      @foreach ($categorias as $categoria)
 
         <tr>
-          <td>{{$user->id}}</td>
-          <td>{{$user->name}}</td>
-          <td>{{$user->email}}</td>
-          <td></td>
+          <td>{{$categoria->id}}</td>
+          <td>{{$categoria->nombre}}</td>
           <td>
-            <form action="{{route('users.destroy',$user)}}" method="post">
+            <form action="{{route('categorias.destroy',$categoria)}}" method="post">
               @csrf
               @method('delete')
-             
-              <a class="btn btn-primary btn-sm" href="{{route('users.show',$user)}}">Ver</a>
+              {{-- <a class="btn btn-primary btn-sm" href="">Ver</a> --}}
                 
-              <a href="{{route('users.edit',$user)}}"class="btn btn-info btn-sm">Editar</a>
+              <a href=""class="btn btn-info btn-sm">Editar</a>
 
               <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
               value="Borrar">Eliminar</button> 
@@ -70,7 +64,7 @@
 <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap5.min.js"></script>
 <script>
     $(document).ready(function() {
-     $('#personal').DataTable();
+     $('#categorias').DataTable();
     } );
 </script>
 @stop
