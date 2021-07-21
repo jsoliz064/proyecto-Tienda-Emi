@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\Admin\RoleController;
+use App\Http\Controllers\BitacoraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,4 +44,6 @@ Route::resource('productos',ProductoController::class);
 
 
 Route::resource('categorias',CategoriaController::class);
+
+Route::resource('bitacora',BitacoraController::class);
 

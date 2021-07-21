@@ -25,7 +25,7 @@ class UserSeeder extends Seeder
         $user6->name = 'daniel';
         $user6->email= 'jsoliz064@gmail.com';
         $user6->password = bcrypt('1234');
-        $user5->assignRole('Admin');
+        $user6->assignRole('Admin');
         $user6->save();
 
         User::create([

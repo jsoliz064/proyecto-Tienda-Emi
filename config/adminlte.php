@@ -283,6 +283,13 @@ return [
         ],
         
         [
+            'text' => 'Bitacora',
+            'url'  => 'bitacora',
+            'icon' => 'fas fa-users-cog fa-fw',
+           // 'can' => 'users.index'
+        ],
+
+        [
             'text'    => 'ADM RR.HH',
             'icon'    => 'fas fa-fw  fa-fax',
             'submenu' => [
