@@ -9,7 +9,11 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\BitacoraController;
+<<<<<<< HEAD
+use App\Http\Controllers\NotaCompraController;
+=======
 use App\Http\Controllers\MarcaController;
+>>>>>>> e1c9b9e3bceada2d68e3e5d2766f8bffb8f7babe
 
 /*
 |--------------------------------------------------------------------------
@@ -42,9 +46,12 @@ Route::resource('personales',PersonalController::class);
 
 Route::resource('productos',ProductoController::class);
 
-
-
 Route::resource('categorias',CategoriaController::class);
 
 Route::resource('bitacora',BitacoraController::class);
+<<<<<<< HEAD
+
+Route::resource('notaCompras',NotaCompraController::class);
+=======
 Route::resource('marcas',MarcaController::class);
+>>>>>>> e1c9b9e3bceada2d68e3e5d2766f8bffb8f7babe
