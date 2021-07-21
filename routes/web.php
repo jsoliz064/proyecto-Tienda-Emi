@@ -10,7 +10,7 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\NotaCompraController;
-//use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\MarcaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +48,4 @@ Route::resource('categorias',CategoriaController::class);
 Route::resource('bitacora',BitacoraController::class);
 
 Route::resource('notaCompras',NotaCompraController::class);
+Route::resource('marcas',MarcaController::class);

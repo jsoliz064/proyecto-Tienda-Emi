@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
+use Spatie\Activitylog\Models\Activity;
 
 
 
@@ -55,6 +56,11 @@ class UserController extends Controller
             'password' => Hash::make($request['password']),
             //'password' =>$request['password'], no oculta contraseña
         ]);
+
+        activity()->useLog('Usuario')->log('Crear')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = $users->id;
+        $lastActivity->save();
         return redirect()->route('users.index');
     }
 
@@ -93,6 +99,11 @@ class UserController extends Controller
     {
         $user->roles()->sync($request->roles);
 
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Usuario')->log('Editar')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = $user->id;
+        $lastActivity->save();
         return redirect()->route('users.edit', $user)->with('info', 'se asígno los roles correctamente');
     }
 
@@ -105,6 +116,12 @@ class UserController extends Controller
     public function destroy(User $user)
     {
         $user->delete();
+
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Usuario')->log('Eliminar')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = $user->id;
+        $lastActivity->save();
         return redirect()->route('users.index');
     }
 }
