@@ -44,6 +44,12 @@ class DatabaseSeeder extends Seeder
         $user8->password = bcrypt('87654321');
         $user8->save();
 
+        $user8 = new user();
+        $user8->name = 'Maria Ines';
+        $user8->email= 'maria@gmail.com';
+        $user8->password = bcrypt('12345678');
+        $user8->save();
+
         $personal1=new personal();
         $personal1->ci= 1234567;
         $personal1->nombre="Carmen Velasquez Suarez";
