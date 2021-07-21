@@ -3,14 +3,19 @@
 @section('title', 'Clientes')
 
 @section('content_header')
-  @can('clientes.create')
-    <a class="btn btn-primary btb-sm float-right" href="{{url('/clientes/create')}}">Registrar Cliente</a>    
-  @endcan
+ 
   <h1>LISTA DE CLIENTES</h1>
 @stop
 
 @section('content')
-  
+  <div class="card">
+    <div class="card-header">
+        @can('clientes.create')
+          <a class="btn btn-primary btb-sm" href="{{url('/clientes/create')}}">Registrar Cliente</a>    
+        @endcan
+    </div>
+  </div>
+
   <div class="card">
     
     <div class="card-body">
