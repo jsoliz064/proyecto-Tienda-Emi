@@ -23,13 +23,13 @@
                     <tr>
                         <th scope="col">Id</th>
                         <th scope="col">Usuario</th>
-                        <th scope="col">causer id</th>
-                        <th scope="col">Log name</th>
+                        <th scope="col">Autor id</th>
+                        <th scope="col">Accion</th>
                         <th scope="col">Descripción</th>
-                        {{-- <th scope="col">subject type</th> --}}
-                        <th scope="col">subject id</th>
+                       {{--  <th scope="col">subject type</th> --}}
+                        <th scope="col">id implicado</th>
                         {{-- <th scope="col">causer type</th> --}}
-                        <th scope="col">created_at</th>
+                        <th scope="col">Fecha</th>
                         {{-- <th scope="col">properties</th> --}}
                     </tr>
                 </thead>

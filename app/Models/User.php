@@ -17,12 +17,9 @@ class User extends Authenticatable
     use HasFactory, Notifiable;
 
     use HasRoles;
-    use LogsActivity;
+  /*   use LogsActivity; */
 
-    protected static $logName = 'user';
-    protected static $ignoreChangedAttributes = ['password'];
-    protected static $logAttributes = ['name'];
-    protected static $logOnlyDirty = true;
+    
     /**
      * The attributes that are mass assignable.
      *
@@ -52,6 +49,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+  /*   protected static $logName = 'user';
+    protected static $ignoreChangedAttributes = ['password'];
+    protected static $logAttributes = ['name'];
+    protected static $logOnlyDirty = true; */
+
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
@@ -59,10 +62,13 @@ class User extends Authenticatable
         // Chain fluent methods for configuration options
     }
     
+    //realacion uno a uno
     public function personal(){
         /*$personal = Personal::find($this->idPersonal);
         return $personal*/
 
         return $this->belongsTo('App\Models\Personal', 'idPersonal');
     }
+        //->useLogName('Usuario') 
+  
 }

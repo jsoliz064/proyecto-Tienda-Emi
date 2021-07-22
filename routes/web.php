@@ -11,7 +11,7 @@ use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\NotaCompraController;
 use App\Http\Controllers\MarcaController;
-
+use App\Http\Controllers\AutoController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -49,3 +49,4 @@ Route::resource('bitacora',BitacoraController::class);
 
 Route::resource('notaCompras',NotaCompraController::class);
 Route::resource('marcas',MarcaController::class);
+Route::resource('autos',AutoController::class);

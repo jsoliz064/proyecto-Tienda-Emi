@@ -63,7 +63,7 @@ class ClienteController extends Controller
      */
     public function show(Cliente $cliente)
     {
-        return view('Cliente.show',compact ('cliente'));
+        return view('cliente.show',compact ('cliente'));
     }
 
     /**
@@ -74,7 +74,7 @@ class ClienteController extends Controller
      */
     public function edit(Cliente $cliente)
     {
-        return view('Cliente.edit',compact('cliente'));
+        return view('cliente.edit',compact('cliente'));
     }
 
     /**
@@ -112,6 +112,7 @@ class ClienteController extends Controller
     {
         $cliente->delete();
 
+        date_default_timezone_set("America/La_Paz");
         activity()->useLog('Cliente')->log('Eliminar')->subject();
         $lastActivity = Activity::all()->last();
         $lastActivity->subject_id = $cliente->id;

@@ -339,8 +339,19 @@ return [
                 [
                     'text' => 'Categorias',
                     'url'  => 'categorias',
+                    'icon' => 'fas fa-sort-amount-down-alt',
+                ],
+                [
+                    'text' => 'Marcas',
+                    'url'  => 'marcas',
                     'icon' => 'fas fa-fw fa-tags',
                 ],
+                [
+                    'text' => 'Autos',
+                    'url'  => 'autos',
+                    'icon' => 'fas fa-car',
+                ],
+
             ],
         ],
         /*['header' => 'labels'],
