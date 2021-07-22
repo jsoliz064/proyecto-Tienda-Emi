@@ -21,6 +21,15 @@ class CreatePersonalsTable extends Migration
             $table->string('telefono');
             $table->string('email');
             $table->string('domicilio');
+            /*
+            $table->unsignedBigInteger('idUsuario')->unique()->nullable();
+            
+            $table->foreign('idUsuario')
+                  ->references('id')
+                  ->on('users')
+                  ->onDelete('set null')
+                  ->onUpdate('cascade');
+            */      
             $table->timestamps();
         });
     }

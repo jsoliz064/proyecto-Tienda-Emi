@@ -58,5 +58,11 @@ class User extends Authenticatable
         ->logOnly(['name', 'text']);
         // Chain fluent methods for configuration options
     }
-  
+    
+    public function personal(){
+        /*$personal = Personal::find($this->idPersonal);
+        return $personal*/
+
+        return $this->belongsTo('App\Models\Personal', 'idPersonal');
+    }
 }
