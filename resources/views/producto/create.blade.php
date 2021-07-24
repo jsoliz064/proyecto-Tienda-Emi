@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Producto')
+@section('title', 'Productos')
 
 @section('content_header')
     <h1>Registrar Producto</h1>
