@@ -13,53 +13,36 @@
 
             @csrf
 
-            <h5>Categoria:</h5>
-            <select name = "idCategoria" id="idCategoria" class="form-control" onchange="habilitar()" >
-                <option value="nulo">Seleccione una categoria</option>
-                    @foreach ($categorias as $categoria)
-                        <option value="{{$categoria->id}}">
-                            {{$categoria->nombre}}
-                        </option>
-                    @endforeach
-            </select>
-
-            @error('idCategoria')
-            <p>DEBE INGRESAR BIEN LA CATEGORIA</p>
+            <h5>NroCliente:</h5>
+            <input type="text"  name = "nroCliente" class="focus border-primary  form-control" >
+            @error('nroCliente')
+            <p>DEBE INGRESAR BIEN EL NUMERO DE CLIENTE</p>
             @enderror
 
-            <h5>Codigo del producto:</h5>
-            <input type="text"  name = "codigo" class="focus border-primary  form-control" >
-            @error('codigo')
-            <p>DEBE INGRESAR EL CODIGO</p>
+            <h5>Importe:</h5>
+            <input type="text"  name = "importe" class="focus border-primary  form-control" >
+            @error('importe')
+            <p>DEBE INGRESAR BIEN EL IMPORTE</p>
             @enderror
 
-            <h5>Nombre:</h5>
-            <input type="text" name="nombre"  class="focus border-primary  form-control" >
-            @error('nombre')
-                <p>DEBE INGRESAR BIEN SU NOMBRE</p>
+            <h5>Fecha:</h5>
+            <input type="text" name="fecha"  class="focus border-primary  form-control" >
+            @error('fecha')
+                <p>DEBE INGRESAR BIEN LA FECHA</p>
             @enderror
 
-            <h5>Precio Unitario:</h5>
-            <input type="text" name="precioU"  class="focus border-primary  form-control" >
-            @error('precioU')
-                <p>DEBE INGRESAR BIEN EL PRECIO UNITARIO</p>
-            @enderror
-
-            <h5>Precio por Mayor:</h5>
-            <input type="text" name = "precioM"  class="focus border-primary  form-control" >
-            @error('precioM')
-                <p>DEBE INGRESAR BIEN EL PRECIO POR MAYOR</p>
+            <h5>Hora:</h5>
+            <input type="text" name="hora"  class="focus border-primary  form-control" >
+            @error('hora')
+                <p>DEBE INGRESAR BIEN LA HORA</p>
             @enderror
             
-            <h5>Descripcion:</h5>
-            <input type="text" name = "descripcion"  class="focus border-primary  form-control" >
-
             <br>
             <br>
 
             <button  class="btn btn-danger btn-sm" type="submit">Registrar</button>
 
-            <a href="{{route('productos.index')}}"class="btn btn-warning text-white btn-sm">Volver</a>
+            <a href="{{route('notaVentas.index')}}"class="btn btn-warning text-white btn-sm">Volver</a>
         </form>
 
     </div>

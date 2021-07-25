@@ -18,7 +18,7 @@
 <div class="card">
         <div class="card-header">
             <h3>Notas de Ventas:</h3>
-            <a href="{{url('notaVentas.create')}}"class="btn btn-primary btb-sm">Registrar</a>
+            <a href="{{route('notaVentas.create')}}"class="btn btn-primary btb-sm">Registrar</a>
         </div>
   </div>
   
@@ -31,8 +31,10 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Cliente</th>
-            <th scope="col">Monto</th>
+            <th scope="col">Importe</th>
             <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
+            <th scope="col">FechaHora</th>
           </tr>
         </thead>
         <tbody>
@@ -41,15 +43,17 @@
             <tr>
               <td>{{$notaVenta->id}}</td>
                <td>{{DB::table('clientes')->where('id',$notaVenta->nroCliente)->value('nombre')}}</td>
-               <td>{{$notaVenta->monto}}</td>
-               <td>{{$notaCompra->updated_at}}</td>
+               <td>{{$notaVenta->importe}}</td>
+               <td>{{$notaVenta->fecha}}</td>
+               <td>{{$notaVenta->hora}}</td>
+               <td>{{$notaVenta->updated_at}}</td>
                <td>
                  <form action="{{route('notaVentas.destroy',$notaVenta)}}" method="post">
                    @csrf
                    @method('delete')
-                   <a class="btn btn-primary btn-sm" href="{{route('notaVentas.show', $compra)}}">Ver</a>
+                   <a class="btn btn-primary btn-sm" href="{{route('notaVentas.show', $notaVenta)}}">Ver</a>
                      
-                   <a href="{{route('notaVentas.edit', $notaCompra)}}"class="btn btn-info btn-sm">Editar</a>
+                   <a href="{{route('notaVentas.edit', $notaVenta)}}"class="btn btn-info btn-sm">Editar</a>
                    <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
                    value="Borrar">Eliminar</button> 
                  </form>
