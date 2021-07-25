@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form method="post" action="{{url('nota_compras.store')}}" novalidate >
+        <form method="post" action="{{route('notaCompras.store')}}" novalidate >
 
             @csrf
 
@@ -32,7 +32,7 @@
                 <option value="nulo">Seleccione un usuario</option>
                     @foreach ($users as $user)
                         <option value="{{$user->id}}">
-                            {{$user->nombre}}
+                            {{$user->name}}
                         </option>
                     @endforeach
             </select>
@@ -40,12 +40,12 @@
                 <p>DEBE INGRESAR EL USUARIO</p>
             @enderror
 
-            <h5>Fecha:</h5>
+            {{-- <h5>Fecha:</h5>
             <input type="datetime-local"  name="fecha" class="focus border-primary  form-control" >
 
             @error('fecha')
             <p>DEBE INGRESAR LA FECHA</p>
-            @enderror
+            @enderror --}}
 
 
             <h5>Producto:</h5>
@@ -53,7 +53,7 @@
                 <option value="nulo">Seleccione un producto</option>
                     @foreach ($productos as $producto)
                         <option value="{{$producto->id}}">
-                            {{$producto->name}}
+                            {{$producto->nombre}}
                         </option>
                     @endforeach
             </select>
@@ -63,7 +63,7 @@
             <br>
 
             <button  class="btn btn-danger btn-sm" type="submit">Registrar</button>
-            <a href="{{route('nota_compras.index')}}"class="btn btn-warning text-white btn-sm">Volver</a>
+            <a href="{{route('notaCompras.index')}}"class="btn btn-warning text-white btn-sm">Volver</a>
         </form>
 
     </div>

@@ -52,11 +52,6 @@ class ProductoController extends Controller
             'stock'=>0,
         ]);
 
-        activity()->useLog('Cliente')->log('Nuevo')->subject();
-        $lastActivity = Activity::all()->last();
-        $lastActivity->subject_id = Producto::all()->last()->id;
-        
-
         activity()->useLog('Producto')->log('Nuevo')->subject();
         $lastActivity=Activity::all()->last();
         $lastActivity->subject_id=Producto::all()->last()->id;
