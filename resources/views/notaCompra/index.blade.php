@@ -8,7 +8,6 @@
 
 @section('content')
 
-
 <div class="card">
         <div class="card-header">
             <a href="{{route('notaCompras.create')}}"class="btn btn-primary btb-sm">Registrar Nota de Compra</a>
@@ -17,9 +16,7 @@
 <div class="card">
   <div class="card-body">
       <table class="table table-striped" id="notaCompras" >
-
         <thead>
-
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Proveedor</th>
@@ -30,7 +27,6 @@
         </thead>
         <tbody>
           @foreach ($notaCompras as $notaCompra)
-
             <tr>
               <td>{{$notaCompra->id}}</td>
                <td>{{DB::table('proveedors')->where('id',$notaCompra->nroProveedor)->value('nombre')}}</td>

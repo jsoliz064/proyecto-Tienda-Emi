@@ -21,13 +21,21 @@ class CreateUsersTable extends Migration
             $table->string('password');
 
             $table->unsignedBigInteger('idPersonal')->unique()->nullable();
+            $table->unsignedBigInteger('idRol')->nullable();  
 
             $table->foreign('idPersonal')
                   ->references('id')
                   ->on('personals')
                   ->onDelete('set null')
                   ->onUpdate('cascade');
-                    
+            
+            //---------------------------------------------------------------                
+            $table->foreign('idRol')
+                  ->references('role_id')
+                  ->on('model_has_roles')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+            //---------------------------------------------------------------                
             $table->rememberToken();
             $table->timestamps();
         });
