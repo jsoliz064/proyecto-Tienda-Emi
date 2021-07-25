@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\NotaVenta;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Spatie\Activitylog\Models\Activity;
 
 class NotaVentaController extends Controller
 {
@@ -23,9 +27,13 @@ class NotaVentaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+   
+
     public function create()
     {
-        return view('notaVenta.create');//
+        $clientes = DB::table('clientes')->get();
+        return view('notaVenta.create',['clientes'=> $clientes]);//
     }
 
     /**
@@ -40,8 +48,6 @@ class NotaVentaController extends Controller
         $notaVenta=NotaVenta::create([
             'nroCliente'=>request('nroCliente'),
             'importe'=>request('importe'),
-            'fecha'=>request('fecha'),
-            'hora'=>request('hora'),
         ]);
         return redirect()->route('notaVentas.index');
     }
@@ -65,7 +71,8 @@ class NotaVentaController extends Controller
      */
     public function edit(notaVenta $notaVenta)
     {
-        return view('notaVenta.edit',compact('notaVenta'));//
+        $clientes = DB::table('clientes')->get();
+        return view('notaVenta.edit',compact('notaVenta'),['clientes'=>$clientes]);//
     }
 
     /**
@@ -80,8 +87,6 @@ class NotaVentaController extends Controller
         date_default_timezone_set("America/La_Paz");
         $notaVenta->nroCliente=$request->nroCliente;
         $notaVenta->importe=$request->importe;
-        $notaVenta->fecha=$request->fecha;
-        $notaVenta->hora=$request->hora;
         $notaVenta->save();
         return redirect()->route('notaVentas.index');//
     }

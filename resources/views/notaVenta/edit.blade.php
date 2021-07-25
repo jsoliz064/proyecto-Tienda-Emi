@@ -15,9 +15,17 @@
             @method('PATCH')
             
             <h5>Cliente:</h5>
-            <input type="text"  name="nroCliente" value="{{$notaVenta->nroCliente}}" class="focus border-primary  form-control" >
-            @error('nro')
-            <p>DEBE INGRESAR BIEN NROCLIENTE</p>
+            <select name = "nroCliente" id="nroCliente" value="{{$notaVenta->nroCliente}}" class="form-control" onchange="habilitar()" >
+                <option value="nulo">Seleccione un Cliente</option>
+                    @foreach ($clientes as $cliente)
+                        <option value="{{$cliente->id}}">
+                            {{$cliente->nombre}}
+                        </option>
+                    @endforeach
+            </select>
+
+            @error('nroCliente')
+            <p>DEBE INGRESAR EL CLIENTE</p>
             @enderror
 
             <h5>Importe:</h5>
@@ -25,20 +33,6 @@
 
             @error('importe')
             <p>DEBE INGRESAR BIEN EL IMPORTE</p>
-            @enderror
-
-            <h5>Fecha:</h5>
-            <input type="text"  name="fecha" value="{{$notaVenta->fecha}}" class="focus border-primary  form-control" >
-
-            @error('fecha')
-            <p>DEBE INGRESAR BIEN LA FECHA</p>
-            @enderror
-
-            <h5>Hora:</h5>
-            <input type="text"  name="hora" value="{{$notaVenta->hora}}" class="focus border-primary  form-control" >
-
-            @error('hora')
-            <p>DEBE INGRESAR BIEN LA HORA</p>
             @enderror
 
             <h5>FechaHora:</h5>

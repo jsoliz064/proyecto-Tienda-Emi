@@ -12,29 +12,25 @@
         <form method="post" action="{{route('notaVentas.store')}}" novalidate >
 
             @csrf
+            <h5>Cliente:</h5>
+            <select name = "nroCliente" id="nroCliente" class="form-control" onchange="habilitar()" >
+                <option value="nulo">Seleccione un Cliente</option>
+                    @foreach ($clientes as $cliente)
+                        <option value="{{$cliente->id}}">
+                            {{$cliente->nombre}}
+                        </option>
+                    @endforeach
+            </select>
 
-            <h5>NroCliente:</h5>
-            <input type="text"  name = "nroCliente" class="focus border-primary  form-control" >
             @error('nroCliente')
-            <p>DEBE INGRESAR BIEN EL NUMERO DE CLIENTE</p>
+            <p>DEBE INGRESAR EL CLIENTE</p>
             @enderror
+
 
             <h5>Importe:</h5>
             <input type="text"  name = "importe" class="focus border-primary  form-control" >
             @error('importe')
             <p>DEBE INGRESAR BIEN EL IMPORTE</p>
-            @enderror
-
-            <h5>Fecha:</h5>
-            <input type="text" name="fecha"  class="focus border-primary  form-control" >
-            @error('fecha')
-                <p>DEBE INGRESAR BIEN LA FECHA</p>
-            @enderror
-
-            <h5>Hora:</h5>
-            <input type="text" name="hora"  class="focus border-primary  form-control" >
-            @error('hora')
-                <p>DEBE INGRESAR BIEN LA HORA</p>
             @enderror
             
             <br>

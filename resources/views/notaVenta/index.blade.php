@@ -32,8 +32,6 @@
             <th scope="col">Id</th>
             <th scope="col">Cliente</th>
             <th scope="col">Importe</th>
-            <th scope="col">Fecha</th>
-            <th scope="col">Hora</th>
             <th scope="col">FechaHora</th>
           </tr>
         </thead>
@@ -44,8 +42,6 @@
               <td>{{$notaVenta->id}}</td>
                <td>{{DB::table('clientes')->where('id',$notaVenta->nroCliente)->value('nombre')}}</td>
                <td>{{$notaVenta->importe}}</td>
-               <td>{{$notaVenta->fecha}}</td>
-               <td>{{$notaVenta->hora}}</td>
                <td>{{$notaVenta->updated_at}}</td>
                <td>
                  <form action="{{route('notaVentas.destroy',$notaVenta)}}" method="post">
