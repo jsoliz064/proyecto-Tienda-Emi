@@ -321,6 +321,11 @@ return [
                     'icon' => 'fas fa-fw fa-user',
                 ],
                 [
+                    'text' => 'DetalleVentas',
+                    'url'  => 'detalleVentas',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+                [
                     'text' => 'Compras',
                     'url'  => 'notaCompras',
                     'icon' => 'fas fa-fw fa-user',

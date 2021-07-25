@@ -12,7 +12,7 @@ use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\NotaCompraController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\NotaVentaController;
-
+use App\Http\Controllers\DetalleVentaController;
 use App\Http\Controllers\AutoController;
 use App\Http\Controllers\FacturaController;
 /*
@@ -56,6 +56,7 @@ Route::resource('marcas',MarcaController::class);
 
 Route::resource('notaVentas',NotaVentaController::class);
 
+Route::resource('detalleVentas',DetalleVentaController::class);
 //Route::resource('marcas',MarcaController::class); poner solo si esta hecho
 
 Route::resource('autos',AutoController::class);
