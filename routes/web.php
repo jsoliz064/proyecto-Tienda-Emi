@@ -47,5 +47,6 @@ Route::resource('categorias',CategoriaController::class);
 
 Route::resource('bitacora',BitacoraController::class);
 
-Route::resource('notaCompras',NotaCompraController::class);
+Route::resource('nota_compras',NotaCompraController::class);
+
 Route::resource('marcas',MarcaController::class);

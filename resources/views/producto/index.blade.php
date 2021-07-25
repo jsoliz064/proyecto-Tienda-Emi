@@ -34,7 +34,8 @@
 
         <tr>
           <td>{{$producto->id}}</td>
-          <td>{{DB::table('categorias')->where('id',$producto->idCategoria)->value('nombre')}}</td>
+          <td>{{$producto->categoria->nombre}}</td>
+          {{-- <td>{{DB::table('categorias')->where('id',$producto->idCategoria)->value('nombre')}}</td> --}}
           <td>{{$producto->codigo}}</td>
           <td>{{$producto->nombre}}</td>
           <td>{{$producto->stock}}</td>

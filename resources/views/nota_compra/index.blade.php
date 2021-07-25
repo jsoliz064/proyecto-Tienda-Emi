@@ -11,7 +11,7 @@
 
 <div class="card">
         <div class="card-header">
-            <a href="{{url('notaCompras.create')}}"class="btn btn-primary btb-sm">Registrar Nota de Compra</a>
+            <a href="{{url('nota_compras.create')}}"class="btn btn-primary btb-sm">Registrar Nota de Compra</a>
         </div>
   </div>
 <div class="card">
@@ -41,7 +41,7 @@
                  <form action="{{route('notaCompras.destroy',$notaCompra)}}" method="post">
                    @csrf
                    @method('delete')
-                   <a class="btn btn-primary btn-sm" href="{{route('notaCompras.show', $compra)}}">Ver</a>
+                   <a class="btn btn-primary btn-sm" href="{{route('nota_compras.show', $compra)}}">Ver</a>
                      
                    <a href="{{route('notaCompra.edit', $notaCompra)}}"class="btn btn-info btn-sm">Editar</a>
                    <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
@@ -71,7 +71,7 @@
       <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap5.min.js"></script>
       <script>
           $(document).ready(function() {
-           $('#notaCompras').DataTable();
+           $('#notaCompra').DataTable();
           } );
       </script>
   @stop
