@@ -20,8 +20,8 @@ class CreateDetalleComprasTable extends Migration
             $table->float('costo');
             $table->integer('cantidad');
             $table->timestamps();
-            $table->foreign('idNotaCompra')->references('id')->on('nota_compras')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('idProducto')->references('id')->on('productos')->onDelete('set null')->onUpdate('cascade');
+            // $table->foreign('idNotaCompra')->references('id')->on('nota_compras')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreign('idProducto')->references('id')->on('productos')->onDelete('set null')->onUpdate('cascade');
         });
     }
 

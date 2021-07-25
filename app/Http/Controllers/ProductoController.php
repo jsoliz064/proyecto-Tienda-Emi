@@ -51,7 +51,6 @@ class ProductoController extends Controller
             'descripcion'=>request('descripcion'),
             'stock'=>0,
         ]);
-        
 
         activity()->useLog('Producto')->log('Nuevo')->subject();
         $lastActivity=Activity::all()->last();
@@ -113,7 +112,13 @@ class ProductoController extends Controller
      */
     public function destroy(Producto $producto)
     {
+        date_default_timezone_set("America/La_Paz");
         $producto->delete();
+        activity()->useLog('Producto')->log('Eliminar')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = $producto->id;
+        $lastActivity->save();
+
         return redirect()->route('productos.index');
     }
 }

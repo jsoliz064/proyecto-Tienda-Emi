@@ -5,10 +5,9 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Marca extends Model
+class Factura extends Model
 {
     use HasFactory;
-    protected $table="marcas";
+    protected $table="facturas";
     protected $guarded=['id','created_at','updated_at'];
-
 }

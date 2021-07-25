@@ -10,4 +10,8 @@ class Producto extends Model
     use HasFactory;
     protected $table="productos";
     protected $guarded=['id','created_at','updated_at'];
+
+    public function categoria(){
+        return $this->belongsTo('App\Models\Categoria', 'idCategoria');
+    }
 }
