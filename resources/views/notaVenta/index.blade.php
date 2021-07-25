@@ -32,7 +32,8 @@
             <th scope="col">Id</th>
             <th scope="col">Cliente</th>
             <th scope="col">Importe</th>
-            <th scope="col">FechaHora</th>
+            <th scope="col">Fecha y Hora</th>
+            <th scope="col">Acciones</th>
           </tr>
         </thead>
         <tbody>

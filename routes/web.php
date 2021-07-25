@@ -67,3 +67,5 @@ Route::resource('autos',AutoController::class);
 Route::resource('detalleCompras',detalleCompraController::class);
 
 Route::resource('facturas',FacturaController::class);
+
+Route::resource('detalleVentas',DetalleVentaController::class);

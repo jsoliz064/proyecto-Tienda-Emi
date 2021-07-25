@@ -1,37 +1,26 @@
 @extends('adminlte::page')
 
-@section('title', 'notaVentas')
+@section('title', 'Ventas')
 
 @section('content_header')
-    <h1>Registrar Nota Venta</h1>
+    <h1>Registrar Nota de Venta</h1>
 @stop
 
 @section('content')
 <div class="card">
     <div class="card-body">
         <form method="post" action="{{route('notaVentas.store')}}" novalidate >
-
+ 
             @csrf
             <h5>Cliente:</h5>
             <select name = "nroCliente" id="nroCliente" class="form-control" onchange="habilitar()" >
-                <option value="nulo">Seleccione un Cliente</option>
+                <option value="nulo">Seleccione una Proveedor</option>
                     @foreach ($clientes as $cliente)
                         <option value="{{$cliente->id}}">
                             {{$cliente->nombre}}
                         </option>
                     @endforeach
             </select>
-
-            @error('nroCliente')
-            <p>DEBE INGRESAR EL CLIENTE</p>
-            @enderror
-
-
-            <h5>Importe:</h5>
-            <input type="text"  name = "importe" class="focus border-primary  form-control" >
-            @error('importe')
-            <p>DEBE INGRESAR BIEN EL IMPORTE</p>
-            @enderror
             
             <br>
             <br>

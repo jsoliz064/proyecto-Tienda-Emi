@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\NotaVenta;
+use App\Models\DetalleVenta;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\User;
@@ -33,9 +34,10 @@ class NotaVentaController extends Controller
     public function create()
     {
         $clientes = DB::table('clientes')->get();
-        return view('notaVenta.create',['clientes'=> $clientes]);//
+        $productos = DB::table('productos')->get();
+        return view('notaVenta.create',['clientes'=> $clientes,'productos' => $productos]);//
     }
-
+ 
     /**
      * Store a newly created resource in storage.
      *
@@ -47,9 +49,13 @@ class NotaVentaController extends Controller
         date_default_timezone_set("America/La_Paz");
         $notaVenta=NotaVenta::create([
             'nroCliente'=>request('nroCliente'),
-            'importe'=>request('importe'),
+            'importe'=>0,
         ]);
-        return redirect()->route('notaVentas.index');
+        activity()->useLog('NotaVenta')->log('Nuevo')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = NotaVenta::all()->last()->id;
+        $lastActivity->save();
+        return redirect()->route('detalleVentas.show',$notaVenta);
     }
 
     /**
