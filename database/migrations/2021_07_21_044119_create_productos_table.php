@@ -15,7 +15,7 @@ class CreateProductosTable extends Migration
     {
         Schema::create('productos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('idCategoria')->nullable();
+            $table->unsignedBigInteger('idCategoria');
             $table->string('codigo');
             $table->string('nombre');
             $table->float('precioU');
@@ -23,7 +23,7 @@ class CreateProductosTable extends Migration
             $table->float('costoPromedio')->nullable();
             $table->string('descripcion')->nullable();
             $table->integer('stock');
-            $table->foreign('idCategoria')->references('id')->on('categorias')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('idCategoria')->references('id')->on('categorias')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
             
         });

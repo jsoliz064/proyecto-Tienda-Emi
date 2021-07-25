@@ -54,11 +54,21 @@ class User extends Authenticatable
     protected static $ignoreChangedAttributes = ['password'];
     protected static $logAttributes = ['name'];
     protected static $logOnlyDirty = true; */
-/* 
+
     public function getActivitylogOptions(): LogOptions
     {
         return LogOptions::defaults()
-        ->useLogName('Usuario');
-    } */
+        ->logOnly(['name', 'text']);
+        // Chain fluent methods for configuration options
+    }
+    
+    //realacion uno a uno
+    public function personal(){
+        /*$personal = Personal::find($this->idPersonal);
+        return $personal*/
+
+        return $this->belongsTo('App\Models\Personal', 'idPersonal');
+    }
+        //->useLogName('Usuario') 
   
 }

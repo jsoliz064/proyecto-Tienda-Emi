@@ -1,15 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'Productos')
+@section('title', 'notaVentas')
 
 @section('content_header')
-    <h1>Registrar Productos</h1>
+    <h1>Registrar Nota Venta</h1>
 @stop
 
 @section('content')
 <div class="card">
     <div class="card-body">
-        <form method="post" action="{{route('productos.store')}}" novalidate >
+        <form method="post" action="{{route('notaVentas.store')}}" novalidate >
 
             @csrf
 
