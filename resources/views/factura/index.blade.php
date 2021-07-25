@@ -1,44 +1,48 @@
 @extends('adminlte::page')
 
-@section('title', 'Marcas')
+@section('title', 'Facturas')
 
 @section('content_header')
-    <h1>Marcas</h1>
+    <h1>FACTURAS</h1>
 @stop
-
-@section('content')
  
+@section('content')
 <div class="card">
     <div class="card-header">
-        <a href="{{route('marcas.create')}}"class="btn btn-primary btb-sm">Registrar Marcas</a>
+        <a href="{{route('notaVentas.index')}}"class="btn btn-primary btb-sm">Volver</a>
     </div>
 </div>
-
 <div class="card">
 <div class="card-body">
-  <table class="table table-striped" id="marcas" >
+  <table class="table table-striped" id="clientes" >
 
     <thead>
 
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">Descripcion</th>>
-        <th scope="col">Acciones</th>>
+        <th scope="col">NotaVenta ID</th>
+        <th scope="col">Numero</th>
+        <th scope="col">Total</th>
+        <th scope="col">Fecha</th>
+        <th scope="col">Acciones</th>
       </tr>
     </thead>
      <tbody>
-      @foreach ($marcas as $marca)
+      @foreach ($facturas as $factura)
 
         <tr>
-          <td>{{$marca->id}}</td>
-          <td>{{$marca->descripcion}}</td>
-          <td>
-            <form action="{{route('marcas.destroy',$marca)}}" method="post">
+            <td>{{$factura->id}}</td>
+            <td>{{$factura->notaVenta_id}}</td>
+            <td>{{$factura->numero}}</td>
+            <td>{{$factura->total}}</td>
+            <td>{{$factura->created_at}}</td>
+            <td>
+            <form action="{{route('facturas.destroy',$factura)}}" method="post">
               @csrf
               @method('delete')
-              
-              <a class="btn btn-primary btn-sm" href="{{route('marcas.show',$marca)}}">Ver</a>  
-              <a class="btn btn-info btn-sm" href="{{route('marcas.edit',$marca)}}">Editar</a>
+              <a class="btn btn-primary btn-sm" href="{{route('facturas.show',$factura)}}">Ver</a>
+                
+              {{-- <a href="{{route('proveedores.edit',$proveedor)}}"class="btn btn-info btn-sm">Editar</a> --}}
 
               <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
               value="Borrar">Eliminar</button> 
@@ -66,7 +70,7 @@
 <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap5.min.js"></script>
 <script>
     $(document).ready(function() {
-     $('#marcas').DataTable();
+     $('#clientes').DataTable();
     } );
 </script>
 @stop

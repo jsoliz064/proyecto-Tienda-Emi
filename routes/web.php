@@ -10,10 +10,12 @@ use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\BitacoraController;
 use App\Http\Controllers\NotaCompraController;
-use App\Http\Controllers\NotaVentaController;
 use App\Http\Controllers\MarcaController;
+use App\Http\Controllers\NotaVentaController;
+use App\Http\Controllers\DetalleVentaController;
 use App\Http\Controllers\AutoController;
 use App\Http\Controllers\DetalleCompraController;
+use App\Http\Controllers\FacturaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -41,6 +43,7 @@ Route::resource('clientes',ClienteController::class);
 
 Route::resource('proveedores',ProveedorController::class);
 
+
 Route::resource('personales',PersonalController::class);
 
 Route::resource('productos',ProductoController::class);
@@ -51,10 +54,16 @@ Route::resource('bitacora',BitacoraController::class);
 
 Route::resource('notaCompras',NotaCompraController::class);
 
+Route::resource('marcas',MarcaController::class);
+
 Route::resource('notaVentas',NotaVentaController::class);
 
-Route::resource('marcas',MarcaController::class);
+Route::resource('detalleVentas',DetalleVentaController::class);
+
+//Route::resource('marcas',MarcaController::class); poner solo si esta hecho
 
 Route::resource('autos',AutoController::class);
 
 Route::resource('detalleCompras',detalleCompraController::class);
+
+Route::resource('facturas',FacturaController::class);
