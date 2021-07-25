@@ -3,17 +3,25 @@
 @section('title', 'notaVentas')
 
 @section('content_header')
-    <h1>NOTA DE VENTASs</h1>
+    {{-- <h1>NOTAS DE VENTAS</h1> --}}
+    <h1></h1>
 @stop
 
 @section('content')
-
+<div class="card">
+  <div class="card-header">
+      <h3>Facturas:</h3>
+      <a href="{{route('facturas.index')}}"class="btn btn-primary btb-sm">Ver</a>
+  </div>
+</div>
 
 <div class="card">
         <div class="card-header">
-            <a href="{{url('notaVentas.create')}}"class="btn btn-primary btb-sm">Registrar Nota de Venta</a>
+            <h3>Notas de Ventas:</h3>
+            <a href="{{url('notaVentas.create')}}"class="btn btn-primary btb-sm">Registrar</a>
         </div>
   </div>
+  
 <div class="card">
   <div class="card-body">
       <table class="table table-striped" id="notaVentas" >
