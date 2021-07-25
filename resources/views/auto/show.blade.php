@@ -27,7 +27,8 @@
                         <h5>{{$auto->idMarca}}</h5>
                     </div>
 
-                  
+
+
                     <div class="row">
                         <h5 class="font-weight-bold px-2">Descripcion: </h5>
                         <h5>{{$auto->descripcion}}</h5>

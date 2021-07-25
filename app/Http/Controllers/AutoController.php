@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Auto;
 use Illuminate\Http\Request;
 use Spatie\Activitylog\Models\Activity;
+use Illuminate\Support\Facades\DB;
+
 class AutoController extends Controller
 {
     /**
@@ -25,7 +27,9 @@ class AutoController extends Controller
      */
     public function create()
     {
-        return view('auto.create');
+        $marcas=DB::table('marcas')->get();
+        
+        return view('auto.create',['marcas'=>$marcas]);
     }
 
     /**
@@ -71,7 +75,8 @@ class AutoController extends Controller
      */
     public function edit(Auto $auto)
     {
-        return view('auto.edit',compact('auto'));
+        $marcas=DB::table('marcas')->get();
+        return view('auto.edit',compact('auto'),['marcas'=>$marcas]);
     }
 
     /**
