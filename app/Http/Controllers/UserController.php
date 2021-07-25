@@ -1,9 +1,13 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Models\Personal;
+use App\Models\Producto;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Spatie\Activitylog\Models\Activity;
 
@@ -38,7 +42,17 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('user.create');
+        $roles = DB::table('roles')->get();
+        
+        //query retorna los personales que no tienen usuarios 
+        $personales = DB::table('personals')
+                     ->whereNotExists(function($query){
+                        $query -> select(DB::raw(1))
+                               -> from('users')
+                               ->whereRaw('users.idPersonal = personals.id');
+                    })->get();
+                    
+        return view('user.create',['personales' => $personales, 'roles' => $roles]);
     }
 
     /**
@@ -56,6 +70,14 @@ class UserController extends Controller
             'password' => Hash::make($request['password']),
             //'password' =>$request['password'], no oculta contraseña
         ]);
+        //se agrega un rol al usuario
+        $users->roles()->sync($request->roles);
+        //agregar al usuario la llave foranea de la tabla personal
+        if($request->personales > 0){
+            $users->idPersonal  = $request->personales;
+            $users->save();
+        }
+
 
         activity()->useLog('Usuario')->log('Crear')->subject();
         $lastActivity = Activity::all()->last();
@@ -114,9 +136,10 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
-    {
+    {   
+        $user->removeRole('Admin');
         $user->delete();
-
+        
         date_default_timezone_set("America/La_Paz");
         activity()->useLog('Usuario')->log('Eliminar')->subject();
         $lastActivity = Activity::all()->last();

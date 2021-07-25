@@ -67,12 +67,47 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group row">
+                            <label for="personal" class="col-md-4 col-form-label text-md-right">{{ __('Seleccione un Personal') }}</label>
+
+                            <div class="col-md-6">
+                                {{-- <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"> --}}
+                                <select name="personales" class="form-control" id="select-personales" >
+                                    <option value=0 >Seleccione al personal</option>
+                                         @foreach ($personales as $personal)
+                                            <option value="{{ $personal->id }}">{{ $personal->nombre}}</option>
+                                        @endforeach 
+                                </select>    
+                            </div>
+
+                        </div>
+                        
+
+                        <div class="form-group row">
+                            <label for="personal" class="col-md-4 col-form-label text-md-right">{{ __('Seleccione un Rol') }}</label>
+                            
+                            <div class="col-md-6">
+                                <select name="roles" class="form-control" id="select-personales" >
+                                    {{-- <option value=0 >Seleccione un rol</option> --}}
+                                         @foreach ($roles as $rol)
+                                            <option value="{{ $rol->id }}">{{ $rol->name}}</option>
+                                        @endforeach 
+                                </select>    
+                            </div>
+
+                        </div>
+                            
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-6"> 
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Registrar') }}
                                 </button>
                             </div> 
+
+                            
+
                            {{--  <div class="col-md-0 offset-md-8"> 
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Registrar') }}

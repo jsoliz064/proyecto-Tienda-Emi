@@ -11,7 +11,7 @@
 
 <div class="card">
         <div class="card-header">
-            <a href="{{url('notaCompras.create')}}"class="btn btn-primary btb-sm">Registrar Nota de Compra</a>
+            <a href="{{route('notaCompras.create')}}"class="btn btn-primary btb-sm">Registrar Nota de Compra</a>
         </div>
   </div>
 <div class="card">
