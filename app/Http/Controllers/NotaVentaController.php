@@ -78,10 +78,10 @@ class NotaVentaController extends Controller
     public function update(Request $request, notaVenta $notaVenta)
     {
         date_default_timezone_set("America/La_Paz");
-        $notaVenta->nroCliente=$request->importe;
+        $notaVenta->nroCliente=$request->nroCliente;
         $notaVenta->importe=$request->importe;
-        $notaVenta->fecha=$request->importe;
-        $notaVenta->hora=$request->importe;
+        $notaVenta->fecha=$request->fecha;
+        $notaVenta->hora=$request->hora;
         $notaVenta->save();
         return redirect()->route('notaVentas.index');//
     }
