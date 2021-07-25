@@ -107,8 +107,25 @@ class DetalleCompraController extends Controller
      * @param  \App\Models\DetalleCompra  $detalleCompra
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DetalleCompra $detalleCompra)
+    public function destroy($id)
     {
-        //
+        date_default_timezone_set("America/La_Paz");
+        $idNotaCompra = DB::table('detalle_compras')->where('id',$id)->value('idNotaCompra');
+        $idProducto = DB::table('detalle_compras')->where('id',$id)->value('idProducto');
+        $productoStock = DB::table('productos')->where('id',$idProducto)->value('stock');
+        $cantidad = DB::table('detalle_compras')->where('id',$id)->value('cantidad');;
+        
+        $nuevoStock = $productoStock - $cantidad;
+        DB::table('productos')->where('id',$idProducto)->update([
+            'stock'=>$nuevoStock
+        ]);
+        detalleCompra::destroy($id);
+
+        $monto = DB::table('detalle_compras')->where('idNotaCompra',$idNotaCompra)->sum('importe');
+        DB::table('nota_compras')->where('id',$idNotaCompra)->update([
+            'monto'=>$monto
+        ]);
+        
+        return redirect(route('notaCompras.show', $compraId));
     }
 }

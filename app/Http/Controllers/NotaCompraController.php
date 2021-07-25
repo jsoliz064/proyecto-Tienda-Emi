@@ -105,6 +105,20 @@ class NotaCompraController extends Controller
      */
     public function destroy(NotaCompra $notaCompra)
     {
-        //
+        date_default_timezone_set("America/La_Paz");
+        $detalles=DB::table('detalle_compras')->where('idNotaCompra',$notaCompra->id)->get();
+        foreach ($detalles as $detalle){
+            $idDetalle = $detalle -> id;
+            $idNotaCompra = $detalle -> idNotaCompra;
+            $idProducto = $detalle -> idProducto;
+            $cantidad = $detalle -> cantidad;
+            $productoStock = DB::table('productos')->where('id',$idProducto)->value('stock');
+            $nuevoStock = $productoStock - $cantidad;
+            DB::table('productos')->where('id',$idProducto)->update([
+                 'stock'=>$nuevoStock
+            ]);
+        }
+        $notaCompra->delete();
+        return redirect()->route('notaCompras.index');
     }
 }
