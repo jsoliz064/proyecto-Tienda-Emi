@@ -13,6 +13,7 @@ use App\Http\Controllers\NotaCompraController;
 use App\Http\Controllers\NotaVentaController;
 use App\Http\Controllers\MarcaController;
 use App\Http\Controllers\AutoController;
+use App\Http\Controllers\DetalleCompraController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,3 +56,5 @@ Route::resource('notaVentas',NotaVentaController::class);
 Route::resource('marcas',MarcaController::class);
 
 Route::resource('autos',AutoController::class);
+
+Route::resource('detalleCompras',detalleCompraController::class);

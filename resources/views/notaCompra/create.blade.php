@@ -12,7 +12,6 @@
         <form method="post" action="{{route('notaCompras.store')}}" novalidate >
 
             @csrf
-
             <h5>Proveedor:</h5>
             <select name = "nroProveedor" id="nroProveedor" class="form-control" onchange="habilitar()" >
                 <option value="nulo">Seleccione una Proveedor</option>
@@ -27,7 +26,7 @@
             <p>DEBE INGRESAR EL PROVEEDOR</p>
             @enderror
 
-            <h5>:</h5>
+            <h5>Usuario:</h5>
                 <select name="nroUsuario" id="nroUsuario" class="form-control" onchange="habilitar()" >
                 <option value="nulo">Seleccione un usuario</option>
                     @foreach ($users as $user)
@@ -47,27 +46,13 @@
             <p>DEBE INGRESAR LA FECHA</p>
             @enderror --}}
 
-
-            <h5>Producto:</h5>
-            <select name="idProducto" id="idProducto" class="form-control" onchange="habilitar()" >
-                <option value="nulo">Seleccione un producto</option>
-                    @foreach ($productos as $producto)
-                        <option value="{{$producto->id}}">
-                            {{$producto->nombre}}
-                        </option>
-                    @endforeach
-            </select>
-            @error('idProducto')
-                <p>DEBE INGRESAR BIEN EL PRODUCTO</p>
-            @enderror
-            <br>
-
             <button  class="btn btn-danger btn-sm" type="submit">Registrar</button>
-            <a href="{{route('notaCompras.index')}}"class="btn btn-warning text-white btn-sm">Volver</a>
+            <a href="{{route('notaCompras.index')}}"class="btn btn-warning text-white btn-sm">Volver</a> 
         </form>
 
     </div>
 </div>
+
 @stop
 
 @section('css')

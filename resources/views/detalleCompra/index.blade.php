@@ -34,8 +34,7 @@
             <tr>
               <td>{{$notaCompra->id}}</td>
                <td>{{DB::table('proveedors')->where('id',$notaCompra->nroProveedor)->value('nombre')}}</td>
-               <td>{{DB::table('users')->where('id',$notaCompra->nroUsuario)->value('name')}}</td>
-               {{-- <td>{{$notaCompra->users->name}}</td> --}}
+               <td>{{DB::table('users')->where('id',$notaCompra->nroUsuarios)->value('name')}}</td>
                <td>{{$notaCompra->monto}}</td>
                <td>{{$notaCompra->fecha}}</td>
                <td>
