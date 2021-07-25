@@ -3,17 +3,25 @@
 @section('title', 'notaVentas')
 
 @section('content_header')
-    <h1>NOTA DE VENTASs</h1>
+    {{-- <h1>NOTAS DE VENTAS</h1> --}}
+    <h1></h1>
 @stop
 
 @section('content')
-
+<div class="card">
+  <div class="card-header">
+      <h3>Facturas:</h3>
+      <a href="{{route('facturas.index')}}"class="btn btn-primary btb-sm">Ver</a>
+  </div>
+</div>
 
 <div class="card">
         <div class="card-header">
-            <a href="{{url('notaVentas.create')}}"class="btn btn-primary btb-sm">Registrar Nota de Venta</a>
+            <h3>Notas de Ventas:</h3>
+            <a href="{{route('notaVentas.create')}}"class="btn btn-primary btb-sm">Registrar</a>
         </div>
   </div>
+  
 <div class="card">
   <div class="card-body">
       <table class="table table-striped" id="notaVentas" >
@@ -23,8 +31,10 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Cliente</th>
-            <th scope="col">Monto</th>
+            <th scope="col">Importe</th>
             <th scope="col">Fecha</th>
+            <th scope="col">Hora</th>
+            <th scope="col">FechaHora</th>
           </tr>
         </thead>
         <tbody>
@@ -33,15 +43,17 @@
             <tr>
               <td>{{$notaVenta->id}}</td>
                <td>{{DB::table('clientes')->where('id',$notaVenta->nroCliente)->value('nombre')}}</td>
-               <td>{{$notaVenta->monto}}</td>
-               <td>{{$notaCompra->updated_at}}</td>
+               <td>{{$notaVenta->importe}}</td>
+               <td>{{$notaVenta->fecha}}</td>
+               <td>{{$notaVenta->hora}}</td>
+               <td>{{$notaVenta->updated_at}}</td>
                <td>
                  <form action="{{route('notaVentas.destroy',$notaVenta)}}" method="post">
                    @csrf
                    @method('delete')
-                   <a class="btn btn-primary btn-sm" href="{{route('notaVentas.show', $compra)}}">Ver</a>
+                   <a class="btn btn-primary btn-sm" href="{{route('notaVentas.show', $notaVenta)}}">Ver</a>
                      
-                   <a href="{{route('notaVentas.edit', $notaCompra)}}"class="btn btn-info btn-sm">Editar</a>
+                   <a href="{{route('notaVentas.edit', $notaVenta)}}"class="btn btn-info btn-sm">Editar</a>
                    <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
                    value="Borrar">Eliminar</button> 
                  </form>
