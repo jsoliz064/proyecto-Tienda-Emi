@@ -69,7 +69,7 @@
 
 
                         <div class="form-group row">
-                            <label for="personal" class="col-md-4 col-form-label text-md-right">{{ __('Seleccione un Personal') }}</label>
+                            <label for="personal" class="col-md-4 col-form-label text-md-right">{{ __('Seleccione Personal') }}</label>
 
                             <div class="col-md-6">
                                 {{-- <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password"> --}}
@@ -85,10 +85,10 @@
                         
 
                         <div class="form-group row">
-                            <label for="personal" class="col-md-4 col-form-label text-md-right">{{ __('Seleccione un Rol') }}</label>
+                            <label for="roles" class="col-md-4 col-form-label text-md-right">{{ __('Seleccione Rol') }}</label>
                             
                             <div class="col-md-6">
-                                <select name="roles" class="form-control" id="select-personales" >
+                                <select name="roles" class="form-control" id="select-roles" >
                                     {{-- <option value=0 >Seleccione un rol</option> --}}
                                          @foreach ($roles as $rol)
                                             <option value="{{ $rol->id }}">{{ $rol->name}}</option>
