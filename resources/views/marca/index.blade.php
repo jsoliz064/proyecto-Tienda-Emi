@@ -10,7 +10,7 @@
  
 <div class="card">
     <div class="card-header">
-        <a href=""class="btn btn-primary btb-sm">Registrar Marcas</a>
+        <a href="{{route('marcas.create')}}"class="btn btn-primary btb-sm">Registrar Marcas</a>
     </div>
 </div>
 
@@ -36,9 +36,9 @@
             <form action="{{route('marcas.destroy',$marca)}}" method="post">
               @csrf
               @method('delete')
-              {{-- <a class="btn btn-primary btn-sm" href="">Ver</a> --}}
-                
-              <a href=""class="btn btn-info btn-sm">Editar</a>
+              
+              <a class="btn btn-primary btn-sm" href="{{route('marcas.show',$marca)}}">Ver</a>  
+              <a class="btn btn-info btn-sm" href="{{route('marcas.edit',$marca)}}">Editar</a>
 
               <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
               value="Borrar">Eliminar</button> 

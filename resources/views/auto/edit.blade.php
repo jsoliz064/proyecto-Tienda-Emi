@@ -33,7 +33,7 @@
 
 
             @error('descripcion')
-                <p>DEBE INGRESAR BIEN SU TELEFONO</p>
+                <p>DEBE INGRESAR BIEN LA DESCRIPCION</p>
             @enderror
 
             <h5>Año:</h5>
