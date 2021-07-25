@@ -1,55 +1,54 @@
 @extends('adminlte::page')
 
-@section('title', 'notaVentas')
+@section('title', 'detalleVentas')
 
 @section('content_header')
     {{-- <h1>NOTAS DE VENTAS</h1> --}}
-    <h1></h1>
+    <h1>Detalle Venta</h1>
 @stop
-
 @section('content')
 <div class="card">
-  <div class="card-header">
-      <h3>Facturas:</h3>
-      <a href="{{route('facturas.index')}}"class="btn btn-primary btb-sm">Ver</a>
-  </div>
-</div>
-
-<div class="card">
         <div class="card-header">
-            <h3>Notas de Ventas:</h3>
-            <a href="{{route('notaVentas.create')}}"class="btn btn-primary btb-sm">Registrar</a>
+            <h3>Detalle de Ventas:</h3>
+            <a href="{{route('detalleVentas.create')}}"class="btn btn-primary btb-sm">Registrar</a>
         </div>
   </div>
   
 <div class="card">
   <div class="card-body">
-      <table class="table table-striped" id="notaVentas" >
+      <table class="table table-striped" id="detalleVentas" >
 
         <thead>
 
           <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Cliente</th>
-            <th scope="col">Importe</th>
+            <th scope="col">ID</th>
+            <th scope="col">notaVenta_id</th>
+            <th scope="col">producto_id</th>
+            <th scope="col">precio</th>
+            <th scope="col">cantidad</th>
+            <th scope="col">importe</th>
             <th scope="col">FechaHora</th>
+
           </tr>
         </thead>
         <tbody>
-          @foreach ($notaVentas as $notaVenta)
+          @foreach ($detalleVentas as $detalleVenta)
 
             <tr>
-              <td>{{$notaVenta->id}}</td>
-               <td>{{DB::table('clientes')->where('id',$notaVenta->nroCliente)->value('nombre')}}</td>
-               <td>{{$notaVenta->importe}}</td>
-               <td>{{$notaVenta->updated_at}}</td>
+              <td>{{$detalleVenta->id}}</td>
+               <td>{{DB::table('notaVentas')->where('id',$detalleVenta->notaVenta_id)->value('nroCliente')}}</td>
+               <td>{{DB::table('productos')->where('id',$producto->producto_id)->value('nombre')}}</td>
+               <td>{{$detalleVenta->precio}}</td>
+               <td>{{$detalleVenta->cantidad}}</td>
+               <td>{{$detalleVenta->importe}}</td>
+               <td>{{$detalleVenta->updated_at}}</td>
                <td>
-                 <form action="{{route('notaVentas.destroy',$notaVenta)}}" method="post">
+                 <form action="{{route('detalleVentas.destroy',$detalleVenta)}}" method="post">
                    @csrf
                    @method('delete')
-                   <a class="btn btn-primary btn-sm" href="{{route('notaVentas.show', $notaVenta)}}">Ver</a>
+                   <a class="btn btn-primary btn-sm" href="{{route('detalleVentas.show', $detalleVenta)}}">Ver</a>
                      
-                   <a href="{{route('notaVentas.edit', $notaVenta)}}"class="btn btn-info btn-sm">Editar</a>
+                   <a href="{{route('detalleVentas.edit', $detalleVenta)}}"class="btn btn-info btn-sm">Editar</a>
                    <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
                    value="Borrar">Eliminar</button> 
                  </form>
@@ -77,7 +76,7 @@
       <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap5.min.js"></script>
       <script>
           $(document).ready(function() {
-           $('#notaVentas').DataTable();
+           $('#detalleVentas').DataTable();
           } );
       </script>
   @stop

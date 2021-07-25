@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\DetalleCompra;
 use Illuminate\Http\Request;
+use App\Models\NotaCompra;
+use App\Models\Producto;
+use Illuminate\Support\Facades\DB;
 
 class DetalleCompraController extends Controller
 {
@@ -22,9 +25,10 @@ class DetalleCompraController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(NotaCompra $notaCompra)
     {
-        //
+        // $productos = DB::table('productos')->get();
+        // return view('detalleCompra.create',compact('notaCompra'), ['productos' => $productos]);
     }
 
     /**
@@ -35,7 +39,29 @@ class DetalleCompraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        date_default_timezone_set("America/La_Paz");
+        $idNotaCompra = request('idNotaCompra');
+        $idProducto = request('idProducto');
+        $cantidad = request('cantidad');
+        $costo = request('costo');
+        $detalleCompra=detalleCompra::create([
+            'idNotaCompra' => request('idNotaCompra'),
+            'idProducto'=> request('idProducto'),
+            'cantidad'=> request('cantidad'),
+            'costo'=> request('costo'),
+            'importe'=> $costo * $cantidad,
+        ]);
+        $monto=DB::table('detalle_compras')->where('idNotaCompra',$idNotaCompra)->sum('importe');
+        DB::table('nota_compras')->where('id',$idNotaCompra)->update([
+            'monto'=>$monto
+        ]);
+        $productoStock = DB::table('productos')->where('id',$idProducto)->value('stock');
+        $cantidad=request('cantidad');
+        $nuevoStock = $productoStock + $cantidad;
+        DB::table('productos')->where('id',$idProducto)->update([
+            'stock'=>$nuevoStock
+        ]);
+        return redirect(route('detalleCompras.show', $idNotaCompra));
     }
 
     /**
@@ -44,9 +70,12 @@ class DetalleCompraController extends Controller
      * @param  \App\Models\DetalleCompra  $detalleCompra
      * @return \Illuminate\Http\Response
      */
-    public function show(DetalleCompra $detalleCompra)
+    public function show($id)
     {
-        //
+        $notaCompra=NotaCompra::findOrFail($id);
+        $notas=DB::table('detalle_compras')->where('idNotaCompra',$notaCompra->id)->get();
+        $productos=DB::table('productos')->get();
+        return view('detalleCompra.create',compact('notaCompra'),['productos'=>$productos, 'notas'=>$notas]);
     }
 
     /**

@@ -17,11 +17,9 @@ class CreateNotaVentasTable extends Migration
             $table->id();
             $table->unsignedBigInteger('nroCliente')->nullable();
             /*$table->unsignedBigInteger('nroUsuario')->nullable();*/
-            $table->float('importe');
-            $table->date('fecha');
-            $table->time('hora');
+            $table->integer('importe');
             $table->timestamps();
-            $table->foreign('nroCliente')->references('id')->on('clientes')->onDelete('set null')->onUpdate('cascade');
+            $table->foreign('nroCliente')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
           /*  $table->foreign('nroUsuario')->references('id')->on('users')->onDelete('set null')->onUpdate('cascade');*/
         });
     }

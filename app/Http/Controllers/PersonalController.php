@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Personal;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 
 class PersonalController extends Controller
 {
@@ -47,6 +48,12 @@ class PersonalController extends Controller
             'domicilio'=>request('domicilio'),
 
         ]);
+        activity()->useLog('Personal')->log('Nuevo')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id=Personal::all()->last()->id;
+        $lastActivity->save();
+        
+
         return redirect()->route('personales.index');
     }
 
@@ -89,6 +96,12 @@ class PersonalController extends Controller
         $personale->email=$request->email;
         $personale->domicilio=$request->domicilio;
         $personale->save();
+
+        activity()->useLog('Personal')->log('Editar')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $personale->id;
+        $lastActivity->save();
+       
         return redirect()->route('personales.index');
     }
 
@@ -101,6 +114,13 @@ class PersonalController extends Controller
     public function destroy(Personal $personale)
     {
         $personale->delete();
+        date_default_timezone_set("America/La_Paz");
+        activity()->useLog('Personal')->log('Eliminar')->subject();
+        $lastActivity=Activity::all()->last();
+        $lastActivity->subject_id= $personale->id;
+        $lastActivity->save();
+    
+
         return redirect()->route('personales.index');
     }
 }

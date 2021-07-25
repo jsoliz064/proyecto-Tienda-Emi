@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\NotaCompra;
-use App\Models\Producto;
+use App\Models\detalleCompra;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\User;
@@ -56,7 +56,8 @@ class NotaCompraController extends Controller
         $lastActivity = Activity::all()->last();
         $lastActivity->subject_id = NotaCompra::all()->last()->id;
         $lastActivity->save();
-        return redirect()->route('notaCompras.index');
+        
+        return redirect(route('detalleCompras.show', $notaCompra));
     }
 
     /**

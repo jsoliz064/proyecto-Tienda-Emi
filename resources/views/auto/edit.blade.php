@@ -20,9 +20,16 @@
             <p>DEBE INGRESAR BIEN EL MODELO</p>
             @enderror
 
-            <h5>Id Marca:</h5>
-            <input type="text"  name="idMarca" value="{{$auto->idMarca}}" class="focus border-primary  form-control" >
-
+            <h5>Marca:</h5>
+            <select name = "idMarca" id="idMarca" class="form-control" onchange="habilitar()" >
+                <option value="nulo">Seleccione la marca</option>
+                    @foreach ($marcas as $marca)
+                        <option value="{{$marca->id}}">
+                            {{$marca->descripcion}}
+                        </option>
+                    @endforeach
+            </select>
+            
             @error('idMarca')
             <p>DEBE INGRESAR BIEN EL ID DE LA MARCA</p>
             @enderror
@@ -33,7 +40,7 @@
 
 
             @error('descripcion')
-                <p>DEBE INGRESAR BIEN SU TELEFONO</p>
+                <p>DEBE INGRESAR BIEN LA DESCRIPCION</p>
             @enderror
 
             <h5>Año:</h5>
