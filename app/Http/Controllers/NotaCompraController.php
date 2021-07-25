@@ -53,7 +53,7 @@ class NotaCompraController extends Controller
         $lastActivity = Activity::all()->last();
         $lastActivity->subject_id = Producto::all()->last()->id;
         $lastActivity->save();
-        return redirect()->route('nota_compras.index');
+        return redirect()->route('notasCompras.index');
     }
 
     /**

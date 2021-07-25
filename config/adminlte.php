@@ -322,7 +322,7 @@ return [
                 ],
                 [
                     'text' => 'Compras',
-                    'url'  => 'nota_compras',
+                    'url'  => 'notaCompras',
                     'icon' => 'fas fa-fw fa-user',
                 ],
             ],
