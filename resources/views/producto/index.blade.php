@@ -34,17 +34,21 @@
 
         <tr>
           <td>{{$producto->id}}</td>
-          <td>{{DB::table('categorias')->where('id',$producto->idCategoria)->value('nombre')}}</td>
+          <td>{{$producto->categoria->nombre}}</td>
+          {{-- <td>{{DB::table('categorias')->where('id',$producto->idCategoria)->value('nombre')}}</td> --}}
           <td>{{$producto->codigo}}</td>
           <td>{{$producto->nombre}}</td>
           <td>{{$producto->stock}}</td>
           <td>
             <form action = "{{route('productos.destroy',$producto)}}" method="post">
               @csrf
-              @method('delete')
-              <a class="btn btn-primary btn-sm" href="">Ver</a>
+              @method('delete')   
+
+              <a class="btn btn-primary btn-sm" href="{{route('productos.show',$producto)}}">Ver</a>
                 
+              
               <a href="{{route('productos.edit',$producto)}}"class="btn btn-info btn-sm">Editar</a>
+              
 
               <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
               value="Borrar">Eliminar</button> 

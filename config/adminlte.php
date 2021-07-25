@@ -317,12 +317,12 @@ return [
             'submenu' => [
                 [
                     'text' => 'Ventas',
-                    'url'  => '',
+                    'url'  => 'notaVentas',
                     'icon' => 'fas fa-fw fa-user',
                 ],
                 [
                     'text' => 'Compras',
-                    'url'  => 'notaCompras',
+                    'url'  => 'nota_compras',
                     'icon' => 'fas fa-fw fa-user',
                 ],
             ],

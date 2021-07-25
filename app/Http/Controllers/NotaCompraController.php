@@ -3,7 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\NotaCompra;
+use App\Models\Producto;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Spatie\Activitylog\Models\Activity;
 
 class NotaCompraController extends Controller
 {
@@ -15,7 +20,7 @@ class NotaCompraController extends Controller
     public function index()
     {
         $notaCompras=NotaCompra::all();
-        return view('notaCompra.index', compact('notaCompras'));
+        return view('nota_compra.index', compact('notaCompras'));
     }
 
     /**
@@ -25,7 +30,9 @@ class NotaCompraController extends Controller
      */
     public function create()
     {
-        return view('notaCompra.create');
+        $proveedors = DB::table('proveedors')->get();
+        $users = DB::table('users')->get();
+        return view('nota_compra.create', ['proveedors' => $proveedors, 'users' => $users]);
     }
 
     /**
@@ -36,7 +43,19 @@ class NotaCompraController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        date_default_timezone_set("America/La_Paz");
+        $notaCompra=NotaCompra::create([
+            'nroProveedor'=>request('nroProveedor'),
+            'nroUsuario'=> request('nroUsuario'),
+            'monto'=> 0, //request('descripcion'),
+            'fecha'=> Carbon::now()->format('m-d-Y'),
+            'hora'=> Carbon::now()->format('h:i:s a'),
+        ]);
+        activity()->useLog('Cliente')->log('Nuevo')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = Producto::all()->last()->id;
+        $lastActivity->save();
+        return redirect()->route('nota_compras.index');
     }
 
     /**
