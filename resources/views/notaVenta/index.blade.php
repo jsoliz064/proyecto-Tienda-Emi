@@ -11,7 +11,7 @@
 
 <div class="card">
         <div class="card-header">
-            <a href="{{url('notaVentas.create')}}"class="btn btn-primary btb-sm">Registrar Nota de Venta</a>
+            <a href="{{url('/notaVentas/create')}}"class="btn btn-primary btb-sm">Registrar Nota de Ventass</a>
         </div>
   </div>
 <div class="card">
@@ -33,15 +33,15 @@
             <tr>
               <td>{{$notaVenta->id}}</td>
                <td>{{DB::table('clientes')->where('id',$notaVenta->nroCliente)->value('nombre')}}</td>
-               <td>{{$notaVenta->monto}}</td>
-               <td>{{$notaCompra->updated_at}}</td>
+               <td>{{$notaVenta->importe}}</td>
+               <td>{{$notaVenta->updated_at}}</td>
                <td>
                  <form action="{{route('notaVentas.destroy',$notaVenta)}}" method="post">
                    @csrf
                    @method('delete')
-                   <a class="btn btn-primary btn-sm" href="{{route('notaVentas.show', $compra)}}">Ver</a>
+                   <a class="btn btn-primary btn-sm" href="{{route('notaVentas.show', $notaVenta)}}">Ver</a>
                      
-                   <a href="{{route('notaVentas.edit', $notaCompra)}}"class="btn btn-info btn-sm">Editar</a>
+                   <a href="{{route('notaVentas.edit', $notaVenta)}}"class="btn btn-info btn-sm">Editar</a>
                    <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
                    value="Borrar">Eliminar</button> 
                  </form>
