@@ -317,7 +317,7 @@ return [
             'submenu' => [
                 [
                     'text' => 'Ventas',
-                    'url'  => '',
+                    'url'  => 'notaVentas',
                     'icon' => 'fas fa-fw fa-user',
                 ],
                 [
