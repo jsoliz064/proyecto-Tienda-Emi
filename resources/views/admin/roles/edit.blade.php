@@ -21,8 +21,8 @@
             
                 @include('admin.roles.partials.form')
 
-                {!! Form::submit('Actualizar Rol', ['class' => 'btn btn-primary']) !!}
-
+            {!! Form::submit('Actualizar Rol', ['class' => 'btn btn-primary']) !!}
+            <a href="{{route('admin.roles.index')}}"class="btn btn-warning mt-2">Volver</a>
             {!! Form::close() !!}
         </div>
     </div>

@@ -8,6 +8,13 @@ use Illuminate\Support\Facades\DB;
 
 class BitacoraController extends Controller
 {
+    //solo tienen acceso los admin
+    public function __construct()
+    {                 
+        //bloque todos los metodos de bitacora.index  
+        $this->middleware('can:bitacora.index');  //bloque todos los metodos de la class
+    }
+
     public function index()
     {
         // $actividades = Activity::all(); 

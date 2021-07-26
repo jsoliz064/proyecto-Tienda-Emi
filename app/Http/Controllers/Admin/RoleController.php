@@ -9,11 +9,12 @@ use Spatie\Permission\Models\Role;
 
 class RoleController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    //solo tienen acceso los admin
+    public function __construct()
+    {                   
+        $this->middleware('can:roles.index'); //bloque todos los metodos de la class
+
+    }
     public function index()
     {
         $roles = Role::all();

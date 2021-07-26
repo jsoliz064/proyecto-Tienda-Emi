@@ -255,17 +255,17 @@ return [
         //     'label_color' => 'success',
         // ],
         
-        ['header' => 'CONFIGURACION'],
-        [
-            'text' => 'Perfil',
-            'url'  => '',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Cambiar Contraseña',
-            'url'  => '',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        // ['header' => 'CONFIGURACION'],
+        // [
+        //     'text' => 'Perfil',
+        //     'url'  => '',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'Cambiar Contraseña',
+        //     'url'  => '',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
        
         ['header' => 'ADMINISTRACION'],
         [
@@ -279,14 +279,14 @@ return [
             'text' => 'Lista de Roles',
             'route'  => 'admin.roles.index',
             'icon' => 'fas fa-users-cog fa-fw',
-           // 'can' => 'users.index'
+            'can' => 'roles.index'
         ],
         
         [
             'text' => 'Bitacora',
             'url'  => 'bitacora',
             'icon' => 'fas fa-users-cog fa-fw',
-           // 'can' => 'users.index'
+            'can' => 'bitacora.index'
         ],
 
         [

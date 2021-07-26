@@ -22,6 +22,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'home',
                             'description' => 'Ver el Inicio'])->syncRoles($rol1, $rol2);
 
+        //USUARIOS-------------------------------------------------------------------------------                    
         Permission::create(['name' => 'users.index',
                             'description' => 'Ver lista de Usuarios'])->syncRoles($rol1);
                             
@@ -31,7 +32,7 @@ class RoleSeeder extends Seeder
         Permission::create(['name' => 'users.edit',
                             'description' => 'Editar Usuarios'])->syncRoles($rol1);
         
-
+        //CLIENTES-------------------------------------------------------------------------------
         Permission::create(['name' => 'clientes.index',
                             'description' => 'Ver lista de Clientes'])->syncRoles($rol1, $rol2);
 
@@ -46,6 +47,19 @@ class RoleSeeder extends Seeder
 
         Permission::create(['name' => 'clientes.destroy',
                             'description' => 'Eliminar clientes'])->syncRoles($rol1);
+
+        //ROLES-------------------------------------------------------------------------------
+        Permission::create(['name' => 'roles.index',
+                            'description' => 'Ver lista de Roles'])->syncRoles($rol1);     
+        Permission::create(['name' => 'roles.create',
+                            'description' => 'Crear Roles'])->syncRoles($rol1);
+        Permission::create(['name' => 'roles.edit',
+                            'description' => 'Editar Roles'])->syncRoles($rol1); 
+        Permission::create(['name' => 'roles.destroy',
+                            'description' => 'Eliminar Roles'])->syncRoles($rol1); 
+        //Bitacora-------------------------------------------------------------------------------                     
+         Permission::create(['name' => 'bitacora.index',
+                            'description' => 'Ver lista de Bitacora'])->syncRoles($rol1);                                                       
 
     }
 }

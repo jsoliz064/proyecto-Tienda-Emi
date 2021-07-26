@@ -7,7 +7,11 @@
 @stop
 
 @section('content')
- 
+<div class="card">
+  <div class="card-header">
+      <a href="{{route('compatibilidades.create')}}"class="btn btn-primary btb-sm">Registrar Compatibilidad</a>
+  </div>
+</div>
 <div class="card">
     <div class="card-header">
         <a href="{{route('autos.create')}}"class="btn btn-primary btb-sm">Registrar Autos</a>
@@ -37,6 +41,7 @@
               @csrf
               @method('delete')
               <a class="btn btn-primary btn-sm" href="{{route('autos.show',$auto)}}">Ver</a> 
+              <a class="btn btn-primary btn-sm" href="{{route('compatibilidades.create',$auto)}}">Accesorios</a> 
               <a href="{{route('autos.edit',$auto)}}"class="btn btn-info btn-sm">Editar</a>
 
               <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
