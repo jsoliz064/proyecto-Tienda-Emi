@@ -320,11 +320,11 @@ return [
                     'url'  => 'notaVentas',
                     'icon' => 'fas fa-fw fa-user',
                 ],
-                [
-                    'text' => 'DetalleVentas',
-                    'url'  => 'detalleVentas',
-                    'icon' => 'fas fa-fw fa-user',
-                ],
+                // [
+                //     'text' => 'DetalleVentas',
+                //     'url'  => 'detalleVentas',
+                //     'icon' => 'fas fa-fw fa-user',
+                // ],
                 [
                     'text' => 'Compras',
                     'url'  => 'notaCompras',

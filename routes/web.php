@@ -73,4 +73,3 @@ Route::resource('facturas',FacturaController::class);
 Route::get('facturaCreate/{notaVenta}',[FacturaController::class,'create2'])->name('facturaCreate');
 Route::resource('compatibilidades',CompatibilidadController::class);
 
-Route::resource('notaCompras', NotaCompra::class);
