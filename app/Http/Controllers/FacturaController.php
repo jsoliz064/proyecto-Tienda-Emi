@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Factura;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
+use Spatie\Activitylog\Models\Activity;
 
 class FacturaController extends Controller
 {
@@ -49,7 +53,6 @@ class FacturaController extends Controller
         $lastActivity = Activity::all()->last();
         $lastActivity->subject_id = Factura::all()->last()->id;
         $lastActivity->save();
-
         return redirect()->route('facturas.index');
     }
 
@@ -61,7 +64,10 @@ class FacturaController extends Controller
      */
     public function show(Factura $factura)
     {
-        return view('factura.show',compact ('factura'));
+        $factura2 = $factura->notaVenta_id;
+        $clientes = DB::table('clientes')->get();
+        $productos=DB::table('productos')->get();
+        return view('factura.show',compact ('factura'),['productos'=> $productos   ],['clientes'=> $clientes]);
     }
 
     /**
