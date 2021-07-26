@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\DetalleVenta;
 use App\Models\NotaVenta;
+use App\Models\Productos;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -16,8 +17,9 @@ class DetalleVentaController extends Controller
      */
     public function index()
     {
-        $detalleVentas=DetalleVenta::all();
+       /* $detalleVentas=DetalleVenta::all();
         return view('detalleVenta.index', compact('detalleVentas'));//
+        */
     }
 
     /**
@@ -27,10 +29,11 @@ class DetalleVentaController extends Controller
      */
     public function create()
     {
-        $cliente = DB::table('clientes')->get();
+      /*  $cliente = DB::table('clientes')->get();
         //$users = DB::table('users')->get();
         $productos = DB::table('productos')->get();
         return view('notaCompra.create', ['proveedors' => $proveedors, 'users' => $users, 'productos' => $productos]);
+        */
     }
 
     /**
@@ -41,6 +44,7 @@ class DetalleVentaController extends Controller
      */
     public function store(Request $request)
     {
+        date_default_timezone_set("America/La_Paz");
         $notaVenta_id = request('notaVenta_id');
         $producto = DB::table('productos')->where('id',request('producto_id'))->value('precioU');
         
@@ -109,25 +113,25 @@ class DetalleVentaController extends Controller
      * @param  \App\Models\DetalleVenta  $detalleVenta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DetalleVenta $detalleVenta)
+    public function destroy( $id)
     {
         date_default_timezone_set("America/La_Paz");
-        $idNotaVenta = DB::table('detalle_ventas')->where('id',$detalleVenta)->value('notaVenta_id');
-        $idProducto = DB::table('detalle_ventas')->where('id',$detalleVenta)->value('producto_id');
+        $idNotaVenta = DB::table('detalle_ventas')->where('id',$id)->value('notaVenta_id');
+        $idProducto = DB::table('detalle_ventas')->where('id',$id)->value('producto_id');
         $productoStock = DB::table('productos')->where('id',$idProducto)->value('stock');
-        $cantidad = DB::table('detalle_ventas')->where('id',$detalleVenta)->value('cantidad');
+        $cantidad = DB::table('detalle_ventas')->where('id',$id)->value('cantidad');
         
         $nuevoStock = $productoStock + $cantidad;
         DB::table('productos')->where('id',$idProducto)->update([
             'stock'=>$nuevoStock
         ]);
-        DetalleVenta::destroy($detalleVenta);
+        DetalleVenta::destroy($id);
 
         $importe = DB::table('detalle_ventas')->where('notaVenta_id',$idNotaVenta)->sum('importe');
         DB::table('nota_ventas')->where('id',$idNotaVenta)->update([
             'importe'=>$importe
         ]);
         
-        return redirect(route('detalleVentas.create', $detalleVenta));
+        return redirect(route('detalleVentas.show', $idNotaVenta));
     }
 }

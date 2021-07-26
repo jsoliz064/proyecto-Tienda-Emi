@@ -54,6 +54,7 @@
                     <div class="col-3 align-items-center">
                         <h5>Carrito</h5>
                         <button  class="btn btn-primary btn-sm" type="submit">Añadir</button>
+                      
                     </div>
                 </div>  
             </form>
