@@ -41,14 +41,25 @@
                             <p>DEBE INGRESAR BIEN EL PRODUCTO</p>
                         @enderror
                     </div>
-                   {{--  <div class="col-1">
+
+                    {{-- <div class="col-1">
                         <h5>Bs:</h5>
                         <input type="txt" value="{{$producto->precioU}}" class="focus border-primary  form-control" >
         
                         @error('costo')
                         <p>DEBE INGRESAR EL PRECIO </p>
                         @enderror
+                    </div>
+
+                    <div class="col-1">
+                        <h5>Stock:</h5>
+                        <input type="txt" value="{{$producto->stock}}" class="focus border-primary  form-control" >
+        
+                        @error('costo')
+                        <p>DEBE INGRESAR EL PRECIO </p>
+                        @enderror
                     </div> --}}
+
                     <div class="col-2">
                         <h5>Cantidad:</h5>
                         <input type="number" value="1" name="cantidad" class="focus border-primary  form-control" >
@@ -71,6 +82,7 @@
                     <thead>
                         <tr>
                           <th scope="col">Producto</th>
+                          <th scope="col">Precio</th>
                           <th scope="col">Cantidad</th>
                           <th scope="col">Importe</th>
                           <th scope="col">Acciones</th>
@@ -81,6 +93,7 @@
                         @foreach ($notas as $nota)
                             <tr>
                                 <td>{{DB::table('productos')->where('id',$nota->producto_id)->value('nombre')}}</td>
+                                <td>{{$nota->precio}}</td>
                                 <td>{{$nota->cantidad}}</td>
                                 <td>{{$nota->importe}}</td>
                                 <td>
