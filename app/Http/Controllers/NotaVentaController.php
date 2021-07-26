@@ -94,6 +94,11 @@ class NotaVentaController extends Controller
         $notaVenta->nroCliente=$request->nroCliente;
         $notaVenta->importe=$request->importe;
         $notaVenta->save();
+
+        activity()->useLog('NotaVenta')->log('Editar')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = $notaVenta->id;
+        $lastActivity->save();
         return redirect()->route('notaVentas.index');//
     }
 
@@ -106,6 +111,10 @@ class NotaVentaController extends Controller
     public function destroy(notaVenta $notaVenta)
     {
         $notaVenta->delete();
+        activity()->useLog('NotaVenta')->log('Eliminar')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = $notaVenta->id;
+        $lastActivity->save();
         return redirect()->route('notaVentas.index');//
     }
 }
