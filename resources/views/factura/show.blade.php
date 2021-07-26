@@ -22,7 +22,7 @@
 						<img class="brand-image img-circle  " style="width: 80px" src="https://farm5.static.flickr.com/4137/4870590306_6039dc1742.jpg">
 					</div>
 					<div class="col-3  d-flex">
-						<h3>!!ACCESORIOS EMI!!</h3>
+						<h3>¡ACCESORIOS EMI!</h3>
 					</div>
 				</div>
 
@@ -43,10 +43,10 @@
 					</div>
 					<div class="col-4 ">
 						<div class="row">
-							<h5>NIT: 5397610015</h5>
+							<h5>NIT: 5628394</h5>
 						</div>
 						<div class="row">
-							<h5>Nro Factura:{{$factura->id}} </h5>
+							<h5>Nro Factura:{{$factura->numero}} </h5>
 						</div>
 					</div>
 
@@ -73,12 +73,33 @@
 
                 <div class="row  align-items-center justify-content-between">
 					<div class="col-4">
-						<h5>Cliente: {{$cliente->nombre}} </h5>
+						<h5>Cliente: {{$cliente}} </h5>
 					</div>
 					<div class="col-4">
 						<h5>------</h5>
 					</div>
 				</div>
+				<div>
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th scope="col">Producto</th>
+								<th scope="col">Precio</th>
+								<th scope="col">Cantidad</th>
+							</tr>
+						</thead>
+					<tbody>
+						@foreach ($tablaDetalles as $tablaDetalle)
+							<tr>
+								<td>{{DB::table('productos')->where('id',$tablaDetalle->producto_id)->value('nombre')}}</td>
+								<td>{{DB::table('detalle_ventas')->where('producto_id',$tablaDetalle->producto_id)->value('precio')}}</td>
+								<td>{{DB::table('detalle_ventas')->where('producto_id',$tablaDetalle->producto_id)->value('cantidad')}}</td>
+							</tr>
+						@endforeach
+					</tbody>
+				</table>
+				</div>
+				
 				<div class="row  align-items-center justify-content-between">
 					<div class="col-4">
 						<h5>TOTAL: {{$factura->total}} </h5>

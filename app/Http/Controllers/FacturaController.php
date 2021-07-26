@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Factura;
+use App\Models\NotaVenta;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Models\User;
@@ -29,7 +30,11 @@ class FacturaController extends Controller
      */
     public function create()
     {
-        return view('factura.create');
+        
+    }
+    public function create2(NotaVenta $notaVenta)
+    {
+        return view('factura.create',compact('notaVenta'));
     }
 
     /**
@@ -41,7 +46,7 @@ class FacturaController extends Controller
     public function store(Request $request)
     {
         date_default_timezone_set("America/La_Paz");
-        $facturas=Factura::create([
+        $factura=Factura::create([
             'notaVenta_id'=>request('notaVenta_id'),
             'numero'=>request('numero'),
             'nit'=>request('nit'),
@@ -53,7 +58,7 @@ class FacturaController extends Controller
         $lastActivity = Activity::all()->last();
         $lastActivity->subject_id = Factura::all()->last()->id;
         $lastActivity->save();
-        return redirect()->route('facturas.index');
+        return redirect()->route('facturas.show',compact('factura'));
     }
 
     /**
@@ -64,10 +69,11 @@ class FacturaController extends Controller
      */
     public function show(Factura $factura)
     {
-        $factura2 = $factura->notaVenta_id;
-        $clientes = DB::table('clientes')->get();
+        $cliente_id = DB::table('nota_ventas')->where('id',$factura->notaVenta_id)->value('nroCliente');
+        $cliente = DB::table('clientes')->where('id',$cliente_id)->value('nombre');
+        $tablaDetalles=DB::table('detalle_ventas')->where('notaVenta_id',$factura->notaVenta_id)->get();
         $productos=DB::table('productos')->get();
-        return view('factura.show',compact ('factura'),['productos'=> $productos   ],['clientes'=> $clientes]);
+        return view('factura.show',compact ('factura'),['cliente'=> $cliente,'tablaDetalles'=>$tablaDetalles]);
     }
 
     /**
