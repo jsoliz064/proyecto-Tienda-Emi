@@ -255,17 +255,17 @@ return [
         //     'label_color' => 'success',
         // ],
         
-        ['header' => 'CONFIGURACION'],
-        [
-            'text' => 'Perfil',
-            'url'  => '',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Cambiar Contraseña',
-            'url'  => '',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
+        // ['header' => 'CONFIGURACION'],
+        // [
+        //     'text' => 'Perfil',
+        //     'url'  => '',
+        //     'icon' => 'fas fa-fw fa-user',
+        // ],
+        // [
+        //     'text' => 'Cambiar Contraseña',
+        //     'url'  => '',
+        //     'icon' => 'fas fa-fw fa-lock',
+        // ],
        
         ['header' => 'ADMINISTRACION'],
         [

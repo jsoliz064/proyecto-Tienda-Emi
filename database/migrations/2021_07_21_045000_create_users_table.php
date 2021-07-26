@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
 
             $table->unsignedBigInteger('idPersonal')->unique()->nullable();
             $table->unsignedBigInteger('idRol')->nullable();  
-
+            
             $table->foreign('idPersonal')
                   ->references('id')
                   ->on('personals')
