@@ -32,7 +32,7 @@ class CompatibilidadController extends Controller
          $productos=DB::table('productos')->get();
          $compatibilidades=DB::table('compatibilidads')->get();
         return view('compatibilidad.create',['autos'=>$autos],['productos'=>$productos],
-        ['compatibilidads'=>$compatibilidades],);
+        ['compatibilidades'=>$compatibilidades],);
         
 
     }

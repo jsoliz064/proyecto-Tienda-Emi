@@ -19,7 +19,7 @@ class CreateCompatibilidadsTable extends Migration
             $table->unsignedBigInteger('idProducto');
             $table->string('detalle');  
             $table->foreign('idAuto')->references('id')->on('autos')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('idProductos')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('idProducto')->references('id')->on('productos')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

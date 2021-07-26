@@ -66,10 +66,7 @@ Route::resource('autos',AutoController::class);
 
 Route::resource('detalleCompras',detalleCompraController::class);
 
-<<<<<<< HEAD
 Route::resource('facturas',FacturaController::class);
 
 Route::resource('compatibilidades',CompatibilidadController::class);
-=======
 Route::resource('facturas',FacturaController::class);
->>>>>>> 2c78da117c3476ab153e168c1fbc351eec73c5c5

@@ -20,7 +20,7 @@
                 @csrf  
                 <div class="row row justify-content-center"> 
                     <div class="col-1">
-                        <input type="hidden"  name="idAuto" value=" {{$compatibilidades->id}}" class="focus border-primary  form-control" >
+                        {{-- <input type="hidden"  name="idAuto" value=" {{$compatibilidades->id}}" class="focus border-primary  form-control" > --}}
                     </div>             
                     <div class="col-4">
                         <h5>Auto:</h5>
@@ -61,11 +61,12 @@
                     <div class="col-3 align-items-center">
                         <h5>Nueva Compatibilidad</h5>
                         <button  class="btn btn-primary btn-sm" type="submit">Añadir</button>
+                         
                     </div>
                 </div>  
             </form>
        
-            <div class="row row justify-content-center m-2">
+            {{-- <div class="row row justify-content-center m-2">
                 <h3>Compatibilidad</h3>
             </div>
             <div class="row">
@@ -98,19 +99,19 @@
                         {{-- <tr>
                             <td colspan="2" class="font-weight-bold">MONTO TOTAL</td>
                             <td class="font-weight-bold">{{$notaCompra->monto}}</td>
-                        </tr> --}}
+                        </tr> 
                     </tbody> 
                 </table> 
             </div>
              <div class="row justify-content-end">
-                {{-- <form action="{{route('notaCompras.destroy', $notaCompra)}}" method="post">
+                {<form action="{{route('notaCompras.destroy', $notaCompra)}}" method="post">
                     @csrf
                     @method('delete')
                     <button class="btn btn-danger btn-sm m-2" onclick="return confirm('¿ESTA SEGURO DE BORRAR?')" 
                     value="Borrar">Eliminar Compra</button> 
                     <a class="btn btn-success btn-sm m-2" href="{{route('notaCompras.index')}}">Guardar cambios</a> 
-                  </form> --}}
-            </div> 
+                  </form> 
+            </div>  --}}
             
         </div> 
     </div>       
