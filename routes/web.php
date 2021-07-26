@@ -66,3 +66,5 @@ Route::resource('autos',AutoController::class);
 Route::resource('detalleCompras',detalleCompraController::class);
 
 Route::resource('facturas',FacturaController::class);
+
+Route::get('facturaCreate/{notaVenta}',[FacturaController::class,'create2'])->name('facturaCreate');
