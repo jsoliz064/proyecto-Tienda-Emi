@@ -33,7 +33,7 @@ class CreateUsersTable extends Migration
             $table->foreign('idRol')
                   ->references('role_id')
                   ->on('model_has_roles')
-                  ->onDelete('cascade')
+                  ->onDelete('set null')
                   ->onUpdate('cascade');
             //---------------------------------------------------------------                
             $table->rememberToken();

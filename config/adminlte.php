@@ -279,14 +279,14 @@ return [
             'text' => 'Lista de Roles',
             'route'  => 'admin.roles.index',
             'icon' => 'fas fa-users-cog fa-fw',
-           // 'can' => 'users.index'
+            'can' => 'roles.index'
         ],
         
         [
             'text' => 'Bitacora',
             'url'  => 'bitacora',
             'icon' => 'fas fa-users-cog fa-fw',
-           // 'can' => 'users.index'
+            'can' => 'bitacora.index'
         ],
 
         [

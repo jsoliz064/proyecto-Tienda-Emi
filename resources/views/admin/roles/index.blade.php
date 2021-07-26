@@ -43,7 +43,7 @@
                         <tr>
                             <td>{{ $role->id }}</td>
                             <td>{{ $role->name }}</td>
-                            
+
                             <td width="10px">
                                 {{-- @can('roles.edit') --}}
                                 <a href="{{ route('admin.roles.edit', $role) }}" class="btn btn-sm btn-primary">Editar</a>

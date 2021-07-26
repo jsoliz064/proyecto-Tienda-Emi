@@ -77,7 +77,7 @@
 
             {!! Form::submit('Actualizar Usuario', ['class' => 'btn btn-primary mt-2']) !!}
             <a href="{{route('users.index')}}"class="btn btn-warning mt-2">Volver</a> 
-            {!! Form::close() !!}       
+            {{-- {!! Form::close() !!}        --}}
         </div>
     </div>
 
