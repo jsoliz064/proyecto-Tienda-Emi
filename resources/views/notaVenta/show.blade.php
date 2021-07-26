@@ -3,9 +3,11 @@
 @section('title', 'notaVentas')
 
 @section('content_header')
+<h1></h1>
 @stop
 
 @section('content')
+
 <div class="container " style="background-color: white">
     <div class="row justify-content-center border rounded-top">
         <div class="col">
@@ -17,8 +19,8 @@
                     </div>
                     
                     <div class="row">
-                        <h5 class="font-weight-bold px-2">Numero de Cliente: </h5>
-                        <h5>{{$notaVenta->nroCliente}}</h5>
+                        <h5 class="font-weight-bold px-2">Cliente: </h5>
+                        <h5>{{DB::table('clientes')->where('id',$notaVenta->nroCliente)->value('nombre')}}</h5>
                     </div>
                     <div class="row">
                         <h5 class="font-weight-bold px-2">Importe: </h5>
@@ -30,7 +32,10 @@
                         <h5>{{$notaVenta->updated_at}}</h5>
                     </div>
                     <div class="row">
-                        <a href="{{route('notaVentas.index')}}"class="btn btn-warning text-white btn-sm m-2">Volver</a>
+                        <form action="{{route('facturas.create')}}">
+                            <button class="btn btn-success btn-sm">Generar Factura</button>
+                            <a href="{{route('notaVentas.index')}}"class="btn btn-warning text-white btn-sm m-2">Volver</a>
+                        </form>
                     </div>
                 </div>
             </div>

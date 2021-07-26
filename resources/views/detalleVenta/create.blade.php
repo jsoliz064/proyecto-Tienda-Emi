@@ -8,6 +8,12 @@
 
 @section('content')
 
+@if (session('info'))
+<div class="alert alert-success">
+    <strong>{{session('info')}}</strong>
+</div>
+@endif
+
 <div class="container " style="background-color: white">
     <div class="row justify-content-center border rounded-top">
         <div class="col">
@@ -19,7 +25,7 @@
                 @csrf  
                 <div class="row row justify-content-center"> 
                     <div class="col-1">
-                        <input type="hidden"  name="NotaVenta_id" value=" {{$notaVenta->id}}" class="focus border-primary  form-control" >
+                        <input type="hidden"  name="notaVenta_id" value=" {{$notaVenta->id}}" class="focus border-primary  form-control" >
                     </div>                 
                     <div class="col-4">
                         <h5>Producto:</h5>
@@ -35,14 +41,25 @@
                             <p>DEBE INGRESAR BIEN EL PRODUCTO</p>
                         @enderror
                     </div>
-                    <div class="col-1">
+
+                    {{-- <div class="col-1">
                         <h5>Bs:</h5>
-                        <input type="txt" value="{{$producto->precioU}}" name="costo" class="focus border-primary  form-control" >
+                        <input type="txt" value="{{$producto->precioU}}" class="focus border-primary  form-control" >
         
                         @error('costo')
                         <p>DEBE INGRESAR EL PRECIO </p>
                         @enderror
                     </div>
+
+                    <div class="col-1">
+                        <h5>Stock:</h5>
+                        <input type="txt" value="{{$producto->stock}}" class="focus border-primary  form-control" >
+        
+                        @error('costo')
+                        <p>DEBE INGRESAR EL PRECIO </p>
+                        @enderror
+                    </div> --}}
+
                     <div class="col-2">
                         <h5>Cantidad:</h5>
                         <input type="number" value="1" name="cantidad" class="focus border-primary  form-control" >
@@ -54,7 +71,6 @@
                     <div class="col-3 align-items-center">
                         <h5>Carrito</h5>
                         <button  class="btn btn-primary btn-sm" type="submit">Añadir</button>
-                      
                     </div>
                 </div>  
             </form>
@@ -66,6 +82,7 @@
                     <thead>
                         <tr>
                           <th scope="col">Producto</th>
+                          <th scope="col">Precio</th>
                           <th scope="col">Cantidad</th>
                           <th scope="col">Importe</th>
                           <th scope="col">Acciones</th>
@@ -76,6 +93,7 @@
                         @foreach ($notas as $nota)
                             <tr>
                                 <td>{{DB::table('productos')->where('id',$nota->producto_id)->value('nombre')}}</td>
+                                <td>{{$nota->precio}}</td>
                                 <td>{{$nota->cantidad}}</td>
                                 <td>{{$nota->importe}}</td>
                                 <td>

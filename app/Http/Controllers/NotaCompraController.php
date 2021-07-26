@@ -119,6 +119,10 @@ class NotaCompraController extends Controller
             ]);
         }
         $notaCompra->delete();
+        activity()->useLog('NotaCompra')->log('Eliminar')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = $notaCompra->id;
+        $lastActivity->save();
         return redirect()->route('notaCompras.index');
     }
 }

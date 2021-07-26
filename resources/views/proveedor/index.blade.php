@@ -12,6 +12,7 @@
         <a href="{{route('proveedores.create')}}"class="btn btn-primary btb-sm">Registrar Proveedor</a>
     </div>
 </div>
+
 <div class="card">
 <div class="card-body">
   <table class="table table-striped" id="clientes" >
@@ -25,6 +26,7 @@
         <th scope="col">Acciones</th>
       </tr>
     </thead>
+
      <tbody>
       @foreach ($proveedores as $proveedor)
 
@@ -32,7 +34,7 @@
           <td>{{$proveedor->id}}</td>
           <td>{{$proveedor->nombre}}</td>
           <td>{{$proveedor->telefono}}</td>
-          <td>
+          <td >
             <form action="{{route('proveedores.destroy',$proveedor)}}" method="post">
               @csrf
               @method('delete')
