@@ -63,7 +63,7 @@ class DetalleCompraController extends Controller
         ]);
         return redirect(route('detalleCompras.show', $idNotaCompra));
     }
-
+ 
     /**
      * Display the specified resource.
      *

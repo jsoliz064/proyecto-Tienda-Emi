@@ -35,7 +35,7 @@ class NotaCompraController extends Controller
         $productos = DB::table('productos')->get();
         return view('notaCompra.create', ['proveedors' => $proveedors, 'users' => $users, 'productos' => $productos]);
     }
-
+ 
     /**
      * Store a newly created resource in storage.
      *

@@ -7,12 +7,12 @@
     {{--<h1>Detalle Venta</h1>--}}
 @stop
 @section('content')
-<div class="card">
+{{-- <div class="card">
         <div class="card-header">
             <h3>Detalle de Ventas:</h3>
             <a href="{{route('detalleVentas.create')}}"class="btn btn-primary btb-sm">Registrar</a>
         </div>
-  </div>
+  </div> --}}
   
 <div class="card">
   <div class="card-body">
@@ -47,7 +47,7 @@
                    @csrf
                    @method('delete')
                    <a class="btn btn-primary btn-sm" href="{{route('detalleVentas.show', $detalleVenta)}}">Ver</a>
-                     
+                   {{--<a class="btn btn-primary btn-sm" href="{{route('detalleVentas.show',auth()->detalleVenta()->detalleVenta)}}">Ver</a>--}}
                    <a href="{{route('detalleVentas.edit', $detalleVenta)}}"class="btn btn-info btn-sm">Editar</a>
                    <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
                    value="Borrar">Eliminar</button> 
