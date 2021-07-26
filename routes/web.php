@@ -43,7 +43,6 @@ Route::resource('clientes',ClienteController::class);
 
 Route::resource('proveedores',ProveedorController::class);
 
-
 Route::resource('personales',PersonalController::class);
 
 Route::resource('productos',ProductoController::class);
@@ -67,4 +66,3 @@ Route::resource('autos',AutoController::class);
 Route::resource('detalleCompras',detalleCompraController::class);
 
 Route::resource('facturas',FacturaController::class);
-

@@ -44,10 +44,12 @@ class DetalleVentaController extends Controller
      */
     public function store(Request $request)
     {
+       
         date_default_timezone_set("America/La_Paz");
         $notaVenta_id = request('notaVenta_id');
         $producto = DB::table('productos')->where('id',request('producto_id'))->value('precioU');
-        
+        $prodStock = DB::table('productos')->where('id',request('producto_id'))->value('stock');
+        if ($prodStock>=request('cantidad')){
         $detalleVenta=DetalleVenta::create([
             'notaVenta_id'=>NotaVenta::all()->last()->id,
             'producto_id'=>request('producto_id'),
@@ -67,7 +69,10 @@ class DetalleVentaController extends Controller
         DB::table('productos')->where('id',request('producto_id'))->update([
             'stock'=>$nuevoStock
         ]);
-        return redirect()->route('detalleVentas.show',$notaVenta_id);
+        return redirect(route('detalleVentas.show', $notaVenta_id));
+        }else{
+            return redirect()->route('detalleVentas.show', $notaVenta_id)->with('info', 'Stock insuficiente');
+        }
     }
 
  /*    /**
