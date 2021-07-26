@@ -16,6 +16,7 @@ use App\Http\Controllers\DetalleVentaController;
 use App\Http\Controllers\AutoController;
 use App\Http\Controllers\DetalleCompraController;
 use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\CompatibilidadController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -68,3 +69,4 @@ Route::resource('detalleCompras',detalleCompraController::class);
 
 Route::resource('facturas',FacturaController::class);
 
+Route::resource('compatibilidades',CompatibilidadController::class);
