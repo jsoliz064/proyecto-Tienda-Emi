@@ -17,6 +17,8 @@ use App\Http\Controllers\AutoController;
 use App\Http\Controllers\DetalleCompraController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\CompatibilidadController;
+use App\Models\NotaCompra;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -70,3 +72,5 @@ Route::resource('facturas',FacturaController::class);
 
 Route::resource('compatibilidades',CompatibilidadController::class);
 Route::resource('facturas',FacturaController::class);
+
+Route::resource('u', NotaCompra::class);
