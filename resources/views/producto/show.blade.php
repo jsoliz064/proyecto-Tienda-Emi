@@ -6,6 +6,11 @@
 @stop
 
 @section('content')
+
+
+
+
+
 <div class="container " style="background-color: white">
     <div class="row justify-content-center border rounded-top">
         <div class="col">
