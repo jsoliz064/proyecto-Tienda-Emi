@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\NotaSalida;
 use Illuminate\Http\Request;
-
 class NotaSalidaController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class NotaSalidaController extends Controller
      */
     public function index()
     {
-        //
+        return view('notaSalida.index', compact('notaSalida'));
     }
 
     /**
@@ -23,7 +23,7 @@ class NotaSalidaController extends Controller
      */
     public function create()
     {
-        //
+        return view('notaSalida.crate', compact('notaSalida'));
     }
 
     /**
@@ -43,9 +43,10 @@ class NotaSalidaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(NotaSalida $notaSalida)
     {
-        //
+        return view('notaSalida.show', compact('notaSalida'));
+        
     }
 
     /**
@@ -54,9 +55,10 @@ class NotaSalidaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(NotaSalida $notaSalida)
     {
-        //
+        return view('notaSalida.edit', compact('notaSalida'));
+        
     }
 
     /**
@@ -66,7 +68,7 @@ class NotaSalidaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, NotaSalida $notaSalida)
     {
         //
     }
@@ -77,7 +79,7 @@ class NotaSalidaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(NotaSalida $notaSalida)
     {
         //
     }

@@ -12,10 +12,10 @@
         <form method="post" action="{{route('facturas.store')}}" novalidate >
 
             @csrf
-            <h5>Nota de Venta ID:</h5>
-            <input type="text" name="notaVenta_id" value="{{$notaVenta->id}}" class="focus border-primary  form-control">
+            <h5>Nota de Venta</h5>
+            <input type="text" name="notaVenta_id" value="{{$notaVenta->id}}" class="focus border-primary  form-control" >
 
-            <h5>Numero:</h5>
+            <h5>N° Factura</h5>
             <input type="number"  name="numero" class="focus border-primary  form-control" >
             @error('numero')
             <p>DEBE INGRESAR BIEN EL NUMERO</p>
@@ -36,7 +36,7 @@
             @enderror
 
             <h5>Total:</h5>
-            <input type="text" name="total" value="{{$notaVenta->importe}}" class="focus border-primary  form-control" >
+            <input type="text" name="total" value="{{$notaVenta->importe}}" class="focus border-primary  form-control"  >
             <br>
             <br>
 

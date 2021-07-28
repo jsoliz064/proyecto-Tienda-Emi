@@ -17,6 +17,7 @@ use App\Http\Controllers\AutoController;
 use App\Http\Controllers\DetalleCompraController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\CompatibilidadController;
+use App\Http\Controllers\NotaSalidaController;
 use App\Models\NotaCompra;
 
 /*
@@ -72,4 +73,6 @@ Route::resource('facturas',FacturaController::class);
 
 Route::get('facturaCreate/{notaVenta}',[FacturaController::class,'create2'])->name('facturaCreate');
 Route::resource('compatibilidades',CompatibilidadController::class);
+
+Route::resource('notaSalidas', NotaSalidaController::class)->names('notaSalidas');
 
