@@ -24,6 +24,7 @@ class DatabaseSeeder extends Seeder
         $this -> call(UserSeeder::class);
         $this -> call(ProductoSeeder::class);
         $this -> call(ProveedorSeeder::class);
+        $this -> call(SalidaSeeder::class);
 
         $personal1=new personal();
         $personal1->ci= 1234567;

@@ -14,4 +14,8 @@ class Producto extends Model
     public function categoria(){
         return $this->belongsTo('App\Models\Categoria', 'idCategoria');
     }
+    //relacion muchos a muchos
+    public function salidas(){
+        return $this->belongsToMany('App\Models\Salida');
+    }
 }
