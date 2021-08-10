@@ -330,6 +330,11 @@ return [
                     'url'  => 'notaCompras',
                     'icon' => 'fas fa-fw fa-user',
                 ],
+                [
+                    'text' => 'Salidas',
+                    'url'  => 'salidas',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
             ],
         ],
         [

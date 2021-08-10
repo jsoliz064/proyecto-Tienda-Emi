@@ -18,9 +18,12 @@
             <form method="post" action="{{route('detalleCompras.store')}}" novalidate >
                 @csrf  
                 <div class="row row justify-content-center"> 
+                    {{-- NO SE, QUE HACE ESTO :V --}}
                     <div class="col-1">
                         <input type="hidden"  name="idNotaCompra" value=" {{$notaCompra->id}}" class="focus border-primary  form-control" >
-                    </div>                 
+                    </div>        
+                    {{-- NO SE, QUE HACE ESTO :V --}}
+                    {{-- SELECCIONAR PRODUCTO --}}
                     <div class="col-4">
                         <h5>Producto:</h5>
                         <select name="idProducto" id="idProducto" class="form-control" onchange="habilitar()" >
@@ -35,6 +38,7 @@
                             <p>DEBE INGRESAR BIEN EL PRODUCTO</p>
                         @enderror
                     </div>
+                    {{-- INGRESAR PRECIO --}}
                     <div class="col-1">
                         <h5>Bs:</h5>
                         <input type="txt" value="1" name="costo" class="focus border-primary  form-control" >
@@ -43,6 +47,7 @@
                         <p>DEBE INGRESAR EL PRECIO </p>
                         @enderror
                     </div>
+                    {{-- INGRESAR CANTIDAD --}}
                     <div class="col-2">
                         <h5>Cantidad:</h5>
                         <input type="number" value="1" name="cantidad" class="focus border-primary  form-control" >
@@ -51,15 +56,18 @@
                         <p>DEBE INGRESAR LA CANTIDAD</p>
                         @enderror
                     </div>
+                    {{-- BUTTON AñADIR --}}
                     <div class="col-3 align-items-center">
                         <h5>Carrito</h5>
                         <button  class="btn btn-primary btn-sm" type="submit">Añadir</button>
                     </div>
                 </div>  
             </form>
+            
             <div class="row row justify-content-center m-2">
                 <h3>DETALLE</h3>
             </div>
+
             <div class="row">
                 <table class="table table-striped">
                     <thead>
@@ -84,7 +92,7 @@
                                       <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
                                       value="Borrar"><i class="fas fa-times"></i> </button>
                                     </form>
-                                  </td>
+                                </td>
                             </tr>
                         @endforeach
                         <tr>
@@ -94,6 +102,7 @@
                     </tbody> 
                 </table> 
             </div>
+
              <div class="row justify-content-end">
                 <form action="{{route('notaCompras.destroy', $notaCompra)}}" method="post">
                     @csrf

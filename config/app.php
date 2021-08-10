@@ -67,7 +67,10 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    //modificamos la zona horaria
+    //date_default_timezone_set("America/La_Paz");
+    
+    'timezone' => 'America/La_Paz',
 
     /*
     |--------------------------------------------------------------------------

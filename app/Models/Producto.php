@@ -16,6 +16,11 @@ class Producto extends Model
     }
     //relacion muchos a muchos
     public function salidas(){
-        return $this->belongsToMany('App\Models\Salida');
+        // return $this->belongsToMany('App\Models\Salida');  //metodo 1 relacion
+        //->withPivot('cantidad')--> especificamos que hay otro atributo en la tabla intermedia
+        return $this->belongsToMany(Producto::class)->withPivot('cantidad'); //metodo 2 relacion
+        //return $this->belongsToMany(Producto::class); //metodo 2 relacion sin atributos extras
+
+
     }
 }

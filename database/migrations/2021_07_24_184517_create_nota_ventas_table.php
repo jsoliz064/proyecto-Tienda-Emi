@@ -20,8 +20,8 @@ class CreateNotaVentasTable extends Migration
             $table->integer('importe');
             $table->timestamps();
             $table->foreign('nroCliente')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
-            $table->date('fecha');
-            $table->time('hora');
+            $table->date('fecha')->nullable();
+            $table->time('hora')->nullable();
           /*  $table->foreign('nroUsuario')->references('id')->on('users')->onDelete('set null')->onUpdate('cascade');*/
         });
     }

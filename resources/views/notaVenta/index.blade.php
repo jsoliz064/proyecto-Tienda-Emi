@@ -40,7 +40,7 @@
           @foreach ($notaVentas as $notaVenta)
 
             <tr>
-              <td>{{$notaVenta->id}}</td>
+               <td>{{$notaVenta->id}}</td>
                <td>{{DB::table('clientes')->where('id',$notaVenta->nroCliente)->value('nombre')}}</td>
                <td>{{$notaVenta->importe}}</td>
                <td>{{$notaVenta->updated_at}}</td>
