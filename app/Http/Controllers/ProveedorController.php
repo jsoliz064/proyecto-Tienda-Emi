@@ -97,4 +97,5 @@ class ProveedorController extends Controller
         $proveedore->delete();
         return redirect()->route('proveedores.index');
     }
+
 }

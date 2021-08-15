@@ -309,6 +309,11 @@ return [
                     'url'  => 'personales',
                     'icon' => 'fas fa-fw fa-user',
                 ],
+                [
+                    'text' => 'Reportes',
+                    'route'  => 'resultados.index',
+                    'icon' => 'fas fa-fw  fa-fax',
+                ],
             ],
         ],
         [
