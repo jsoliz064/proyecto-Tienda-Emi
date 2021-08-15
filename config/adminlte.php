@@ -330,6 +330,11 @@ return [
                     'url'  => 'planPagos',
                     'icon' => 'fas fa-fw fa-user',
                 ],
+                [
+                    'text' => 'Gestionar Cuotas',
+                    'url'  => 'cuotas',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
                 // [
                 //     'text' => 'DetalleVentas',
                 //     'url'  => 'detalleVentas',
