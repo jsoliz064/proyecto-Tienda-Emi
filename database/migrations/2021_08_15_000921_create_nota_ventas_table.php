@@ -16,17 +16,15 @@ class CreateNotaVentasTable extends Migration
         Schema::create('nota_ventas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('nroCliente')->nullable();
-            /*$table->unsignedBigInteger('nroUsuario')->nullable();*/
+            $table->unsignedBigInteger('planPago_id')->nullable();
             $table->integer('importe');
             $table->timestamps();
             $table->foreign('nroCliente')->references('id')->on('clientes')->onDelete('cascade')->onUpdate('cascade');
             $table->date('fecha')->nullable();
             $table->time('hora')->nullable();
-          /*  $table->foreign('nroUsuario')->references('id')->on('users')->onDelete('set null')->onUpdate('cascade');*/
+            $table->foreign('planPago_id')->references('id')->on('plan_pagos')->onDelete('set null')->onUpdate('cascade');
         });
     }
-    
-
 
     /**
      * Reverse the migrations.
