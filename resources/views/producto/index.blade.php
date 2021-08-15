@@ -12,6 +12,7 @@
         <a href="{{route('productos.create')}}"class="btn btn-primary btb-sm">Registrar Producto</a>
     </div>
 </div>
+
 <div class="card">
 <div class="card-body">
   <table class="table table-striped" id="productos" >
@@ -31,7 +32,7 @@
     </thead>
      <tbody>
       @foreach ($productos as $producto) 
-
+        
         <tr>
           <td>{{$producto->id}}</td>
           <td>{{$producto->categoria->nombre}}</td>

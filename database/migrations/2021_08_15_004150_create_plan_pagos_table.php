@@ -16,10 +16,12 @@ class CreatePlanPagosTable extends Migration
         Schema::create('plan_pagos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('nota_venta_id')->nullable();
-            $table->date('plazo');
             $table->integer('cantidad_cuotas');
-            $table->string('tipo');
-            $table->string('saldo');
+            $table->integer('cuotas_Pagadas')->nullable();
+            $table->float('monto_Couta')->nullable();
+            $table->float('saldo');
+            $table->string('estado');
+            
             $table->foreign('nota_venta_id')->references('id')->on('nota_ventas')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

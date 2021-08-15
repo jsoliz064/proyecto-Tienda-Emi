@@ -325,6 +325,11 @@ return [
                     'url'  => 'notaVentas',
                     'icon' => 'fas fa-fw fa-user',
                 ],
+                [
+                    'text' => 'planes',
+                    'url'  => 'planPagos',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
                 // [
                 //     'text' => 'DetalleVentas',
                 //     'url'  => 'detalleVentas',
@@ -340,6 +345,7 @@ return [
                     'url'  => 'salidas',
                     'icon' => 'fas fa-fw fa-user',
                 ],
+                
             ],
         ],
         [

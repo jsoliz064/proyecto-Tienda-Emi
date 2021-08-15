@@ -4,82 +4,89 @@ namespace App\Http\Controllers;
 
 use App\Models\PlanPago;
 use Illuminate\Http\Request;
+use App\Models\NotaVenta;
 
 class PlanPagoController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+        $plan = PlanPago::all();
+        return view('PlanPago.index', compact('plan'));
     }
+    //---------------------------------------------------------------------------------------------------------
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('PlanPago.create');
     }
+    //---------------------------------------------------------------------------------------------------------
+    
+    public function create2(NotaVenta $notaVenta)
+    {
+        return view('PlanPago.create', compact('notaVenta'));        
+    } 
+    //---------------------------------------------------------------------------------------------------------
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-    }
+        $venta_id = $request->notaVenta_id; 
+        $cantidad = $request->cantidad;
+        $saldo = $request->saldo;
+        $cuota = $saldo / $cantidad;
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\PlanPago  $planPago
-     * @return \Illuminate\Http\Response
-     */
-    public function show(PlanPago $planPago)
+        $salida = PlanPago::create([
+            'nota_venta_id' => $venta_id,
+            'cantidad_cuotas' =>  $cantidad,
+            'cuotas_Pagadas' => 0,
+            'monto_Couta' => $cuota,
+            'saldo' => $saldo,
+            'estado' => 'vigente',
+        ]);
+
+        return redirect()->route('planPagos.index');
+    }
+    //---------------------------------------------------------------------------------------------------------
+
+
+    // public function show(PlanPago $planPago)
+    // {
+    //     return view('PlanPago.show');
+    // }
+    public function show($name){
+
+        switch ($name){
+          case 'foo':  $this -> foo();  break;
+          case 'bar':  $this ->bar();   break; 
+          default: abort(404,'bad request');   break;
+        }
+       
+       }
+       
+    public function foo()
     {
-        //
     }
+    public function bar()
+    {
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\PlanPago  $planPago
-     * @return \Illuminate\Http\Response
-     */
+    }
+    //---------------------------------------------------------------------------------------------------------
+
+
     public function edit(PlanPago $planPago)
     {
-        //
+        return view('PlanPago.show');
     }
+    //---------------------------------------------------------------------------------------------------------
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\PlanPago  $planPago
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, PlanPago $planPago)
     {
         //
     }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\PlanPago  $planPago
-     * @return \Illuminate\Http\Response
-     */
+    //---------------------------------------------------------------------------------------------------------
     public function destroy(PlanPago $planPago)
     {
-        //
+        $planPago->delete();
+        return redirect()->route('planPagos.index');
     }
 }

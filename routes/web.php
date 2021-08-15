@@ -18,6 +18,7 @@ use App\Http\Controllers\DetalleCompraController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\CompatibilidadController;
 use App\Http\Controllers\NotaSalidaController;
+use App\Http\Controllers\PlanPagoController;
 use App\Http\Controllers\ResultadoController;
 use App\Http\Controllers\SalidaController;
 use App\Models\NotaCompra;
@@ -79,5 +80,8 @@ Route::resource('compatibilidades',CompatibilidadController::class);
 Route::resource('salidas', SalidaController::class)->names('salidas');
 
 Route::resource('resultados', ResultadoController::class)->names('resultados');
+
+Route::resource('planPagos', PlanPagoController::class)->names('planPagos');
+Route::get('planPagoCreate/{notaVenta}', [PlanPagoController::class, 'create2'])->name('planPagoCreate');
 
 
