@@ -326,7 +326,7 @@ return [
                     'icon' => 'fas fa-fw fa-user',
                 ],
                 [
-                    'text' => 'planes',
+                    'text' => 'Gestionar plan de Pago',
                     'url'  => 'planPagos',
                     'icon' => 'fas fa-fw fa-user',
                 ],

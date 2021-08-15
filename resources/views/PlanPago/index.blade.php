@@ -41,17 +41,17 @@
                 <td width="1%">{{$planes->cuotas_Pagadas}}</td>
                 <td width="5%">{{$planes->saldo}}</td>
                 <td width="10%">{{$planes->estado}}</td>
-                <td width="20%">
+                <td width="10%">
 
                     <form action = "{{route('planPagos.destroy',$planes)}}" method="post">
                         @csrf
                         @method('delete')   
           
-                        <a class="btn btn-primary btn-sm" href="{{route('productos.show',$planes)}}">Ver</a>
+                        {{-- <a class="btn btn-primary btn-sm" href="{{route('productos.show',$planes)}}">Ver</a>
                           
                         
                         <a href="{{route('productos.edit',$planes)}}"class="btn btn-info btn-sm">Editar</a>
-                        
+                         --}}
           
                         <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
                         value="Borrar">Eliminar</button> 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PlanPago;
 use Illuminate\Http\Request;
 use App\Models\NotaVenta;
+use Spatie\Activitylog\Models\Activity;
 
 class PlanPagoController extends Controller
 {
@@ -30,12 +31,17 @@ class PlanPagoController extends Controller
 
     public function store(Request $request)
     {
-        $venta_id = $request->notaVenta_id; 
+        $request->validate([
+            'cantidad' => 'required',
+            'nota_venta_id' => 'required  | unique:plan_pagos', 
+        ]);
+
+        $venta_id = $request->nota_venta_id; 
         $cantidad = $request->cantidad;
         $saldo = $request->saldo;
         $cuota = $saldo / $cantidad;
 
-        $salida = PlanPago::create([
+        $plan = PlanPago::create([
             'nota_venta_id' => $venta_id,
             'cantidad_cuotas' =>  $cantidad,
             'cuotas_Pagadas' => 0,
@@ -44,6 +50,10 @@ class PlanPagoController extends Controller
             'estado' => 'vigente',
         ]);
 
+        activity()->useLog('PlanPago')->log('Crear')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = $plan->id;
+        $lastActivity->save();
         return redirect()->route('planPagos.index');
     }
     //---------------------------------------------------------------------------------------------------------
@@ -87,6 +97,11 @@ class PlanPagoController extends Controller
     public function destroy(PlanPago $planPago)
     {
         $planPago->delete();
+
+        activity()->useLog('PlanPago')->log('Eliminar')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = $planPago->id;
+        $lastActivity->save();
         return redirect()->route('planPagos.index');
     }
 }

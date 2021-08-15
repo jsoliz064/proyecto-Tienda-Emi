@@ -13,19 +13,23 @@
                 @csrf
 
                 <h5>Nota de Venta</h5>
-                <input type="text"  name="notaVenta_id"  value ="{{$notaVenta->id}}" class="focus border-primary  form-control" readonly>
-                
+                <input type="text"  name="nota_venta_id"  value ="{{$notaVenta->id}}" class="focus border-primary  form-control" readonly>
+                    @error('nota_venta_id')
+                        <span class="text-danger"> {{'Hay un plan de pago Existente'}}</span>
+                    @enderror
+
                 <h5>Cantidad de Cuotas</h5>
                 <input type="number"  name="cantidad" min="1" max="50" class="focus border-primary  form-control">
-                
+                    @error('cantidad')
+                        <span class="text-danger"> {{'ingrese la cantidad de cuotas'}}</span>
+                    @enderror
+
                 <h5>Saldo:</h5>
                 <input type="number"  name="saldo"  value ="{{$notaVenta->importe}}" class="focus border-primary  form-control" readonly>
                 
                 <br>
                 <button  class="btn btn-danger btn-sm" type="submit">Registrar</button>
                 <a href="{{route('planPagos.index')}}"class="btn btn-warning text-white btn-sm">Volver</a>
-
-                
             </form>
 
         </div>
