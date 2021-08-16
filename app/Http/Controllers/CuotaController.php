@@ -79,6 +79,7 @@ class CuotaController extends Controller
         $cantidad_cuotas = $planPago -> cantidad_cuotas;
         if (($cantidad_cuotas) == ($cuotas_pagadas)){
             $planPago -> estado = 'finalizado';
+            $planPago -> saldo = 0;
         }
         $planPago->save();
 
