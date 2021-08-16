@@ -20,6 +20,7 @@
             <th scope="col">Cuota</th>
             <th scope="col">Cuotas Pagadas</th>
             <th scope="col">Saldo Pendiente</th>
+            <th scope="col">Total</th>
             <th scope="col">Estado</th>
             <th  scope="col"> Acciones</th>
             </tr>
@@ -37,9 +38,10 @@
                 <td width="1%">{{$planes->id}}</td>
                 <td width="10%" >{{DB::table('clientes')->where('id', $cliente_id)->value('nombre')}}</td>                
                 <td width="1%" >{{$planes->cantidad_cuotas}}</td>
-                <td width="5%">{{$planes->monto_Couta}}</td>
-                <td width="1%">{{$planes->cuotas_Pagadas}}</td>
+                <td width="5%">{{$planes->monto_cuota}}</td>
+                <td width="1%">{{$planes->cuotas_pagadas}}</td>
                 <td width="5%">{{$planes->saldo}}</td>
+                <td width="5%">{{$planes->total}}</td>
                 <td width="10%">{{$planes->estado}}</td>
                 <td width="10%">
 

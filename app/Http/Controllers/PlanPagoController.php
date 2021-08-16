@@ -44,8 +44,9 @@ class PlanPagoController extends Controller
         $plan = PlanPago::create([
             'nota_venta_id' => $venta_id,
             'cantidad_cuotas' =>  $cantidad,
-            'cuotas_Pagadas' => 0,
-            'monto_Couta' => $cuota,
+            'cuotas_pagadas' => 0,
+            'monto_cuota' => $cuota,
+            'total' => $saldo,
             'saldo' => $saldo,
             'estado' => 'vigente',
         ]);
@@ -54,6 +55,7 @@ class PlanPagoController extends Controller
         $lastActivity = Activity::all()->last();
         $lastActivity->subject_id = $plan->id;
         $lastActivity->save();
+
         return redirect()->route('planPagos.index');
     }
     //---------------------------------------------------------------------------------------------------------

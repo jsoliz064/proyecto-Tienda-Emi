@@ -17,8 +17,9 @@ class CreatePlanPagosTable extends Migration
             $table->id();
             $table->unsignedBigInteger('nota_venta_id')->nullable();
             $table->integer('cantidad_cuotas');
-            $table->integer('cuotas_Pagadas')->nullable();
-            $table->float('monto_Couta')->nullable();
+            $table->integer('cuotas_pagadas');
+            $table->float('monto_cuota')->nullable();
+            $table->float('total');
             $table->float('saldo');
             $table->string('estado');
             

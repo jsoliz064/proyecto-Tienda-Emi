@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Cuota extends Model
 {
     use HasFactory;
+    protected $table="cuotas";
+    protected $guarded=['id','created_at','updated_at'];
 }

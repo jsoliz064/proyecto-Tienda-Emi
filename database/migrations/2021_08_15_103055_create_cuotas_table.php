@@ -19,7 +19,7 @@ class CreateCuotasTable extends Migration
             $table->bigInteger('plan_id')->unsigned();
 
             $table->float('monto');
-            $table->float('nro_cuota')->nullable();
+            $table->integer('nro_cuota')->nullable();
             $table->time('hora');
             $table->date('fecha');
 

@@ -3,7 +3,7 @@
 @section('title', 'Inicio')
 
 @section('content_header')
-<h1>titulo</h1>
+<h1 >Lista de Cuotas</h1>
 @stop
 
 @section('content')
@@ -31,10 +31,10 @@
                 <tbody>
                     @foreach ($cuotas as $cuota)
                         <tr>
-                            <td width="19%">{{$cuota->id}}</td>
-                            <td width="19%">{{$cuota->plan_id }}</td>
+                            <td width="1%">{{$cuota->id}}</td>
+                            <td width="1%">{{$cuota->plan_id }}</td>
                             <td width="19%">{{$cuota->monto }}</td>
-                            <td width="19%">{{$cuota->nroCuota }}</td>
+                            <td width="19%">{{$cuota->nro_cuota }}</td>
                             <td width="19%">{{$cuota->hora}}</td>
                             <td width="19%">{{$cuota->fecha }}</td>
                             <td width="19%">
