@@ -278,12 +278,19 @@ return [
             'text'    => 'ADM RR.HH',
             'icon'    => 'fas fa-fw  fa-fax',
             'submenu' => [
+                [
+                    'text' => 'Clientes',
+                    'url'  => 'clientes',
+                    'icon' => 'far fa-address-card',
+                    'can' => 'clientes.index'
+                ],
                 
                 [
                     'text' => 'Personal',
                     'url'  => 'personales',
                     'icon' => 'fas fa-fw fa-user',
                 ],
+                
 
 
                 [
@@ -314,6 +321,7 @@ return [
                         ],
                     ],
                 ],
+                
             ],
         ],
         //----------------------------------------------------------------------------------------
@@ -321,12 +329,7 @@ return [
             'text'    => 'ADM VENTAS',
             'icon'    => 'fas fa-fw  fa-fax',
             'submenu' => [
-                [
-                    'text' => 'Clientes',
-                    'url'  => 'clientes',
-                    'icon' => 'far fa-address-card',
-                    'can' => 'clientes.index'
-                ],
+              
                 [
                     'text' => 'Ventas',
                     'url'  => 'notaVentas',
@@ -353,21 +356,36 @@ return [
                     'url'  => 'salidas',
                     'icon' => 'fas fa-fw fa-user',
                 ],
+                [
+                    'text' => 'Reporte de Ventas',
+                    'route'  => 'reporte.date',
+                    'icon' => 'fas fa-fw  fa-fax',
+                ],
+                
+
+            ],
+        ],
+        [
+            'text'    => 'ADM COMPRAS',
+            'icon'    => 'fas fa-fw  fa-fax',
+            'submenu' => [
                 
                 [
-                    'text'    => 'Reportes',
-                    'icon'    => 'fas fa-fw  fa-fax',
-                    'icon_color'=>'primary',
-                    
-                    'submenu' => [
-                        
-                        [
-                            'text' => 'Reporte de Ventas',
-                            'route'  => 'resultados.index',
-                            'icon' => 'fas fa-fw  fa-fax',
-                        ],
-                       
-                    ],
+                    'text' => 'Gestionar Proveedores',
+                    'url'  => 'proveedores',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+                
+                [
+                    'text' => 'Gestionar Compras',
+                    'url'  => 'notaCompras',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+
+                [
+                    'text' => 'Reporte de Compras',
+                    'route'  => 'reporteCompra.date',
+                    'icon' => 'fas fa-fw  fa-fax',
                 ],
 
             ],
@@ -402,25 +420,7 @@ return [
             ],
         ],
 
-        [
-            'text'    => 'ADM COMPRAS',
-            'icon'    => 'fas fa-fw  fa-fax',
-            'submenu' => [
-                
-                [
-                    'text' => 'Gestionar Proveedores',
-                    'url'  => 'proveedores',
-                    'icon' => 'fas fa-fw fa-user',
-                ],
-                
-                [
-                    'text' => 'Gestionar Compras',
-                    'url'  => 'notaCompras',
-                    'icon' => 'fas fa-fw fa-user',
-                ],
-
-            ],
-        ],
+        
         /*['header' => 'labels'],
          [
             'text'       => 'important',
