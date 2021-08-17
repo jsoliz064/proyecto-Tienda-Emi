@@ -14,8 +14,10 @@ class ReporteController extends Controller
         date_default_timezone_set("America/La_Paz");
         $ventas=NotaVenta::whereDate('created_at',Carbon::today())->get();
         $total = $ventas->sum('importe');
-        
-        return view('ReporteVenta.index',compact('ventas','total'));
+        $fecha=Carbon::now();
+        $fechaini=$fecha->format('Y-m-d');
+        $fechafin=$fecha->format('Y-m-d');
+        return view('ReporteVenta.index',compact('ventas','total','fechaini','fechafin'));
     }
     public function reporte_resultado(Request $request){
         date_default_timezone_set("America/La_Paz");
@@ -23,14 +25,19 @@ class ReporteController extends Controller
         $ff=$request->fecha_fin.' 23:59:59';
         $ventas=NotaVenta::whereBetween('created_at',[$fi,$ff])->get();
         $total = $ventas->sum('importe');
-        return view('ReporteVenta.index',compact('ventas','total'));
+        $fechaini=$request->fecha_ini;
+        $fechafin=$request->fecha_fin;
+        return view('ReporteVenta.index',compact('ventas','total','fechaini','fechafin'));
     }
     //reporte de compras
     public function reporteCompra_fecha(){
         date_default_timezone_set("America/La_Paz");
         $compras=NotaCompra::whereDate('created_at',Carbon::today())->get();
         $total = $compras->sum('monto');
-        return view('ReporteCompra.index',compact('compras','total'));
+        $fecha=Carbon::now();
+        $fechaini=$fecha->format('Y-m-d');
+        $fechafin=$fecha->format('Y-m-d');
+        return view('ReporteCompra.index',compact('compras','total','fechaini','fechafin'));
     }
     public function reporteCompra_resultado(Request $request){
         date_default_timezone_set("America/La_Paz");
@@ -38,6 +45,8 @@ class ReporteController extends Controller
         $ff=$request->fecha_fin.' 23:59:59';
         $compras=NotaCompra::whereBetween('created_at',[$fi,$ff])->get();
         $total = $compras->sum('monto');
-        return view('ReporteCompra.index',compact('compras','total'));
+        $fechaini=$request->fecha_ini;
+        $fechafin=$request->fecha_fin;
+        return view('ReporteCompra.index',compact('compras','total','fechaini','fechafin'));
     }
 }
