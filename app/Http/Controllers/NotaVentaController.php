@@ -69,7 +69,13 @@ class NotaVentaController extends Controller
      */
     public function show(notaVenta $notaVenta)
     {
-        return view('notaVenta.show',compact ('notaVenta'));//
+        $detalleVenta= DB::table('detalle_ventas')->where('notaVenta_id',$notaVenta->id)->get();
+        //$detalleVenta = DB::table('detalle_ventas')->find(;
+        return view('notaVenta.show',compact ('detalleVenta'));
+        // foreach ($id_detalleVenta as $detalle) {
+        //     echo ($detalle->cantidad);
+        // }
+        // return $id_detalleVenta;
     }
 
     /**
