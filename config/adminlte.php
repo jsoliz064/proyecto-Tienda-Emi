@@ -348,7 +348,6 @@ return [
                     'icon' => 'fas fa-fw fa-user',
                 ],
                 [
-<<<<<<< HEAD
                     'text'    => 'ADM Cuentas por Cobrar',
                     'icon'    => 'fas fa-fw  fa-fax',
                     'icon_color'=>'primary',
@@ -373,7 +372,6 @@ return [
                        
                     ],
                 ],
-=======
                     'text' => 'Reporte de Ventas',
                     'route'  => 'reporte.date',
                     'icon' => 'fas fa-fw  fa-fax',
@@ -387,7 +385,6 @@ return [
             'icon'    => 'fas fa-fw  fa-fax',
             'submenu' => [
                 
->>>>>>> 78e160b1d2ff6137e531b89f12a612b6bf36588e
                 [
                     'text' => 'Gestionar Proveedores',
                     'url'  => 'proveedores',
@@ -455,7 +452,7 @@ return [
             'icon_color' => 'cyan',
             'url'        => '#',
         ], */
-    ],
+    //],
 
     /*
     |--------------------------------------------------------------------------
