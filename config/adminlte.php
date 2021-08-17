@@ -327,7 +327,7 @@ return [
         //----------------------------------------------------------------------------------------
         [
             'text'    => 'ADM VENTAS',
-            'icon'    => 'fas fa-fw  fa-fax',
+            'icon'    => 'fas fa-cash-register',
             'submenu' => [
               
                 [
@@ -342,18 +342,39 @@ return [
                 //     'icon' => 'fas fa-fw fa-user',
                 // ],
                 
-                [
-                    'text' => 'Salidas',
-                    'url'  => 'salidas',
-                    'icon' => 'fas fa-fw fa-user',
-                ],
+                
                 [
                     'text' => 'Reporte de Ventas',
                     'route'  => 'reporte.date',
                     'icon' => 'fas fa-fw  fa-fax',
                 ],
                 
+                [
+                    'text'    => 'ADM Cuentas por Cobrar',
+                    'icon'    => "fas fa-hand-holding-usd",
+                    'icon_color'=>'primary',
 
+                    'submenu' =>  [
+                    
+                        [
+                            'text' => 'Gestionar Planes de Pago',
+                            'route'  => 'planPagos.index',
+                            'icon' => 'far fa-credit-card',
+                        ],
+
+                        [
+                            'text' => 'Gestionar Cuotas',
+                            'route'  => 'cuotas.index',
+                            'icon' => 'fas fa-coins',
+                        ],
+
+                        [
+                            'text' => 'Gestionar Notas de Pago',
+                            'route'  => 'reciboPagos.index',
+                            'icon' => 'fas fa-file-invoice-dollar',
+                        ],
+                    ],
+                ],       
             ],
         ],
         [
@@ -388,6 +409,11 @@ return [
             'icon'    => 'fas fa-fw  fa-fax',
             'submenu' => [
                 [
+                    'text' => 'Salidas',
+                    'url'  => 'salidas',
+                    'icon' => "fas fa-dolly",
+                ],
+                [
                     'text' => 'Productos',
                     'url'  => 'productos',
                     'icon' => 'fas fa-fw fa-user',
@@ -397,6 +423,7 @@ return [
                     'url'  => 'categorias',
                     'icon' => 'fas fa-sort-amount-down-alt',
                 ],
+                
                 [
                     'text' => 'Marcas',
                     'url'  => 'marcas',

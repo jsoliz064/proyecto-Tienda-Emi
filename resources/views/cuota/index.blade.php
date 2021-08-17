@@ -42,9 +42,9 @@
                                     @csrf
                                     @method('delete')
                                    
-                                    {{-- <a href="{{route('salidas.show', $salida)}}" class="btn btn-primary btn-sm" >Ver</a> --}}
+                                    <a href="{{route('cuotas.show', $cuota)}}" class="btn btn-primary btn-sm" >Ver</a>
                                    
-                                    <a href="{{route('reciboPagosCrear', $cuota)}}" class="btn btn-info btn-sm" >generar Pago</a>
+                                    {{-- <a href="{{route('reciboPagosCrear', $cuota)}}" class="btn btn-info btn-sm" >generar Pago</a> --}}
                                    
                                     <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
                                      value="Borrar">Eliminar</button> 

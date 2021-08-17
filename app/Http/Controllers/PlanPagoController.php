@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\PlanPago;
 use Illuminate\Http\Request;
 use App\Models\NotaVenta;
+use Illuminate\Support\Facades\DB;
 use Spatie\Activitylog\Models\Activity;
 
 class PlanPagoController extends Controller
@@ -61,27 +62,28 @@ class PlanPagoController extends Controller
     //---------------------------------------------------------------------------------------------------------
 
 
-    // public function show(PlanPago $planPago)
+    public function show(PlanPago $planPago)
+    {
+        $cuotas = DB::table('cuotas')->where('plan_id', $planPago->id)->get();
+        return view('PlanPago.show', compact('planPago', 'cuotas'));
+    }
+    // public function show($name){
+
+    //     switch ($name){
+    //       case 'foo':  $this -> foo();  break;
+    //       case 'bar':  $this ->bar();   break; 
+    //       default: abort(404,'bad request');   break;
+    //     }
+       
+    //    }
+       
+    // public function foo()
     // {
-    //     return view('PlanPago.show');
     // }
-    public function show($name){
+    // public function bar()
+    // {
 
-        switch ($name){
-          case 'foo':  $this -> foo();  break;
-          case 'bar':  $this ->bar();   break; 
-          default: abort(404,'bad request');   break;
-        }
-       
-       }
-       
-    public function foo()
-    {
-    }
-    public function bar()
-    {
-
-    }
+    // }
     //---------------------------------------------------------------------------------------------------------
 
 

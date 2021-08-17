@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ReciboPago;
 use App\Models\Cuota;
+use App\Models\PlanPago;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -53,7 +54,11 @@ class ReciboPagoController extends Controller
             'hora' => date('H:i:s'),
             'fecha' => date('Y/m/d'),
         ]);
-        return redirect()->route('reciboPagos.index');
+
+        $planPago = PlanPago::find($request -> plan_idC);
+        return redirect()->route('planPagos.show', $planPago);
+
+        // return redirect()->route('reciboPagos.index');
     }
 
     /**
