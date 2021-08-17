@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Santana')
+@section('title', 'Compras')
 
 @section('content_header')
     <h1>NOTA DE COMPRAS</h1>
@@ -68,7 +68,7 @@
       <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap5.min.js"></script>
       <script>
           $(document).ready(function() {
-           $('#notaCompra').DataTable();
+           $('#notaCompras').DataTable();
           } );
       </script>
   @stop

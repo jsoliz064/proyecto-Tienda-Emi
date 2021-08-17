@@ -348,30 +348,6 @@ return [
                     'icon' => 'fas fa-fw fa-user',
                 ],
                 [
-                    'text'    => 'ADM Cuentas por Cobrar',
-                    'icon'    => 'fas fa-fw  fa-fax',
-                    'icon_color'=>'primary',
-                    
-                    'submenu' => [
-                        
-                        [
-                            'text' => 'Gestionar plan de Pago',
-                            'url'  => 'planPagos',
-                            'icon' => 'fas fa-fw fa-user',
-                        ],
-                        [
-                            'text' => 'Gestionar Cuotas',
-                            'url'  => 'cuotas',
-                            'icon' => 'fas fa-fw fa-user',
-                        ],
-                        [
-                            'text' => 'Gestionar Pagos',
-                            'route'  => 'reciboPagos.index',
-                            'icon' => 'fas fa-fw  fa-fax',
-                        ],
-                       
-                    ],
-                ],
                     'text' => 'Reporte de Ventas',
                     'route'  => 'reporte.date',
                     'icon' => 'fas fa-fw  fa-fax',
@@ -433,7 +409,7 @@ return [
                 ],
 
             ],
-        ],
+        ], 
 
         
         /*['header' => 'labels'],
