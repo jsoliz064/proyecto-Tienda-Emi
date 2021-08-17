@@ -1,10 +1,6 @@
 @extends('adminlte::page')
 
-<<<<<<< HEAD
-@section('title', 'notaCompras')
-=======
 @section('title', 'Compras')
->>>>>>> ffdb270d03d72a566d18da8d63d7d94120da8d30
 
 @section('content_header')
     <h1>NOTA DE COMPRAS</h1>

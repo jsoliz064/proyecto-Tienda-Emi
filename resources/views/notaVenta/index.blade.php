@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'notaVentas')
+@section('title', 'Nota de Ventas')
 
 @section('content_header')
     {{-- <h1>NOTAS DE VENTAS</h1> --}}
@@ -21,7 +21,6 @@
             <a href="{{route('notaVentas.create')}}"class="btn btn-primary btb-sm">Registrar</a>
         </div>
   </div>
-  
 <div class="card">
   <div class="card-body">
       <table class="table table-striped" id="notaVentas" >
