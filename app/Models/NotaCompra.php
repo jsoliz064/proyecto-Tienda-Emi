@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class NotaCompra extends Model
 {
@@ -19,5 +20,19 @@ class NotaCompra extends Model
      public function proveedor()
      {
          return $this->belongsTo('App\Models\Proveedor');
+     }
+     public function deleteDetalle(NotaCompra $notaCompra){
+        $detalles=DB::table('detalle_compras')->where('idNotaCompra',$notaCompra->id)->get();
+        foreach ($detalles as $detalle){
+            $idDetalle = $detalle -> id;
+            $idNotaCompra = $detalle -> idNotaCompra;
+            $idProducto = $detalle -> idProducto;
+            $cantidad = $detalle -> cantidad;
+            $productoStock = DB::table('productos')->where('id',$idProducto)->value('stock');
+            $nuevoStock = $productoStock - $cantidad;
+            DB::table('productos')->where('id',$idProducto)->update([
+                 'stock'=>$nuevoStock
+            ]);
+        }
      }
 }

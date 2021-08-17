@@ -10,4 +10,5 @@ class DetalleCompra extends Model
     use HasFactory;
     protected $table="detalle_compras";
     protected $guarded = ['id','created_at','updated_at'];
+
 }
