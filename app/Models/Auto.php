@@ -11,5 +11,8 @@ class Auto extends Model
     protected $table="autos";
     protected $guarded=['id','created_at','updated_at'];
 
-    
+    public function productos(){
+
+    return $this->belongsToMany('App\Models\Producto') ;   
+    }
 }

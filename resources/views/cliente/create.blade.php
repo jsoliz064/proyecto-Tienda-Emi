@@ -56,7 +56,7 @@
             
             <br>
             <br>
-
+            
             <button  class="btn btn-danger btn-sm" type="submit">Registrar</button>
 
             <a href="{{route('clientes.index')}}"class="btn btn-warning text-white btn-sm">Volver</a>

@@ -82,7 +82,7 @@ class NotaCompraController extends Controller
         $proveedors = DB::table('proveedors')->get();
         $users = DB::table('users')->get();
         $productos = DB::table('productos')->get();
-        return view('notaCompra.create', ['proveedors' => $proveedors, 'users' => $users, 'productos' => $productos]);
+        return view('notaCompra.edit',compact('notaCompra'),['proveedors' => $proveedors, 'users' => $users, 'productos' => $productos]);
     }
 
     /**
@@ -94,7 +94,19 @@ class NotaCompraController extends Controller
      */
     public function update(Request $request, NotaCompra $notaCompra)
     {
-        return redirect()->route('notaCompra.index');
+        
+
+        date_default_timezone_set("America/La_Paz");
+        $notaCompra->nroProveedor=$request->nroProveedor;
+        $notaCompra->nroUsuario=$request->nroUsuario;
+        $notaCompra->monto=$request->monto;
+        $notaCompra->save();
+
+        activity()->useLog('NotaCompra')->log('Editar')->subject();
+        $lastActivity = Activity::all()->last();
+        $lastActivity->subject_id = $notaCompra->id;
+        $lastActivity->save();
+        return redirect()->route('notaCompras.index');//
     }
 
     /**

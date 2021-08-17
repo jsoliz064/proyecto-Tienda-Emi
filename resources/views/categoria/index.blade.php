@@ -9,7 +9,7 @@
 @section('content')
 <div class="card">
     <div class="card-header">
-        <a href=""class="btn btn-primary btb-sm">Registrar Categorias</a>
+        <a href="{{url('/categorias/create')}}"class="btn btn-primary btb-sm">Registrar Categorias</a>
     </div>
 </div>
 <div class="card">
@@ -36,10 +36,13 @@
               @method('delete')
               {{-- <a class="btn btn-primary btn-sm" href="">Ver</a> --}}
                 
-              <a href=""class="btn btn-info btn-sm">Editar</a>
-
+              <a href="{{route('categorias.edit',$categoria)}}"class="btn btn-info btn-sm">Editar</a>
+              <a href="{{route('categorias.show',$categoria)}}"class="btn btn-info btn-sm">Ver</a>
+              {{--@can('categoria.destroy')--}}
               <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
               value="Borrar">Eliminar</button> 
+             {{--@endcan--}} 
+
             </form>
           </td>
         </tr>

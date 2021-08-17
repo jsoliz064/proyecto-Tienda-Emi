@@ -23,4 +23,9 @@ class Producto extends Model
 
 
     }
+    public function autos(){
+
+        return $this->belongsToMany('App\Models\Auto') ;  
+    }
+  
 }

@@ -28,7 +28,8 @@
                             <option value="nulo">Seleccione un auto</option>
                                 @foreach ($autos as $auto)
                                     <option value="{{$auto->id}}">
-                                        {{$auto->modelo}}
+                                        {{$auto->modelo}} 
+                                    
                                     </option>
                                 @endforeach
                         </select>

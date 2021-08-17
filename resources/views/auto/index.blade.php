@@ -41,7 +41,7 @@
               @csrf
               @method('delete')
               <a class="btn btn-primary btn-sm" href="{{route('autos.show',$auto)}}">Ver</a> 
-              <a class="btn btn-primary btn-sm" href="{{route('compatibilidades.create',$auto)}}">Accesorios</a> 
+              <a class="btn btn-primary btn-sm" href="{{route('compatibilidades.show',$auto)}}">Accesorios</a> 
               <a href="{{route('autos.edit',$auto)}}"class="btn btn-info btn-sm">Editar</a>
 
               <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 

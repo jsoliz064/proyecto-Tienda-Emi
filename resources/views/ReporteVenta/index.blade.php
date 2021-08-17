@@ -16,13 +16,13 @@
         <div class="col-12 col-md-3">
             <span>Fecha inicial</span>
             <div class="form-group">
-                <input class="form-control" type="date" value="{{old('fecha_ini')}}" name="fecha_ini" id="fecha_ini">
+                <input class="form-control" type="date" value="{{$fechaini}}" name="fecha_ini" id="fecha_ini">
             </div>
         </div>
         <div class="col-12 col-md-3">
             <span>Fecha final</span>
             <div class="form-group">
-                <input class="form-control" type="date" value="{{old('fecha_fin')}}" name="fecha_fin" id="fecha_fin">
+                <input class="form-control" type="date" value="{{$fechafin}}" name="fecha_fin" id="fecha_fin">
             </div>
         </div>
         <div class="col-12 col-md-3 text-center mt-4">
@@ -85,18 +85,4 @@
            $('#notaVentas').DataTable();
           } );
       </script>
-      <script>
-        window.onload =function(){
-            var fecha =new Date();
-            var mes = fecha.getMonth()+1;
-            var dia= fecha.getDate();
-            var ano=fecha.getFullYear();
-            if (dia<10)
-                dia='0'+dia;
-            if (mes<10)
-                mes='0'+mes;
-            document.getElementById('fecha_fin').value=ano+"-"+mes+"-"+dia;
-            document.getElementById('fecha_ini').value=ano+"-"+mes+"-"+dia;
-        }
-    </script> 
   @stop
