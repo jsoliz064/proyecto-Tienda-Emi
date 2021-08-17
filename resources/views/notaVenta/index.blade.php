@@ -44,15 +44,24 @@
                <td>{{DB::table('clientes')->where('id',$notaVenta->nroCliente)->value('nombre')}}</td>
                <td>{{$notaVenta->importe}}</td>
                <td>{{$notaVenta->updated_at}}</td>
-               <td>
+               <td width="35%">
                  <form action="{{route('notaVentas.destroy',$notaVenta)}}" method="post">
                    @csrf
                    @method('delete')
                    <a class="btn btn-primary btn-sm" href="{{route('notaVentas.show', $notaVenta)}}">Ver</a>
                      
                    <a href="{{route('notaVentas.edit', $notaVenta)}}"class="btn btn-info btn-sm">Editar</a>
+                   
+                   <a href="{{route('facturaCreate', $notaVenta)}}"class="btn btn-success text-white btn-sm">Factura</a>
+                    <?php
+                        $planPago=DB::table('plan_pagos')->where('nota_venta_id',$notaVenta->id)->value('id');
+                     if(empty($planPago)){?>
+                        <a href="{{route('planPagoCreate', $notaVenta)}}"class="btn btn-dark text-white btn-sm">Plan de Pago</a>
+                    <?php    } ?>
+
                    <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
-                   value="Borrar">Eliminar</button> 
+                   value="Borrar">Eliminar</button>
+
                  </form>
                </td>
             </tr>

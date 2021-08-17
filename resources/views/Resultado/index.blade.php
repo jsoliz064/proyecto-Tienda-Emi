@@ -23,7 +23,8 @@
                     <th scope="col">ID</th>
                     <th scope="col">nombre</th>
                     <th scope="col">hora</th>
-                    <th scope="col">fecha</th>
+                    <th scope="col">fechaI</th>
+                    <th scope="col">fechaF</th>
                     <th scope="col">Acciones</th>
                 </tr>
             </thead>
@@ -34,7 +35,9 @@
                         <td>{{$resultado->id}}</td>
                         <td>{{$resultado->nombre}}</td>
                         <td>{{$resultado->hora}}</td>
-                        <td>{{$resultado->fecha}}</td>
+                        <td>{{$resultado->fechaInicial}}</td>
+                        <td>{{$resultado->fechaFinal}}</td>
+
                         <td>
                             <form action="{{route('resultados.destroy', $resultado)}}" method="post">
                             @csrf

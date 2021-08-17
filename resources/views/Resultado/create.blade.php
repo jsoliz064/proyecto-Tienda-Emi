@@ -13,17 +13,18 @@
                 @csrf
 
                 <h5>Nombre:</h5>
-                <input type="text" name = "descripcion"  class="focus border-primary  form-control" >
+                <input type="text" name = "actualizar"  class="focus border-primary  form-control" >
 
               
             
                 <br>
                 <label for="personal" >{{ ('Fecha Inicial: ') }}</label>
-                <input name="fechaI" type="date">
+                <input name="fechaInicial" type="date">
                 <br>
+                
                 <br>
                 <label for="personal" >{{ 'Fecha Final: ' }}</label>
-                <input name="fechaF" type="date" class="focus border-primary">
+                <input name="fechaFinal" type="date" class="focus border-primary">
         
                         
                  <br>
@@ -38,7 +39,6 @@
     </div>
 
     
-
     
 @stop
 

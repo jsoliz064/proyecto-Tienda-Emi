@@ -28,32 +28,39 @@
         </thead>
 
         <tbody>
-        @foreach ($plan as $planes)
+        @foreach ($planes as $plan)
             
             <?php
-            $cliente_id=DB::table('nota_ventas')->where('id',$planes->nota_venta_id)->value('nroCliente');
+            $cliente_id=DB::table('nota_ventas')->where('id',$plan->nota_venta_id)->value('nroCliente');
             ?>
 
             <tr>
-                <td width="1%">{{$planes->id}}</td>
+                <td width="1%">{{$plan->id}}</td>
                 <td width="10%" >{{DB::table('clientes')->where('id', $cliente_id)->value('nombre')}}</td>                
-                <td width="1%" >{{$planes->cantidad_cuotas}}</td>
-                <td width="5%">{{$planes->monto_cuota}}</td>
-                <td width="1%">{{$planes->cuotas_pagadas}}</td>
-                <td width="5%">{{$planes->saldo}}</td>
-                <td width="5%">{{$planes->total}}</td>
-                <td width="10%">{{$planes->estado}}</td>
-                <td width="10%">
+                <td width="1%" >{{$plan->cantidad_cuotas}}</td>
+                <td width="5%">{{$plan->monto_cuota}}</td>
+                <td width="1%">{{$plan->cuotas_pagadas}}</td>
+                <td width="5%">{{$plan->saldo}}</td>
+                <td width="5%">{{$plan->total}}</td>
+                <td width="10%">{{$plan->estado}}</td>
+                <td width="15%">
 
-                    <form action = "{{route('planPagos.destroy',$planes)}}" method="post">
+                    <form action = "{{route('planPagos.destroy',$plan)}}" method="post">
                         @csrf
                         @method('delete')   
           
                         {{-- <a class="btn btn-primary btn-sm" href="{{route('productos.show',$planes)}}">Ver</a>
-                          
+                           --}}
+                        <?php
+                            //$planPago = DB::table('plan_pagos')->find($plan->id);
+                            //$planes = DB::table('plan_pagos')->where('estado', 'vigente')->get(); 
+                            if(($plan->cantidad_cuotas) > $plan->cuotas_pagadas){  ?>
+                                <a href="{{route('cuotaCreate', $plan)}}"class="btn btn-dark text-white btn-sm">Pagar Cuota</a>
+                        <?php    } ?>
                         
-                        <a href="{{route('productos.edit',$planes)}}"class="btn btn-info btn-sm">Editar</a>
-                         --}}
+                        {{-- <a action="{{view('cuota.create', compact('planes', 'planPago'))}}" class="btn btn-info btn-sm">Editar</a> --}}
+                        {{-- <a action="{{view('cuota.create', compact('planes', 'planPago'))}}" class="btn btn-info btn-sm">Editar</a> --}}
+                        
           
                         <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
                         value="Borrar">Eliminar</button> 

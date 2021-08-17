@@ -12,8 +12,8 @@ class PlanPagoController extends Controller
 
     public function index()
     {
-        $plan = PlanPago::all();
-        return view('PlanPago.index', compact('plan'));
+        $planes = PlanPago::all();
+        return view('PlanPago.index', compact('planes'));
     }
     //---------------------------------------------------------------------------------------------------------
 

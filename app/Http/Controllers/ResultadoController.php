@@ -38,18 +38,28 @@ class ResultadoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
-        $salidas = NotaVenta::where('fecha', '>=', $request->fechaI)->where('fecha', '<=', $request->fechaF)->get();        
-        Resultado::create([
-            'nombre'=> $request->nombre,
-            'fecha' => date('Y/m/d'),
-            'hora' => date('H:i:s'),
-        ]);
+    {   
+        
+        if($request->actualizar){
+            //$salidas = NotaVenta::where('fecha', '>=', $request->fechaInicial)->where('fecha', '<=', $request->fechaFinal)->get();        
+
+           // return view('resultado.show', compact('salidas'));
+             return view('resultado.show');
+            //return "hola";
+
+        }
+         $salidas = NotaVenta::where('fecha', '>=', $request->fechaInicial)->where('fecha', '<=', $request->fechaFinal)->get();        
+        // Resultado::create([
+        //     'nombre'=> $request->nombre,
+        //     'fecha' => date('Y/m/d'),
+        //     'hora' => date('H:i:s'),
+        // ]);
         
         // $ventas = DB::table('nota_compras')->get();
         // $compras = DB::table('nota_ventas')->get();
         // //, compact('salidas', 'compras', 'ventas')
         return $salidas;
+        // return "darwin";
     }
 
     /**

@@ -15,11 +15,15 @@ class CreateReciboPagosTable extends Migration
     {
         Schema::create('recibo_pagos', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('cuota_id')->nullable();
+            $table->bigInteger('plan_idC')->unsigned();
+            $table->bigInteger('idC')->unsigned();
+
             $table->string('nombre');
-            $table->float('importe');
-            $table->float('saldo');
-            $table->foreign('cuota_id')->references('id')->on('cuotas')->onDelete('cascade')->onUpdate('cascade');
+            $table->time('hora');
+            $table->date('fecha');
+
+            $table->foreign('plan_idC')->references('plan_id')->on('cuotas')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('idC')->references('id')->on('cuotas')->onUpdate('cascade')->onDelete('cascade');
             $table->timestamps();
         });
     }

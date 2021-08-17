@@ -332,16 +332,7 @@ return [
                     'url'  => 'notaVentas',
                     'icon' => 'fas fa-fw fa-user',
                 ],
-                [
-                    'text' => 'Gestionar plan de Pago',
-                    'url'  => 'planPagos',
-                    'icon' => 'fas fa-fw fa-user',
-                ],
-                [
-                    'text' => 'Gestionar Cuotas',
-                    'url'  => 'cuotas',
-                    'icon' => 'fas fa-fw fa-user',
-                ],
+               
                 // [
                 //     'text' => 'DetalleVentas',
                 //     'url'  => 'detalleVentas',
@@ -353,7 +344,31 @@ return [
                     'url'  => 'salidas',
                     'icon' => 'fas fa-fw fa-user',
                 ],
-                
+                [
+                    'text'    => 'ADM Cuentas por Cobrar',
+                    'icon'    => 'fas fa-fw  fa-fax',
+                    'icon_color'=>'primary',
+                    
+                    'submenu' => [
+                        
+                        [
+                            'text' => 'Gestionar plan de Pago',
+                            'url'  => 'planPagos',
+                            'icon' => 'fas fa-fw fa-user',
+                        ],
+                        [
+                            'text' => 'Gestionar Cuotas',
+                            'url'  => 'cuotas',
+                            'icon' => 'fas fa-fw fa-user',
+                        ],
+                        [
+                            'text' => 'Gestionar Pagos',
+                            'route'  => 'reciboPagos.index',
+                            'icon' => 'fas fa-fw  fa-fax',
+                        ],
+                       
+                    ],
+                ],
                 [
                     'text'    => 'Reportes',
                     'icon'    => 'fas fa-fw  fa-fax',

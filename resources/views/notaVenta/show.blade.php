@@ -33,14 +33,14 @@
                     </div>
 
                     <div class="row">
-                        <form action="{{route('facturaCreate',$notaVenta)}}">
+                        {{-- <form action="{{route('facturaCreate',$notaVenta)}}">
                             <button class="btn btn-success btn-sm">Generar Factura</button>
-                            <a href="{{route('notaVentas.index')}}"class="btn btn-warning text-white btn-sm m-2">Volver</a>
-                        </form>
+                        </form> --}}
+                        <a href="{{route('notaVentas.index')}}"class="btn btn-warning text-white btn-sm m-2">Volver</a>
 
-                        <form action="{{route('planPagoCreate',$notaVenta)}}" >
+                        {{-- <form action="{{route('planPagoCreate',$notaVenta)}}" >
                             <button class="btn btn-primary btn-sm">Generar Plan</button>
-                        </form>
+                        </form> --}}
                     </div>
 
                 </div>

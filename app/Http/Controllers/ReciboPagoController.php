@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\ReciboPago;
+use App\Models\Cuota;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ReciboPagoController extends Controller
 {
@@ -14,7 +16,8 @@ class ReciboPagoController extends Controller
      */
     public function index()
     {
-        //
+        $reciboPagos = ReciboPago::all();
+        return view('reciboPago.index', compact('reciboPagos'));
     }
 
     /**
@@ -24,9 +27,13 @@ class ReciboPagoController extends Controller
      */
     public function create()
     {
-        //
+        return view('reciboPago.create');
     }
 
+    public function create2(Cuota $cuota)
+    {
+        return view('reciboPago.create', compact('cuota'));        
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -35,7 +42,18 @@ class ReciboPagoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nombre' => 'required',
+        ]);
+
+        ReciboPago::create([
+            'plan_idC' => $request -> plan_idC,
+            'idC' =>  $request -> idC,
+            'nombre' => $request -> nombre ,
+            'hora' => date('H:i:s'),
+            'fecha' => date('Y/m/d'),
+        ]);
+        return redirect()->route('reciboPagos.index');
     }
 
     /**
@@ -46,7 +64,16 @@ class ReciboPagoController extends Controller
      */
     public function show(ReciboPago $reciboPago)
     {
-        //
+        // $planPago = DB::table('plan_pagos')->where('id',$reciboPago->plan_idC)->value('nota_venta_id');
+        $planPago = DB::table('plan_pagos')->find($reciboPago->plan_idC);
+
+        // $idFactura =  DB::table('facturas')->where('notaVenta_id',$planPago)->value('id');
+        // $factura =  DB::table('facturas')->find($idFactura);     
+        // return $reciboPago;
+        $notaVenta = DB::table('nota_ventas')->find($planPago->nota_venta_id);
+        $tablaDetalles=DB::table('detalle_ventas')->where('notaVenta_id',$notaVenta->id)->get();
+  
+        return view('reciboPago.show', compact ('notaVenta', 'tablaDetalles', 'reciboPago', 'planPago'));
     }
 
     /**

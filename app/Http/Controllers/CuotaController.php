@@ -39,6 +39,11 @@ class CuotaController extends Controller
        return view('cuota.create', compact('planes', 'planPago'));
     }
 
+    public function create2(PlanPago $planPago)
+    {
+        $planes = DB::table('plan_pagos')->where('estado', 'vigente')->get();
+        return view('cuota.create', compact('planes', 'planPago'));        
+    }     
     /**
      * Store a newly created resource in storage.
      *
@@ -69,7 +74,6 @@ class CuotaController extends Controller
 
         
         $cuotas_pagadas = ($request -> nro_cuota);
-        //return $cuotas_pagadas;
         //actualizar plan de pago
 //        $planPago = DB::table('plan_pagos')->find($request -> plan_id);
         $planPago = PlanPago::find($request -> plan_id);

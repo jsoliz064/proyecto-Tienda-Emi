@@ -18,7 +18,8 @@ use App\Http\Controllers\DetalleCompraController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\CompatibilidadController;
 use App\Http\Controllers\CuotaController;
-use App\Http\Controllers\NotaSalidaController;
+use App\Http\Controllers\ReciboPagoController;
+use App\Http\Controllers\PagoController;
 use App\Http\Controllers\PlanPagoController;
 use App\Http\Controllers\ResultadoController;
 use App\Http\Controllers\SalidaController;
@@ -86,5 +87,13 @@ Route::resource('planPagos', PlanPagoController::class)->names('planPagos');
 Route::get('planPagoCreate/{notaVenta}', [PlanPagoController::class, 'create2'])->name('planPagoCreate');
 
 Route::resource('cuotas', CuotaController::class)->names('cuotas');
+Route::get('cuotaCreate/{planPago}', [CuotaController::class, 'create2'])->name('cuotaCreate');
+
+
+Route::resource('reciboPagos', ReciboPagoController::class)->names('reciboPagos');
+Route::get('reciboPagosCrear/{cuota}', [ReciboPagoController::class, 'create2'])->name('reciboPagosCrear');
+
+
+
 
 

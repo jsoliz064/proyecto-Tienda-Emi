@@ -17,7 +17,9 @@ class CreateResultadosTable extends Migration
             $table->id();
             $table->string('nombre');
             $table->time('hora');
-            $table->date('fecha');
+            $table->date('fechaInicial');
+            $table->date('fechaFinal');
+
             $table->timestamps();
         });
     }

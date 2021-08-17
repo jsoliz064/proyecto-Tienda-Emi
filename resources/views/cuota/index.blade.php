@@ -32,19 +32,19 @@
                     @foreach ($cuotas as $cuota)
                         <tr>
                             <td width="1%">{{$cuota->id}}</td>
-                            <td width="1%">{{$cuota->plan_id }}</td>
+                            <td width="12%">{{$cuota->plan_id }}</td>
                             <td width="19%">{{$cuota->monto }}</td>
-                            <td width="19%">{{$cuota->nro_cuota }}</td>
-                            <td width="19%">{{$cuota->hora}}</td>
-                            <td width="19%">{{$cuota->fecha }}</td>
-                            <td width="19%">
+                            <td width="12%">{{$cuota->nro_cuota }}</td>
+                            <td width="10%">{{$cuota->hora}}</td>
+                            <td width="10%">{{$cuota->fecha }}</td>
+                            <td width="17%">
                                 <form action="{{ route('cuotas.destroy', $cuota)}}" method="POST" >
                                     @csrf
                                     @method('delete')
                                    
                                     {{-- <a href="{{route('salidas.show', $salida)}}" class="btn btn-primary btn-sm" >Ver</a> --}}
                                    
-                                    {{-- <a href="{{route('cuotas.edit', $salida)}}" class="btn btn-info btn-sm" >Editar</a> --}}
+                                    <a href="{{route('reciboPagosCrear', $cuota)}}" class="btn btn-info btn-sm" >generar Pago</a>
                                    
                                     <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
                                      value="Borrar">Eliminar</button> 
