@@ -17,6 +17,13 @@ use App\Http\Controllers\AutoController;
 use App\Http\Controllers\DetalleCompraController;
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\CompatibilidadController;
+use App\Http\Controllers\CuotaController;
+use App\Http\Controllers\ReciboPagoController;
+use App\Http\Controllers\PagoController;
+use App\Http\Controllers\PlanPagoController;
+use App\Http\Controllers\ResultadoController;
+use App\Http\Controllers\SalidaController;
+use App\Http\Controllers\ReporteController;
 use App\Models\NotaCompra;
 
 /*
@@ -72,4 +79,28 @@ Route::resource('facturas',FacturaController::class);
 
 Route::get('facturaCreate/{notaVenta}',[FacturaController::class,'create2'])->name('facturaCreate');
 Route::resource('compatibilidades',CompatibilidadController::class);
+
+Route::resource('salidas', SalidaController::class)->names('salidas');
+
+//Route::resource('resultados', ResultadoController::class)->names('resultados');
+
+Route::resource('planPagos', PlanPagoController::class)->names('planPagos');
+Route::get('planPagoCreate/{notaVenta}', [PlanPagoController::class, 'create2'])->name('planPagoCreate');
+
+Route::resource('cuotas', CuotaController::class)->names('cuotas');
+Route::get('cuotaCreate/{planPago}', [CuotaController::class, 'create2'])->name('cuotaCreate');
+
+
+Route::resource('reciboPagos', ReciboPagoController::class)->names('reciboPagos');
+Route::get('reciboPagosCrear/{cuota}', [ReciboPagoController::class, 'create2'])->name('reciboPagosCrear');
+
+
+
+
+Route::get('reporte_date',[ReporteController::class,'reporte_fecha'])->name('reporte.date');
+Route::post('reporte_resultados',[ReporteController::class,'reporte_resultado'])->name('reporte.resultados');
+
+Route::get('reporteCompra_date',[ReporteController::class,'reporteCompra_fecha'])->name('reporteCompra.date');
+Route::post('reporteCompra_resultados',[ReporteController::class,'reporteCompra_resultado'])->name('reporteCompra.resultados');
+
 

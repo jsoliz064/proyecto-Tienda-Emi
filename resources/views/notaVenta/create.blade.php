@@ -14,7 +14,7 @@
             @csrf
             <h5>Cliente:</h5>
             <select name = "nroCliente" id="nroCliente" class="form-control" onchange="habilitar()" >
-                <option value="nulo">Seleccione una Proveedor</option>
+                <option value="nulo">Seleccione un Cliente</option>
                     @foreach ($clientes as $cliente)
                         <option value="{{$cliente->id}}">
                             {{$cliente->nombre}}

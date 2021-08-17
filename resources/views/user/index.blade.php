@@ -7,14 +7,16 @@
 @stop
 
 @section('content')
+
 <div class="card">
     <div class="card-header">
         <a href="{{route('users.create')}}"class="btn btn-primary btb-sm"> Registrar Usuario</a>
     </div>
 </div>
+
 <div class="card">
 <div class="card-body">
-  <table class="table table-striped" id="personal" >
+  <table class="table table-striped" id="usuarios" >
 
     <thead>
 
@@ -58,17 +60,17 @@
 @stop
 
 @section('css')
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap5.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap5.min.css">
 @stop
 
 @section('js')
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
-<script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap5.min.js"></script>
-<script>
-    $(document).ready(function() {
-     $('#personal').DataTable();
-    } );
-</script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.23/js/dataTables.bootstrap5.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#usuarios').DataTable();
+        });
+    </script>
 @stop

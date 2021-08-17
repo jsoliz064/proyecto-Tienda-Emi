@@ -7,7 +7,7 @@
 @stop
 
 @section('content')
-<p>index</p>
+<p>show</p>
 @stop
 
 @section('css')

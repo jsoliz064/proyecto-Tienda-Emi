@@ -266,29 +266,14 @@ return [
         //     'url'  => '',
         //     'icon' => 'fas fa-fw fa-lock',
         // ],
+        //----------------------------------------------------------------------------------------
        
         ['header' => 'ADMINISTRACION'],
-        [
-            'text' => 'Usuarios',
-            'url'  => 'users',
-            'icon' => 'fas fa-fw fa-user',
-            'can' => 'users.index'
-        ],
-
-        [
-            'text' => 'Lista de Roles',
-            'route'  => 'admin.roles.index',
-            'icon' => 'fas fa-users-cog fa-fw',
-            'can' => 'roles.index'
-        ],
         
-        [
-            'text' => 'Bitacora',
-            'url'  => 'bitacora',
-            'icon' => 'fas fa-users-cog fa-fw',
-            'can' => 'bitacora.index'
-        ],
-
+        //----------------------------------------------------------------------------------------
+        
+        //----------------------------------------------------------------------------------------
+        
         [
             'text'    => 'ADM RR.HH',
             'icon'    => 'fas fa-fw  fa-fax',
@@ -299,41 +284,134 @@ return [
                     'icon' => 'far fa-address-card',
                     'can' => 'clientes.index'
                 ],
-                [
-                    'text' => 'Proveedores',
-                    'url'  => 'proveedores',
-                    'icon' => 'fas fa-fw fa-user',
-                ],
+                
                 [
                     'text' => 'Personal',
                     'url'  => 'personales',
                     'icon' => 'fas fa-fw fa-user',
                 ],
+                
+
+
+                [
+                    'text'    => 'ADM PERSONAL',
+                    'icon'    => 'fas fa-user-lock',
+                    'icon_color'=>'primary',
+                    
+                    'submenu' => [
+                        [
+                            'text' => 'Usuarios',
+                            'url'  => 'users',
+                            'icon' => 'fas fa-user-circle',
+                            'can' => 'users.index'
+                        ],
+                
+                        [
+                            'text' => 'Lista de Roles',
+                            'route'  => 'admin.roles.index',
+                            'icon' => 'fas fa-users-cog fa-fw',
+                            'can' => 'roles.index'
+                        ],
+                        
+                        [
+                            'text' => 'Bitacora',
+                            'url'  => 'bitacora',
+                            'icon' => 'fas fa-user-plus',
+                            'can' => 'bitacora.index'
+                        ],
+                    ],
+                ],
+                
             ],
         ],
+        //----------------------------------------------------------------------------------------
         [
-            'text'    => 'ADM CONTABLE',
+            'text'    => 'ADM VENTAS',
             'icon'    => 'fas fa-fw  fa-fax',
             'submenu' => [
+              
                 [
                     'text' => 'Ventas',
                     'url'  => 'notaVentas',
                     'icon' => 'fas fa-fw fa-user',
                 ],
+               
                 // [
                 //     'text' => 'DetalleVentas',
                 //     'url'  => 'detalleVentas',
                 //     'icon' => 'fas fa-fw fa-user',
                 // ],
+                
                 [
-                    'text' => 'Compras',
-                    'url'  => 'notaCompras',
+                    'text' => 'Salidas',
+                    'url'  => 'salidas',
                     'icon' => 'fas fa-fw fa-user',
                 ],
+                [
+<<<<<<< HEAD
+                    'text'    => 'ADM Cuentas por Cobrar',
+                    'icon'    => 'fas fa-fw  fa-fax',
+                    'icon_color'=>'primary',
+                    
+                    'submenu' => [
+                        
+                        [
+                            'text' => 'Gestionar plan de Pago',
+                            'url'  => 'planPagos',
+                            'icon' => 'fas fa-fw fa-user',
+                        ],
+                        [
+                            'text' => 'Gestionar Cuotas',
+                            'url'  => 'cuotas',
+                            'icon' => 'fas fa-fw fa-user',
+                        ],
+                        [
+                            'text' => 'Gestionar Pagos',
+                            'route'  => 'reciboPagos.index',
+                            'icon' => 'fas fa-fw  fa-fax',
+                        ],
+                       
+                    ],
+                ],
+=======
+                    'text' => 'Reporte de Ventas',
+                    'route'  => 'reporte.date',
+                    'icon' => 'fas fa-fw  fa-fax',
+                ],
+                
+
             ],
         ],
         [
-            'text'    => 'ADM ACCESORIOS',
+            'text'    => 'ADM COMPRAS',
+            'icon'    => 'fas fa-fw  fa-fax',
+            'submenu' => [
+                
+>>>>>>> 78e160b1d2ff6137e531b89f12a612b6bf36588e
+                [
+                    'text' => 'Gestionar Proveedores',
+                    'url'  => 'proveedores',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+                
+                [
+                    'text' => 'Gestionar Compras',
+                    'url'  => 'notaCompras',
+                    'icon' => 'fas fa-fw fa-user',
+                ],
+
+                [
+                    'text' => 'Reporte de Compras',
+                    'route'  => 'reporteCompra.date',
+                    'icon' => 'fas fa-fw  fa-fax',
+                ],
+
+            ],
+        ],
+        //----------------------------------------------------------------------------------------
+
+        [
+            'text'    => 'ADM INVENTARIO',
             'icon'    => 'fas fa-fw  fa-fax',
             'submenu' => [
                 [
@@ -359,6 +437,8 @@ return [
 
             ],
         ],
+
+        
         /*['header' => 'labels'],
          [
             'text'       => 'important',

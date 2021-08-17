@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Spatie\Activitylog\Models\Activity;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 
@@ -30,6 +31,8 @@ class RoleController extends Controller
     {
         $permissions = Permission::all();
         return view('admin.roles.create', compact('permissions'));
+
+
     }
 
     /**
@@ -49,6 +52,10 @@ class RoleController extends Controller
 
         $role->permissions()->sync($request->permissions);//asignamos los permisos al rol creado
 
+        // activity()->useLog('Usuario')->log('Crear')->subject();
+        // $lastActivity = Activity::all()->last();
+        // $lastActivity->subject_id = $users->id;
+        // $lastActivity->save();
         return redirect()->route('admin.roles.edit', $role)->with('info','El rol se creó con éxito');
     }
 

@@ -50,7 +50,10 @@ class NotaVentaController extends Controller
         $notaVenta=NotaVenta::create([
             'nroCliente'=>request('nroCliente'),
             'importe'=>0,
+            'fecha' => date('Y/m/d'),
+            'hora' => date('H:i')
         ]);
+
         activity()->useLog('NotaVenta')->log('Nuevo')->subject();
         $lastActivity = Activity::all()->last();
         $lastActivity->subject_id = NotaVenta::all()->last()->id;
