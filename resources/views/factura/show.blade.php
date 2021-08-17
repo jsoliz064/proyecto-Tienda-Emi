@@ -21,17 +21,17 @@
 
 				<div class="row  align-items-center">
 					<div class="col-1">
-						<img class="brand-image img-circle  " style="width: 80px" src="https://farm5.static.flickr.com/4137/4870590306_6039dc1742.jpg">
+						<!--<img class="brand-image img-circle  " style="width: 80px" src="https://farm5.static.flickr.com/4137/4870590306_6039dc1742.jpg">
+						-->
+							<i class="fas fa-store-alt fa-5x" style="color:#205ed1"></i>
 					</div>
-					<div class="col-3  d-flex">
-						<h3>¡ACCESORIOS EMI!</h3>
-					</div>
+					
 				</div>
 
 				<div class="row justify-content-between mx-1 mb-2">
 					<div class="col-4 align-items-center">
 						<div class="row ">
-							<h5>Casa Matriz</h5>
+							<h5>¡ACCESORIOS EMI!</h5>
 						</div>
 						<div class="row">
 							<h5>Auto Shopping El Pary / Doble vía la guardia entre 2do y 3er anillo.</h5>
