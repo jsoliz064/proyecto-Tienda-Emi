@@ -31,7 +31,8 @@
             <th scope="col">Id</th>
             <th scope="col">Cliente</th>
             <th scope="col">Importe</th>
-            <th scope="col">Fecha y Hora</th>
+            <th scope="col">Hora</th>
+            <th scope="col">Fecha</th>
             <th scope="col">Acciones</th>
           </tr>
         </thead>
@@ -42,7 +43,8 @@
                <td>{{$notaVenta->id}}</td>
                <td>{{DB::table('clientes')->where('id',$notaVenta->nroCliente)->value('nombre')}}</td>
                <td>{{$notaVenta->importe}}</td>
-               <td>{{$notaVenta->updated_at}}</td>
+               <td>{{$notaVenta->hora}}</td>
+               <td>{{$notaVenta->fecha}}</td>
                <td width="35%">
                  <form action="{{route('notaVentas.destroy',$notaVenta)}}" method="post">
                    @csrf
@@ -52,12 +54,15 @@
                    <a href="{{route('notaVentas.edit', $notaVenta)}}"class="btn btn-info btn-sm">Editar</a>
                    
                    <a href="{{route('facturaCreate', $notaVenta)}}"class="btn btn-success text-white btn-sm">Factura</a>
-                    <?php
-                        $planPago=DB::table('plan_pagos')->where('nota_venta_id',$notaVenta->id)->value('id');
-                     if(empty($planPago)){?>
-                        <a href="{{route('planPagoCreate', $notaVenta)}}"class="btn btn-dark text-white btn-sm">Plan de Pago</a>
-                    <?php    } ?>
-
+                    
+                    @can('planPagoCreate.create2')  
+                      <?php
+                          $planPago=DB::table('plan_pagos')->where('nota_venta_id',$notaVenta->id)->value('id');
+                      if(empty($planPago)){?>
+                          <a href="{{route('planPagoCreate', $notaVenta)}}"class="btn btn-dark text-white btn-sm">Plan de Pago</a>
+                      <?php    } ?>
+                    @endcan
+                    
                    <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
                    value="Borrar">Eliminar</button>
 

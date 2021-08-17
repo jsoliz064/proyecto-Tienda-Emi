@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cuota;
 
 use App\Models\PlanPago;
+use App\Models\ReciboPago;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -87,7 +88,8 @@ class CuotaController extends Controller
         }
         $planPago->save();
 
-        return redirect()->route('cuotas.index');
+
+        return redirect()->route('planPagos.show', $planPago);
     }
 
     /**
@@ -98,7 +100,10 @@ class CuotaController extends Controller
      */
     public function show(Cuota $cuota)
     {
-        return view('cuota.show');
+        $recibo_id = DB::table('recibo_pagos')->where('idC', $cuota->id)->value('id');
+        $reciboPagos = ReciboPago::find($recibo_id) ;
+        //return $reciboPagos;
+        return view('cuota.show', compact('cuota', 'reciboPagos'));
     }
 
     /**
