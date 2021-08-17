@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Compatibilidad;
+use App\Models\Auto;
+use App\Models\Producto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -28,7 +30,7 @@ class CompatibilidadController extends Controller
  
     public function create( )
     {
-         $autos=DB::table('autos')->get();
+          $autos=DB::table('autos')->get();
          $productos=DB::table('productos')->get();
          $compatibilidades=DB::table('compatibilidads')->get();
         return view('compatibilidad.create',['autos'=>$autos],['productos'=>$productos],
@@ -50,12 +52,14 @@ class CompatibilidadController extends Controller
         $idAuto = request('idAuto');
         $idProducto = request('idProducto');
         
-        $compatibilidad=detalleCompra::create([
+        $compatibilidad=Compatibilidad::create([
+            'idAuto' => Auto::all()->last()->id,
+            'idProducto'=> request('idProducto'),
             'detalle' => request('detalle'),
             
         ]);
       
-        return redirect(route('compatibilidad.show', $idAuto));
+        return redirect(route('autos.index', $idAuto));
     }
 
     /**
@@ -64,12 +68,12 @@ class CompatibilidadController extends Controller
      * @param  \App\Models\Compatibilidad  $compatibilidad
      * @return \Illuminate\Http\Response
      */
-    public function show(Compatibilidad $id)
+    public function show($id)
     {
-        $auto=NotaCompra::findOrFail($id);
-        $autos=DB::table('compatibilidads')->where('idAuto',$autos->id)->get();
+        $autos=Auto::findOrFail($id);
+        $compatibilidades=DB::table('compatibilidads')->where('idAuto',$autos->id)->get();
         $productos=DB::table('productos')->get();
-        return view('compatibilidad.create',compact('auto'),['productos'=>$productos, 'autos'=>$autos]);
+        return view('compatibilidad.create',compact('autos'),['productos'=>$productos, 'autos'=>$autos]);
     }
 
     /**

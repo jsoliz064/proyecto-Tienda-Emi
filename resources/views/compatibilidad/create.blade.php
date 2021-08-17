@@ -27,8 +27,9 @@
                         <select name="idAuto" id="idAuto" class="form-control" onchange="habilitar()" >
                             <option value="nulo">Seleccione un auto</option>
                                 @foreach ($autos as $auto)
-                                    <option value="{{$auto->id}}">
-                                        {{$auto->modelo}}
+                                    <option value="{{$auto->modelo}}">
+                                        {{$auto->modelo}} 
+                                    
                                     </option>
                                 @endforeach
                         </select>
