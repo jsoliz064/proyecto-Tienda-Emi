@@ -3,7 +3,7 @@
 @section('title', 'Santana')
 
 @section('content_header')
-    <h1>Compatibilidad</h1>
+    <h1>Compatibilidad5</h1>
 @stop
 
 @section('content')
@@ -16,45 +16,7 @@
   </div>
 <div class="card">
   <div class="card-body">
-      <table class="table table-striped" id="notaCompras" >
-
-        <thead>
-
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">Proveedor</th>
-            <th scope="col">Usuario</th>
-            <th scope="col">Monto</th>
-            <th scope="col">Fecha</th>
-          </tr>
-        </thead>
-        <tbody>
-          @foreach ($notaCompras as $notaCompra)
-
-            <tr>
-              <td>{{$notaCompra->id}}</td>
-               <td>{{DB::table('proveedors')->where('id',$notaCompra->nroProveedor)->value('nombre')}}</td>
-               <td>{{DB::table('users')->where('id',$notaCompra->nroUsuarios)->value('name')}}</td>
-               <td>{{$notaCompra->monto}}</td>
-               <td>{{$notaCompra->fecha}}</td>
-               <td>
-                 <form action="{{route('notaCompras.destroy',$notaCompra)}}" method="post">
-                   @csrf
-                   @method('delete')
-                   <a class="btn btn-primary btn-sm" href="{{route('notaCompras.show', $notaCompra)}}">Ver</a>
-                     
-                   <a href="{{route('notaCompras.edit', $notaCompra)}}"class="btn btn-info btn-sm">Editar</a>
-                   <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
-                   value="Borrar">Eliminar</button> 
-                 </form>
-               </td>
-            </tr>
-  
-             @endforeach
-  
-          </tbody>
-  
-        </table>
+     
     </div>
   </div>
   

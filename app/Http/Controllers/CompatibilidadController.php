@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Spatie\Activitylog\Models\Activity;
 use App\Models\Compatibilidad;
 use App\Models\Auto;
 use App\Models\Producto;
@@ -73,7 +74,7 @@ class CompatibilidadController extends Controller
         $autos=Auto::findOrFail($id);
         $compatibilidades=DB::table('compatibilidads')->where('idAuto',$autos->id)->get();
         $productos=DB::table('productos')->get();
-        return view('compatibilidad.create',compact('autos'),['productos'=>$productos, 'autos'=>$autos]);
+        return view('compatibilidad.show',compact('autos'),['compatibilidads'=>$compatibilidades, 'productos'=>$productos, 'autos'=>$autos]);
     }
 
     /**
@@ -105,8 +106,11 @@ class CompatibilidadController extends Controller
      * @param  \App\Models\Compatibilidad  $compatibilidad
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Compatibilidad $compatibilidade)
+    public function destroy( $id)
     {
-        //
+        $idAuto = DB::table('compatibilidads')->where('id',$id)->value('idAuto');
+        Compatibilidad::destroy($id);
+        return redirect()->route('compatibilidades.show',$idAuto);
+
     }
 }
