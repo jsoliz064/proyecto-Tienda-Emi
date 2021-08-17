@@ -48,9 +48,9 @@
                     <form action = "{{route('planPagos.destroy',$plan)}}" method="post">
                         @csrf
                         @method('delete')   
-          
-                        <a class="btn btn-primary btn-sm" href="{{route('planPagos.show',$plan)}}">Ver</a>
-                          
+                        @can('planPagos.show')
+                            <a class="btn btn-primary btn-sm" href="{{route('planPagos.show',$plan)}}">Ver</a>
+                         @endcan 
                         <?php
                             //$planPago = DB::table('plan_pagos')->find($plan->id);
                             //$planes = DB::table('plan_pagos')->where('estado', 'vigente')->get(); 
@@ -61,9 +61,10 @@
                         {{-- <a action="{{view('cuota.create', compact('planes', 'planPago'))}}" class="btn btn-info btn-sm">Editar</a> --}}
                         {{-- <a action="{{view('cuota.create', compact('planes', 'planPago'))}}" class="btn btn-info btn-sm">Editar</a> --}}
                         
-          
-                        <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
-                        value="Borrar">Eliminar</button> 
+                        @can('planPagos.destroy')
+                            <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
+                            value="Borrar">Eliminar</button> 
+                        @endcan
                     </form>
                 </td>
 

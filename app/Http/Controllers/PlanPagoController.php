@@ -10,7 +10,13 @@ use Spatie\Activitylog\Models\Activity;
 
 class PlanPagoController extends Controller
 {
-
+     //solo tienen acceso los admin
+     public function __construct()
+     {                   
+         $this->middleware('can:planPagos.index'); //bloque todos los metodos de la class
+ 
+     }
+//--------------------------------------------------------------------------------------------------
     public function index()
     {
         $planes = PlanPago::all();

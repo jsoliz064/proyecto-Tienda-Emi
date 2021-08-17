@@ -55,12 +55,15 @@
                    <a href="{{route('notaVentas.edit', $notaVenta)}}"class="btn btn-info btn-sm">Editar</a>
                    
                    <a href="{{route('facturaCreate', $notaVenta)}}"class="btn btn-success text-white btn-sm">Factura</a>
-                    <?php
-                        $planPago=DB::table('plan_pagos')->where('nota_venta_id',$notaVenta->id)->value('id');
-                     if(empty($planPago)){?>
-                        <a href="{{route('planPagoCreate', $notaVenta)}}"class="btn btn-dark text-white btn-sm">Plan de Pago</a>
-                    <?php    } ?>
-
+                    
+                    @can('planPagoCreate.create2')  
+                      <?php
+                          $planPago=DB::table('plan_pagos')->where('nota_venta_id',$notaVenta->id)->value('id');
+                      if(empty($planPago)){?>
+                          <a href="{{route('planPagoCreate', $notaVenta)}}"class="btn btn-dark text-white btn-sm">Plan de Pago</a>
+                      <?php    } ?>
+                    @endcan
+                    
                    <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
                    value="Borrar">Eliminar</button>
 

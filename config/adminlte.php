@@ -296,8 +296,8 @@ return [
                 [
                     'text'    => 'ADM PERSONAL',
                     'icon'    => 'fas fa-user-lock',
+                    'can' => 'users.index',
                     'icon_color'=>'primary',
-                    
                     'submenu' => [
                         [
                             'text' => 'Usuarios',
@@ -328,8 +328,9 @@ return [
         [
             'text'    => 'ADM VENTAS',
             'icon'    => 'fas fa-cash-register',
+            
             'submenu' => [
-              
+                
                 [
                     'text' => 'Ventas',
                     'url'  => 'notaVentas',
@@ -347,6 +348,7 @@ return [
                     'text' => 'Reporte de Ventas',
                     'route'  => 'reporte.date',
                     'icon' => 'fas fa-fw  fa-fax',
+                    'can' => 'reporte_date',
                 ],
                 
                 [
@@ -360,6 +362,7 @@ return [
                             'text' => 'Gestionar Planes de Pago',
                             'route'  => 'planPagos.index',
                             'icon' => 'far fa-credit-card',
+                            'can' => 'planPagos.index',
                         ],
 
                         [
@@ -398,6 +401,7 @@ return [
                     'text' => 'Reporte de Compras',
                     'route'  => 'reporteCompra.date',
                     'icon' => 'fas fa-fw  fa-fax',
+                    'can' => 'reporteCompra_date',
                 ],
 
             ],
