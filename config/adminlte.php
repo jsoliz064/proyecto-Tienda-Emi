@@ -333,7 +333,7 @@ return [
                 [
                     'text' => 'Ventas',
                     'url'  => 'notaVentas',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-shopping-cart',
                 ],
                
                 // [
@@ -345,12 +345,12 @@ return [
                 [
                     'text' => 'Salidas',
                     'url'  => 'salidas',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-arrow-circle-right',
                 ],
                 [
                     'text' => 'Reporte de Ventas',
                     'route'  => 'reporte.date',
-                    'icon' => 'fas fa-fw  fa-fax',
+                    'icon' => 'fas fa-bullhorn',
                 ],
                 
 
@@ -364,19 +364,19 @@ return [
                 [
                     'text' => 'Gestionar Proveedores',
                     'url'  => 'proveedores',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-truck',
                 ],
                 
                 [
                     'text' => 'Gestionar Compras',
                     'url'  => 'notaCompras',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-shopping-bag',
                 ],
 
                 [
                     'text' => 'Reporte de Compras',
                     'route'  => 'reporteCompra.date',
-                    'icon' => 'fas fa-fw  fa-fax',
+                    'icon' => 'fas fa-bullhorn',
                 ],
 
             ],
