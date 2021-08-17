@@ -38,8 +38,11 @@
                 
               <a href=""class="btn btn-info btn-sm">Editar</a>
 
+              {{--@can('categoria.destroy')--}}
               <button class="btn btn-danger btn-sm" onclick="return confirm('¿ESTA SEGURO DE  BORRAR?')" 
               value="Borrar">Eliminar</button> 
+             {{--@endcan--}} 
+
             </form>
           </td>
         </tr>

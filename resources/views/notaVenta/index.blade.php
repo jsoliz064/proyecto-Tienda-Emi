@@ -4,7 +4,7 @@
 
 @section('content_header')
     {{-- <h1>NOTAS DE VENTAS</h1> --}}
-    <h1></h1>
+    
 @stop
 
 @section('content')
