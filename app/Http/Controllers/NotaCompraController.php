@@ -106,18 +106,20 @@ class NotaCompraController extends Controller
     public function destroy(NotaCompra $notaCompra)
     {
         date_default_timezone_set("America/La_Paz");
-        $detalles=DB::table('detalle_compras')->where('idNotaCompra',$notaCompra->id)->get();
-        foreach ($detalles as $detalle){
-            $idDetalle = $detalle -> id;
-            $idNotaCompra = $detalle -> idNotaCompra;
-            $idProducto = $detalle -> idProducto;
-            $cantidad = $detalle -> cantidad;
-            $productoStock = DB::table('productos')->where('id',$idProducto)->value('stock');
-            $nuevoStock = $productoStock - $cantidad;
-            DB::table('productos')->where('id',$idProducto)->update([
-                 'stock'=>$nuevoStock
-            ]);
-        }
+
+        // $detalles=DB::table('detalle_compras')->where('idNotaCompra',$notaCompra->id)->get();
+        // foreach ($detalles as $detalle){
+        //     $idDetalle = $detalle -> id;
+        //     $idNotaCompra = $detalle -> idNotaCompra;
+        //     $idProducto = $detalle -> idProducto;
+        //     $cantidad = $detalle -> cantidad;
+        //     $productoStock = DB::table('productos')->where('id',$idProducto)->value('stock');
+        //     $nuevoStock = $productoStock - $cantidad;
+        //     DB::table('productos')->where('id',$idProducto)->update([
+        //          'stock'=>$nuevoStock
+        //     ]);
+        // }
+        $notaCompra->deleteDetalle($notaCompra);
         $notaCompra->delete();
         activity()->useLog('NotaCompra')->log('Eliminar')->subject();
         $lastActivity = Activity::all()->last();
