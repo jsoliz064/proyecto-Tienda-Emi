@@ -42,7 +42,7 @@
                                 <td>{{$cuota->nro_cuota}}</td>
                                 <td>{{$cuota->hora}}</td>
                                 <td>{{$cuota->fecha}} </td>
-                                <td width="25%">
+                                <td width="28%">
                                     <?php
                                        //$cuota = DB::table('cuotas')->find($cuota->id);
                                        $cuota = App\Models\Cuota::find($cuota->id);
@@ -61,12 +61,12 @@
 
                                         <?php
                                          if($reciboPagos != ""){  ?>
-                                            <a href="{{route('reciboPagos.show', $reciboPagos)}}" class="btn btn-primary btn-sm" >Ver Nota de Pago</a>
+                                            <a href="{{route('reciboPagos.show', $reciboPagos)}}" class="btn btn-primary btn-sm" >Ver comprobante Pago</a>
                                         <?php    } ?>
                         
                                         <?php
                                          if($reciboPagos == ""){  ?>
-                                            <a href="{{route('reciboPagosCrear', $cuota)}}" class="btn btn-info btn-sm" >generar Nota de Pago</a>
+                                            <a href="{{route('reciboPagosCrear', $cuota)}}" class="btn btn-info btn-sm" >generar comprobante Pago</a>
                                         <?php    } ?>
 
                                        

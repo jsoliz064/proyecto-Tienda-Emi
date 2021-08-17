@@ -60,7 +60,7 @@ class SalidaController extends Controller
               //    $salida->productos()->attach($request->idProducto, ['cantidad'=>$request->cantidad]);
            }
         }
-        return redirect()->route('salidas.edit', $salida)->with('info', 'hola');; 
+        return redirect()->route('salidas.edit', $salida); 
     }
     //---------------------------------------------------------------------------------------------------------
     public function destroy( Salida $salida)

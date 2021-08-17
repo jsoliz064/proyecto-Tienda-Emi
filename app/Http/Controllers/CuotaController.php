@@ -65,7 +65,7 @@ class CuotaController extends Controller
         ]);
 
         //return $request ;
-         Cuota::create([
+        Cuota::create([
             'plan_id' => $request -> plan_id,
             'monto' =>  $request -> monto,
             'nro_cuota' => ($request -> nro_cuota) ,
@@ -78,7 +78,7 @@ class CuotaController extends Controller
         //actualizar plan de pago
 //        $planPago = DB::table('plan_pagos')->find($request -> plan_id);
         $planPago = PlanPago::find($request -> plan_id);
-        $planPago -> cuotas_Pagadas = $cuotas_pagadas;
+        $planPago -> cuotas_pagadas = $cuotas_pagadas;
         $planPago -> saldo =  ($planPago -> saldo) -  ($planPago -> monto_cuota);
 
         $cantidad_cuotas = $planPago -> cantidad_cuotas;
@@ -137,8 +137,20 @@ class CuotaController extends Controller
      */
     public function destroy(Cuota $cuota)
     {
+        //actualizar plan de pago
+        $planPago = PlanPago::find($cuota->plan_id);
+        $planPago -> cuotas_pagadas = (($planPago -> cuotas_pagadas) - 1) ;
+        $planPago -> saldo =  ($planPago -> saldo) +  ($planPago -> monto_cuota);
+
+        $cantidad_cuotas = $planPago -> cantidad_cuotas;
+        if (($cantidad_cuotas) == (($planPago -> cuotas_pagadas)+1)){
+            $planPago -> estado = 'vigente';
+        }
+        $planPago->save();
+
         $cuota->delete();
-        return redirect()->route('cuotas.index');
+        //return redirect()->route('cuotas.index');
+        return redirect()->route('planPagos.show', $planPago);
     }
 
     private function consulta()

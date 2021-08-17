@@ -7,11 +7,11 @@
 @stop
 
 @section('content')
-    <div class="card">
+    {{-- <div class="card">
         <div class="card-header">
             <a href="{{ route('cuotas.create') }}" class="btn btn-primary btb-sm">Registrar</a>
         </div>
-    </div>
+    </div> --}}
 
     <div class="card">
         <div class="card-body">

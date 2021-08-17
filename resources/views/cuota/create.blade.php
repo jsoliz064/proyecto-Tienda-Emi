@@ -24,14 +24,14 @@
         <div class="card-body">
             <form action="{{ route('cuotas.store') }}" method="post">
                     @csrf
-                    <h5>Plan de Pago:</h5>
+                    {{-- <h5>Plan de Pago:</h5>
                     <select   name="actualizar"  class="form-control" onchange="this.form.submit()">             
-                        {{-- value="" <=> value=null  --}}
+                        <?php //value="" <=> value=null  ?>
                         <option value="">Seleccione Plan De Pago</option>
                             @foreach ($planes as $plan)
                                 <option value="{{$plan->id}}" >  {{$plan->id}}  </option>
                             @endforeach
-                    </select> 
+                    </select>  --}}
                 
                 <h5>Plan De Pago</h5>
                 <input type="text"  name="plan_id"  value ="{{$idPlan}}" class="focus border-primary  form-control" readonly>
