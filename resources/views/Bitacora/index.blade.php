@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Consultorio-Sonrie')
+@section('title', 'Bitacora')
 
 @section('content_header')
     {{-- <h1>Bitacora</h1> --}}

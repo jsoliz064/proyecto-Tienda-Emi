@@ -296,8 +296,8 @@ return [
                 [
                     'text'    => 'ADM PERSONAL',
                     'icon'    => 'fas fa-user-lock',
+                    'can' => 'users.index',
                     'icon_color'=>'primary',
-                    
                     'submenu' => [
                         [
                             'text' => 'Usuarios',
@@ -327,13 +327,14 @@ return [
         //----------------------------------------------------------------------------------------
         [
             'text'    => 'ADM VENTAS',
-            'icon'    => 'fas fa-fw  fa-fax',
+            'icon'    => 'fas fa-cash-register',
+            
             'submenu' => [
-              
+                
                 [
                     'text' => 'Ventas',
                     'url'  => 'notaVentas',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-shopping-cart',
                 ],
                
                 // [
@@ -342,18 +343,41 @@ return [
                 //     'icon' => 'fas fa-fw fa-user',
                 // ],
                 
-                [
-                    'text' => 'Salidas',
-                    'url'  => 'salidas',
-                    'icon' => 'fas fa-fw fa-user',
-                ],
+                
                 [
                     'text' => 'Reporte de Ventas',
                     'route'  => 'reporte.date',
-                    'icon' => 'fas fa-fw  fa-fax',
+                    'icon' => 'fas fa-bullhorn',
+                    'can' => 'reporte_date',
                 ],
                 
+                [
+                    'text'    => 'ADM Cuentas por Cobrar',
+                    'icon'    => "fas fa-hand-holding-usd",
+                    'icon_color'=>'primary',
 
+                    'submenu' =>  [
+                    
+                        [
+                            'text' => 'Gestionar Planes de Pago',
+                            'route'  => 'planPagos.index',
+                            'icon' => 'far fa-credit-card',
+                            'can' => 'planPagos.index',
+                        ],
+
+                        [
+                            'text' => 'Gestionar Cuotas',
+                            'route'  => 'cuotas.index',
+                            'icon' => 'fas fa-coins',
+                        ],
+
+                        [
+                            'text' => 'Gestionar Notas de Pago',
+                            'route'  => 'reciboPagos.index',
+                            'icon' => 'fas fa-file-invoice-dollar',
+                        ],
+                    ],
+                ],       
             ],
         ],
         [
@@ -364,19 +388,20 @@ return [
                 [
                     'text' => 'Gestionar Proveedores',
                     'url'  => 'proveedores',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-truck',
                 ],
                 
                 [
                     'text' => 'Gestionar Compras',
                     'url'  => 'notaCompras',
-                    'icon' => 'fas fa-fw fa-user',
+                    'icon' => 'fas fa-shopping-bag',
                 ],
 
                 [
                     'text' => 'Reporte de Compras',
                     'route'  => 'reporteCompra.date',
-                    'icon' => 'fas fa-fw  fa-fax',
+                    'icon' => 'fas fa-bullhorn',
+                    'can' => 'reporteCompra_date',
                 ],
 
             ],
@@ -388,6 +413,11 @@ return [
             'icon'    => 'fas fa-fw  fa-fax',
             'submenu' => [
                 [
+                    'text' => 'Salidas',
+                    'url'  => 'salidas',
+                    'icon' => "fas fa-dolly",
+                ],
+                [
                     'text' => 'Productos',
                     'url'  => 'productos',
                     'icon' => 'fas fa-fw fa-user',
@@ -397,6 +427,7 @@ return [
                     'url'  => 'categorias',
                     'icon' => 'fas fa-sort-amount-down-alt',
                 ],
+                
                 [
                     'text' => 'Marcas',
                     'url'  => 'marcas',

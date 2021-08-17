@@ -9,6 +9,23 @@ use Carbon\Carbon;
 
 class ReporteController extends Controller
 {   
+//Privilegios---------------------------------------------------------------------------------------------
+    public function __construct()
+    {                   
+        $this->middleware('can:reporte_date')
+             ->only('reporte_fecha',
+                    'reporteCompra_fecha',
+                    'reporte_fecha',
+                    'reporteCompra_resultado'
+                    );   
+         //bloque todos los metodos de la class
+            //usar el permiso ("users.index") para proteger la ruta ("index")
+        //$this->middleware('can:users.index')->only('index'); //bloque rutas especidficas
+        //$this->middleware('can:users.edit')->only('edit', 'update');
+
+    }
+//---------------------------------------------------------------------------------------------
+
     //reporte de ventas
     public function reporte_fecha(){
         date_default_timezone_set("America/La_Paz");

@@ -61,5 +61,47 @@ class RoleSeeder extends Seeder
          Permission::create(['name' => 'bitacora.index',
                             'description' => 'Ver lista de Bitacora'])->syncRoles($rol1);                                                       
 
+        //reportes -------------------------------------------------------------------------------                     
+        Permission::create(['name' => 'reporte_date',
+                            'description' => 'reporte de Ventas'])->syncRoles($rol1);
+        Permission::create(['name' => 'reporte_resultados',
+                            'description' => 'actualizacion de reportes de ventas'])->syncRoles($rol1);                            
+        Permission::create(['name' => 'reporteCompra_date',
+                            'description' => 'reporte de Compras'])->syncRoles($rol1);
+        Permission::create(['name' => 'reporteCompra_resultados',
+                            'description' => 'actualizacion de reportes de compras'])->syncRoles($rol1);                            
+        //PLANES DE PAGO-------------------------------------------------------------------------------                     
+        
+         Permission::create(['name' => 'planPagos.index',
+                            'description' => 'Ver lista de planes de pago'])->syncRoles($rol1, $rol2);
+
+        Permission::create(['name' => 'planPagoCreate.create2',
+                            'description' => 'Crear planes de pago'])->syncRoles($rol1, $rol2);
+
+        Permission::create(['name' => 'planPagos.show',
+                            'description' => 'editar planes de pago'])->syncRoles($rol1, $rol2);
+
+        Permission::create(['name' => 'planPagos.destroy',
+                            'description' => 'Eliminar planes de pago'])->syncRoles($rol1);
+
+        //Bitacora-------------------------------------------------------------------------------                     
+
+
+        //Bitacora-------------------------------------------------------------------------------                     
+
+
+        //Bitacora-------------------------------------------------------------------------------                     
+
+
+
+        //Bitacora-------------------------------------------------------------------------------                     
+
+
+        //Bitacora-------------------------------------------------------------------------------                     
+
+
+
+        //Bitacora-------------------------------------------------------------------------------                     
+
     }
 }
