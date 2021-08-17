@@ -10,4 +10,6 @@ class Auto extends Model
     use HasFactory;
     protected $table="autos";
     protected $guarded=['id','created_at','updated_at'];
+
+    
 }
